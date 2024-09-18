@@ -35,6 +35,7 @@ public class Register : MonoBehaviour
             return;
         }
         SaveUserData(username, password);
+        SceneManager.LoadScene("Login");
     }
 
     public void SaveUserData(string username, string password)
