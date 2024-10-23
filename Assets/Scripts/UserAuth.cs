@@ -72,7 +72,7 @@ public class UserAuth : MonoBehaviour
         }
         User temp = JsonUtility.FromJson<User>(data);
         if(temp.username == username && temp.password == password) {
-            SceneManager.LoadScene("StartScreen");
+            SceneManager.LoadScene("CharacterCreator");
         }
         else {
             errorText.text = "Incorrect Username or Password";
