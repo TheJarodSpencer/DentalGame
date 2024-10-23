@@ -159,7 +159,6 @@ RectTransform:
   - {fileID: 1419996121}
   - {fileID: 1622168533}
   - {fileID: 451591538}
-  - {fileID: 497934671}
   m_Father: {fileID: 758017598}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -394,6 +393,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451591537}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
 --- !u!1 &497934670
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +528,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497934670}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> Stashed changes
 --- !u!1 &583563282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,7 +1659,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4aac5ecbd382a62498bb7dea85707c8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb5ff468e5fc2364c978b8cfcd6153d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2523,6 +2525,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!1 &2033857029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2562,11 +2565,15 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033857031
+=======
+--- !u!114 &2001754315
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 2033857029}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2658,3 +2665,14 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033857029}
   m_CullTransparentMesh: 1
+=======
+  m_GameObject: {fileID: 2001754312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8fc2429affd204a8b50fc45b97f6b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameInput: {fileID: 1001789107}
+  passwordInput: {fileID: 1419996122}
+  errorText: {fileID: 451591539}
+>>>>>>> Stashed changes

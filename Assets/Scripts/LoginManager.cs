@@ -106,11 +106,6 @@ public class LoginManager : MonoBehaviour
         errorText.text = "";
     }
 
-    public void SignUp()
-    {
-        SceneManager.LoadScene("RegisterUser");
-    }
-
     // Update is called once per frame
     void Update()
     {

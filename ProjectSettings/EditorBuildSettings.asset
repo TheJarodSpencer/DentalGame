@@ -14,4 +14,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RegisterUser.unity
     guid: c6b55bf7d4a8ea149ad00670b134201d
+<<<<<<< Updated upstream
+=======
+  - enabled: 1
+    path: Assets/Scenes/AppleTemp/StartScreen.unity
+    guid: ac5c91c40d144a946b3343d2e691f254
+  - enabled: 1
+    path: Assets/Scenes/AppleTemp/EndScreen.unity
+    guid: b00fff87362b76c4a9d0f9f3e0f174cb
+  - enabled: 1
+    path: Assets/Scenes/AppleTemp/_Scene_0.unity
+    guid: a5173a53d29caed49b67faa2b68f868a
+  - enabled: 1
+    path: Assets/Scenes/ScenesForLevels/Floor1L1.unity
+    guid: 5b25d5fac0d8ea248ab6010726f3977c
+  - enabled: 1
+    path: Assets/Scenes/LevelSelector.unity
+    guid: 54b8651fa4565cc48a5885dcf374b68f
+>>>>>>> Stashed changes
   m_configObjects: {}
