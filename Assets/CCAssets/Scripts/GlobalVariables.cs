@@ -13,6 +13,8 @@ public class GlobalVariables : MonoBehaviour
     //sixth digit = labcoat bool: 0=no 1=yes
     //seventh digit = glasses bool: 0=no 1=yes
     int characterID = 1110200;
+    bool talking = false;
+    bool paused = false;
     public int getCharacterID()
     {
         return characterID;
@@ -20,6 +22,42 @@ public class GlobalVariables : MonoBehaviour
     public void setCharacterID(int newID)
     {
         characterID = newID;
+    }
+    public bool isTalking()
+    {
+        if(talking)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public void swapTalking()
+    {
+        if(talking)
+        {
+            talking=false;
+        }else{
+            talking=true;
+        }
+    }
+    public bool isPaused()
+    {
+        if(paused)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public void pause()
+    {
+        if(paused)
+        {
+            paused = false;
+        }else{
+            paused = true;
+        }
     }
 
 }
