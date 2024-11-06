@@ -8,6 +8,8 @@ public class EnterDoors : MonoBehaviour
     [Header("Inscribed")]
     public string sceneToLoad;
     public GameObject[] indicatorCubes; // Array of indicator cubes
+    public GameObject levelSelector;
+    public GameObject pickedLevel;
 
     private void Start()
     {
@@ -37,7 +39,7 @@ public class EnterDoors : MonoBehaviour
     {
         if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene(sceneToLoad);
+           ReplacePrefab();
         }
     }
 
@@ -53,6 +55,29 @@ public class EnterDoors : MonoBehaviour
             }
         }
     }
+
+    private void ReplacePrefab()
+    {
+        if(levelSelector != null && pickedLevel)
+        {
+            Vector3 oldPos = levelSelector.transform.position;
+            Quaternion oldRotation = levelSelector.transform.rotation;
+
+            Destroy(levelSelector);
+
+            GameObject newObject = Instantiate(pickedLevel, oldPos, oldRotation);
+
+            // Optional: If there are physics issues, you can disable Rigidbody or other components on the new prefab
+            Rigidbody rb = newObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                // Disable Rigidbody if it has one (to prevent physics interference)
+                rb.isKinematic = true;
+            }
+        }   
+    }
+
+
 }
 
 

@@ -18,7 +18,6 @@ public class UserAuth : MonoBehaviour
     {
         public string username;
         public string password;
-
     }
 
 
@@ -57,11 +56,10 @@ public class UserAuth : MonoBehaviour
         }
         else {
             putIn = username.Split("@")[0];
-            FirebaseFirestore.GetDocument("users", putIn, gameObject.name, "DisplayData", "DisplayErrorObject");
+            FirebaseFirestore.GetDocument("users", putIn, gameObject.name, "DisplayData", "DisplayErrorObject");//Pulls from Database
         }
     }
                 
-
     public void DisplayData(string data)
     {
         Debug.Log(data);
@@ -70,7 +68,7 @@ public class UserAuth : MonoBehaviour
             errorText.text = "Incorrect Username or Password";
             return;
         }
-        User temp = JsonUtility.FromJson<User>(data);
+        User temp = JsonUtility.FromJson<User>(data);//Built in to make a file to json file
         if(temp.username == username && temp.password == password) {
             SceneManager.LoadScene("CharacterCreator");
         }
@@ -78,7 +76,6 @@ public class UserAuth : MonoBehaviour
             errorText.text = "Incorrect Username or Password";
         }
     }
-
 
     public void DisplayErrorObject(string error)
     {
