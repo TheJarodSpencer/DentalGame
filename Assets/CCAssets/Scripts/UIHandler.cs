@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class UIHandler : MonoBehaviour
 {
+    public GameObject textCanvas;
     public GameObject chatBoxUI;
     public GlobalVariables GV;
-
+    private GameObject uiCanvas;
+    private bool canvasExists = false;
     void Start()
     {
         
@@ -17,10 +19,19 @@ public class UIHandler : MonoBehaviour
     {
         if(GV.isTalking())
         {
-            Debug.Log("true");
-            chatBoxUI.SetActive(true);
+            //chatBoxUI.SetActive(true);
+            if(!canvasExists)
+            {
+                uiCanvas = Instantiate(textCanvas);
+                canvasExists = true;
+            }
         }else{
-            chatBoxUI.SetActive(false);
+            //chatBoxUI.SetActive(false);
+            if(canvasExists)
+            {
+                DestroyImmediate(uiCanvas, true);
+                canvasExists = false;
+            }
         }
     }
 }

@@ -15,6 +15,44 @@ public class GlobalVariables : MonoBehaviour
     int characterID = 1110200;
     bool talking = false;
     bool paused = false;
+    bool talkSignal = false;
+    string objectTalking = "";
+    TextAsset talkingScript;
+    bool alreadyTalkedTo = false;
+
+    public void setAlreadyTalkedTo(bool talked)
+    {
+        alreadyTalkedTo = talked;
+    }
+    public bool getAlreadyTalkedTo()
+    {
+        return alreadyTalkedTo;
+    }
+    public void swapTalkSignal()
+    {
+        if(talkSignal)
+        {
+            talkSignal = false;
+        }else{
+            talkSignal = true;
+        }
+    }
+    public bool getTalkSignal()
+    {
+        return talkSignal;
+    }
+    public void clearScript()
+    {
+        talkingScript = null;
+    }
+    public TextAsset getScript()
+    {
+        return talkingScript;
+    }
+    public void setScript(TextAsset scr)
+    {
+        talkingScript = scr;
+    }
     public int getCharacterID()
     {
         return characterID;
@@ -59,5 +97,18 @@ public class GlobalVariables : MonoBehaviour
             paused = true;
         }
     }
+    public void setTalkingCharacter(string talkID)
+    {
+        objectTalking = talkID;
+    }
+    public void clearTalkingCharacter()
+    {
+        objectTalking = "";
+    }
+    public string getTalkingCharacter()
+    {
+        return objectTalking;
+    }
+
 
 }

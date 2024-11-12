@@ -8,11 +8,11 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public Transform player;
-    public float followSpeed = 5f;
+    public float followSpeed = 1000f;
     public float xThreshold = 2f;
     public Vector3 offset = new Vector3(0,0, -10);
     public GlobalVariables GV;
-    public float zoomSpeed = 2f;
+    public float zoomSpeed = .5f;
     private Camera cam;
     private bool zoomed = false;
     private Vector3 originalPosition;
@@ -45,21 +45,33 @@ public class CameraMovement : MonoBehaviour
             {
                 zoomed = false;
                 StartCoroutine(ZoomBackOut());
+            }else{
+                if(transform.position.z != initialCameraZ || transform.position.y != initialCameraY)
+                {
+                    StartCoroutine(ZoomBackOut());
+                }
             }
             if(Mathf.Abs(distanceFromCenter) > xThreshold)
             {
                 float targetX = Mathf.Lerp(cameraPos.x, playerX, followSpeed * Time.deltaTime);
+                
+                Vector3 targetPosition = new Vector3(targetX, cameraPos.y, cameraPos.z);
+                transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
+                //transform.position = new Vector3(targetX, cameraPos.y, cameraPos.z);
 
-                transform.position = new Vector3(targetX, cameraPos.y, cameraPos.z);
             }
         }else{
             //Camera zoom in animation.
-            zoomed = true;
-            originalPosition = transform.position;
-            StartCoroutine(ZoomToSize(1));
-
+            if(!zoomed)
+            {
+                zoomed = true;
+                originalPosition.x = transform.position.x;
+                StartCoroutine(ZoomToSize(1));
+            }
         }
+        
     }
+
 
     private IEnumerator ZoomToSize(float targetSize)
     {

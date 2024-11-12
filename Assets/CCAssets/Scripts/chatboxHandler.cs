@@ -9,7 +9,7 @@ public class chatboxHandler : MonoBehaviour
 {
     public GlobalVariables GV;
     public Transform player;
-
+    public TextAsset talkingScript;
     public float xThreshold = 2f;
     public float zThreshold = 2f;
     public Material[] objMat;
@@ -25,6 +25,7 @@ public class chatboxHandler : MonoBehaviour
     private Vector3 thisObjPos;
     private Renderer rend;
     private bool goodToClick = false;
+    private bool alreadyTalkedTo = false;
     void Start()
     {
         rend = this.GetComponent<Renderer>();
@@ -59,14 +60,22 @@ public class chatboxHandler : MonoBehaviour
         
 
     }
+    
     void OnMouseOver()
     {
         hovering = true;
         if(goodToClick && !GV.isTalking())
         {
+
             if(Input.GetMouseButtonDown(0))
             {
+                
+                GV.setAlreadyTalkedTo(alreadyTalkedTo);
+                GV.setScript(talkingScript);
+                alreadyTalkedTo = true;
+                GV.swapTalkSignal();
                 GV.swapTalking();
+                
             }
         }
     }
