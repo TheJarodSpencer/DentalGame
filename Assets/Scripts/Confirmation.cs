@@ -24,7 +24,6 @@ public class Confirmation : MonoBehaviour
     }
     void submitButtonOnClick()
     {
-        Debug.Log("" + gv.getCharacterID());
         menu.enabled = false;
         confMenu.enabled = true;
         confirmButton.onClick.AddListener(confirmButtonOnClick);
@@ -32,7 +31,8 @@ public class Confirmation : MonoBehaviour
     }
     void backButtonOnClick()
     {
-        //return to the previous scene
+        confMenu.enabled = true;
+        menu.enabled = false;
     }
     void confirmButtonOnClick()
     {

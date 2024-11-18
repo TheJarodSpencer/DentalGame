@@ -21,7 +21,6 @@ public class CameraMovement : MonoBehaviour
     private float initialCameraZ = -8.94f;
     private bool isZooming = false;
     private float originalSize;
-   
     void Start()
     {
         cam = GetComponent<Camera>();
@@ -29,15 +28,10 @@ public class CameraMovement : MonoBehaviour
         originalPosition = transform.position;
         originalSize = cam.orthographicSize;
     }
-
-    // Update is called once per frame
     void Update()
     {
-
         float playerX = player.position.x;
-
         Vector3 cameraPos = transform.position;
-
         float distanceFromCenter = playerX-cameraPos.x;
         if(!GV.isTalking())
         {
@@ -57,8 +51,6 @@ public class CameraMovement : MonoBehaviour
                 
                 Vector3 targetPosition = new Vector3(targetX, cameraPos.y, cameraPos.z);
                 transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
-                //transform.position = new Vector3(targetX, cameraPos.y, cameraPos.z);
-
             }
         }else{
             //Camera zoom in animation.
@@ -71,11 +63,8 @@ public class CameraMovement : MonoBehaviour
         }
         
     }
-
-
     private IEnumerator ZoomToSize(float targetSize)
     {
-
         isZooming = true;
         Vector3 targetPosition = player.position + offset;
         while(Mathf.Abs(cam.orthographicSize - targetSize) > 0.01f || Vector3.Distance(transform.position, targetPosition) > 0.01f)
@@ -98,7 +87,6 @@ public class CameraMovement : MonoBehaviour
         }
         cam.orthographicSize = originalSize;
         transform.position = targetPosition;
-
         isZooming = false;
     }
 }
