@@ -40,6 +40,15 @@ public class UserAuth : MonoBehaviour
                 DisplayError("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
     }
     //Executes when button pressed. Will grab username and password and check correct :)
+
+    public string GetUserName(){
+        return username;
+    }
+
+    public void SetUserName(string newUsername){
+        username = newUsername;
+    }
+
     public void SubmitLogin()
     {
         username = usernameInput.text;
@@ -70,6 +79,7 @@ public class UserAuth : MonoBehaviour
         }
         User temp = JsonUtility.FromJson<User>(data);//Built in to make a file to json file
         if(temp.username == username && temp.password == password) {
+            SetUserName(temp.username);//SETTING THE USERNAME FOR THE DATABASE(Nicole)
             SceneManager.LoadScene("CharacterCreator");
         }
         else {

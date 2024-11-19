@@ -37,7 +37,7 @@ public class LoginManager : MonoBehaviour
         //verify info field is not blank
         if(string.IsNullOrEmpty(loginCheckMessage)){
             Debug.Log("LOGIN");
-            SceneManager.LoadScene("FirstScene");
+            SceneManager.LoadScene("LevelSelector");
         }
         else{
             Debug.LogError("ERROR: " + loginCheckMessage);
