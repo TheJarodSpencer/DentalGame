@@ -79,7 +79,7 @@ public class UserAuth : MonoBehaviour
         }
         User temp = JsonUtility.FromJson<User>(data);//Built in to make a file to json file
         if(temp.username == username && temp.password == password) {
-            SetUserName(temp.username);//SETTING THE USERNAME FOR THE DATABASE(Nicole)
+            SetUserName(username);//SETTING THE USERNAME FOR THE DATABASE(Nicole)
             SceneManager.LoadScene("CharacterCreator");
         }
         else {
