@@ -419,7 +419,9 @@ MonoBehaviour:
   skin:
   - {fileID: 2100000, guid: f43be4226575fa849adf93e553d6700a, type: 2}
   - {fileID: 2100000, guid: de544d64bbeea874fa4ba0fb98aa08d7, type: 2}
-  hair: []
+  hair:
+  - {fileID: 2100000, guid: fccb147e2e464cd45b4655faed99d14a, type: 2}
+  - {fileID: 2100000, guid: f2458503d80126440aa31cf8887c73fc, type: 2}
   GV: {fileID: 2061446937}
 --- !u!1 &1216430051
 GameObject:
