@@ -18,7 +18,6 @@ public class UserAuth : MonoBehaviour
     {
         public string username;
         public string password;
-
     }
 
 
@@ -41,6 +40,15 @@ public class UserAuth : MonoBehaviour
                 DisplayError("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
     }
     //Executes when button pressed. Will grab username and password and check correct :)
+
+    public string GetUserName(){
+        return username;
+    }
+
+    public void SetUserName(string newUsername){
+        username = newUsername;
+    }
+
     public void SubmitLogin()
     {
         username = usernameInput.text;
@@ -57,11 +65,10 @@ public class UserAuth : MonoBehaviour
         }
         else {
             putIn = username.Split("@")[0];
-            FirebaseFirestore.GetDocument("users", putIn, gameObject.name, "DisplayData", "DisplayErrorObject");
+            FirebaseFirestore.GetDocument("users", putIn, gameObject.name, "DisplayData", "DisplayErrorObject");//Pulls from Database
         }
     }
                 
-
     public void DisplayData(string data)
     {
         Debug.Log(data);
@@ -70,15 +77,15 @@ public class UserAuth : MonoBehaviour
             errorText.text = "Incorrect Username or Password";
             return;
         }
-        User temp = JsonUtility.FromJson<User>(data);
+        User temp = JsonUtility.FromJson<User>(data);//Built in to make a file to json file
         if(temp.username == username && temp.password == password) {
+            SetUserName(username);//SETTING THE USERNAME FOR THE DATABASE(Nicole)
             SceneManager.LoadScene("CharacterCreator");
         }
         else {
             errorText.text = "Incorrect Username or Password";
         }
     }
-
 
     public void DisplayErrorObject(string error)
     {
