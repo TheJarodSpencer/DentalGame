@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SettingsMenu : MonoBehaviour
+public class PlayButton : MonoBehaviour
 {
+    // Start is called before the first frame update
     public void OnPlayButton(){
         SceneManager.LoadScene("LevelSelector");
     }
-    public void OnReturnToStartButton(){
-        SceneManager.LoadScene("WelcomeScene");
-    }
 }
+
