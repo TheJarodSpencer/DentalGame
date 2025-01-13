@@ -396,6 +396,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5818219532198792904, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
   m_PrefabInstance: {fileID: 274036771}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1204411437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204411434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cc176b361dd8d408b880fc6772460c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothesLeft:
+  - {fileID: 2100000, guid: 0fc2c6f0c2d7dbb46b905f518a75dc0e, type: 2}
+  - {fileID: 2100000, guid: 82a6c4c9ee222194c803186a0c9be3bd, type: 2}
+  - {fileID: 2100000, guid: f2ec5731021153e4baa99a308e4d4ba8, type: 2}
+  clothesRight:
+  - {fileID: 2100000, guid: e2f997da88e66154fa12cc529f5f6c6f, type: 2}
+  - {fileID: 2100000, guid: a1fbb0db952c84e4194c99cd878ec152, type: 2}
+  - {fileID: 2100000, guid: fb0578ac20d8fbe4ea0cb05d03ff83ae, type: 2}
+  skin:
+  - {fileID: 2100000, guid: f43be4226575fa849adf93e553d6700a, type: 2}
+  - {fileID: 2100000, guid: de544d64bbeea874fa4ba0fb98aa08d7, type: 2}
+  hair: []
+  GV: {fileID: 2061446937}
 --- !u!1 &1216430051
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,7 +1004,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cc095611fbcbf5c4c852486a006a27a8, type: 2}
+  - {fileID: 2100000, guid: a597abbdfb366bc42845e0577b1fadfd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
