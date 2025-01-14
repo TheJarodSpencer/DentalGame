@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Confirmation : MonoBehaviour
 {
+    public FireBase firebase;
     public GlobalVariables gv;
     public Button submitButton;
     public Button backButton;
@@ -14,6 +15,7 @@ public class Confirmation : MonoBehaviour
     //canvas's
     public Canvas menu;
     public Canvas confMenu;
+    
     void Start()
     {
         menu.enabled = true;
@@ -22,20 +24,27 @@ public class Confirmation : MonoBehaviour
         backButton.onClick.AddListener(backButtonOnClick);
 
     }
-    void submitButtonOnClick()
+    public void submitButtonOnClick()
     {
         Debug.Log("" + gv.getCharacterID());
+
         menu.enabled = false;
         confMenu.enabled = true;
         confirmButton.onClick.AddListener(confirmButtonOnClick);
         returnButton.onClick.AddListener(returnButtonOnClick);
+
+        int characterID = gv.getCharacterID();//Gets new character ID
+        Debug.Log("Character ID: " + characterID);
+
+        firebase.UpdateCharacterField("playerCustomization", characterID);
     }
     void backButtonOnClick()
     {
         //return to the previous scene
     }
-    void confirmButtonOnClick()
-    {
+
+    public void confirmButtonOnClick()
+    {   
         //sends off the code from gv.getCharacterID()
     }
     void returnButtonOnClick()

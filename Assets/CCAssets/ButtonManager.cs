@@ -591,7 +591,4 @@ public class ButtonManager : MonoBehaviour
         gv.setCharacterID(int.Parse(newID));
 
     }
-
-    
-
 }

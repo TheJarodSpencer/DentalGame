@@ -28,9 +28,10 @@ public class UserAuth : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI errorText;
 
+    public FireBase firebase;
     private string putIn;
 
-    private string username;
+    public string username;
     private string password;
 
     // Start is called before the first frame update
@@ -80,6 +81,7 @@ public class UserAuth : MonoBehaviour
         User temp = JsonUtility.FromJson<User>(data);//Built in to make a file to json file
         if(temp.username == username && temp.password == password) {
             SetUserName(username);//SETTING THE USERNAME FOR THE DATABASE(Nicole)
+            firebase.SetPlayerName(username);//SETTING THE PLAYER NAME IN THE DATABASE
             SceneManager.LoadScene("CharacterCreator");
         }
         else {
