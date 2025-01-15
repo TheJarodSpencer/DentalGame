@@ -409,16 +409,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothesLeft:
-  - {fileID: 2100000, guid: 0fc2c6f0c2d7dbb46b905f518a75dc0e, type: 2}
   - {fileID: 2100000, guid: 82a6c4c9ee222194c803186a0c9be3bd, type: 2}
+  - {fileID: 2100000, guid: 0fc2c6f0c2d7dbb46b905f518a75dc0e, type: 2}
   - {fileID: 2100000, guid: f2ec5731021153e4baa99a308e4d4ba8, type: 2}
+  - {fileID: 2100000, guid: 0fc2c6f0c2d7dbb46b905f518a75dc0e, type: 2}
   clothesRight:
-  - {fileID: 2100000, guid: e2f997da88e66154fa12cc529f5f6c6f, type: 2}
   - {fileID: 2100000, guid: a1fbb0db952c84e4194c99cd878ec152, type: 2}
+  - {fileID: 2100000, guid: e2f997da88e66154fa12cc529f5f6c6f, type: 2}
   - {fileID: 2100000, guid: fb0578ac20d8fbe4ea0cb05d03ff83ae, type: 2}
+  - {fileID: 2100000, guid: e2f997da88e66154fa12cc529f5f6c6f, type: 2}
   skin:
   - {fileID: 2100000, guid: f43be4226575fa849adf93e553d6700a, type: 2}
+  - {fileID: 2100000, guid: f852c9064417d2446b8a2f81fecd30e6, type: 2}
   - {fileID: 2100000, guid: de544d64bbeea874fa4ba0fb98aa08d7, type: 2}
+  - {fileID: 2100000, guid: 47b153b1c6322104ba29808eb45cd6b3, type: 2}
   hair:
   - {fileID: 2100000, guid: fccb147e2e464cd45b4655faed99d14a, type: 2}
   - {fileID: 2100000, guid: f2458503d80126440aa31cf8887c73fc, type: 2}
@@ -1050,6 +1054,7 @@ GameObject:
   - component: {fileID: 2061446937}
   - component: {fileID: 2061446942}
   - component: {fileID: 2061446943}
+  - component: {fileID: 2061446944}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1168,6 +1173,37 @@ MonoBehaviour:
   textCanvas: {fileID: 7682570919073525809, guid: f216d8acc88bdae4091349594aa3cab8, type: 3}
   chatBoxUI: {fileID: 0}
   GV: {fileID: 2061446937}
+--- !u!114 &2061446944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061446936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418e8151a6a6c784c83669801c70720f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhiteScrubs: []
+  BlueScrubs: []
+  BlackScrubs: []
+  GreyScrubs: []
+  IndigoScrubs: []
+  OrangeScrubs: []
+  PurpleScrubs: []
+  PinkScrubs: []
+  RedScrubs: []
+  YellowScrubs: []
+  labcoat: []
+  glasses: []
+  ponytail: []
+  shorthair: []
+  noHair: []
+  skinBlinkMale: []
+  skinMale: []
+  skinBlinkFemale: []
+  skinFemale: []
 --- !u!4 &2364480602836138206
 Transform:
   m_ObjectHideFlags: 0
