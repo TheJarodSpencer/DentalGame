@@ -48,6 +48,7 @@ public class UserAuth : MonoBehaviour
 
     public void SetUserName(string newUsername){
         username = newUsername;
+        KeepPlayerName.Instance.SetCharacterName(username);
     }
 
     public void SubmitLogin()
@@ -66,6 +67,7 @@ public class UserAuth : MonoBehaviour
         }
         else {
             putIn = username.Split("@")[0];
+            Debug.Log("Gameobject name" + gameObject.name);
             FirebaseFirestore.GetDocument("users", putIn, gameObject.name, "DisplayData", "DisplayErrorObject");//Pulls from Database
         }
     }

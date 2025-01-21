@@ -9,8 +9,11 @@ using FirebaseWebGL.Scripts.Objects;
 
 public class FireBase : MonoBehaviour
 {
+    public static List<string> registeredPlayerNames = new List<string>();
     public UserAuth user;
-    private string characterName;
+    public string characterName;
+    public PlayerData currentPlayerData;
+    //public bool ForGetDocumentInfo = false;
 
     [System.Serializable] //Fix this to make the serializable
     public struct PlayerData
@@ -21,48 +24,45 @@ public class FireBase : MonoBehaviour
         public int playerCustomization;
     }
 
-    public int GetCharacterID()
+    public void SetPlayerName(string username)
     {
-        GlobalVariables gs = FindObjectOfType<GlobalVariables>();
-        if (gs != null)
+        characterName = username;
+        Debug.Log("In setplayername Username"+ username);
+        if (registeredPlayerNames.Contains(username))
         {
-            return gs.getCharacterID();
+            Debug.Log("Character exsists" + username);
         }
-        Debug.LogError("GlobalVariables instance not found!");
-        return 0; 
-    }
+        else
+        {
+            registeredPlayerNames.Add(username);
+            Debug.Log("Username does not exist in the list.");
+            Debug.Log("Character List Now");
+            foreach (string playerName in registeredPlayerNames)
+            {
+                Debug.Log(playerName);
+            }
 
+            PlayerData newPlayerData = new PlayerData
+            {
+                playerName = username,
+                playerLevel = 2,            // Default level
+                playerExperience = 2.0f,    // Default experience
+                playerCustomization = 2     // Default customization
+            };
 
-    public void SetPlayerName(string username){
-        characterName = username;//Gets character name
-        Debug.Log("Character Name: " + username);
-        UpdateCharacterField("playerName", characterName);
-    }
-
-    public string GetPlayerName(){
-        return characterName;
+            // Convert PlayerData to JSON and store it
+            string jsonData = JsonUtility.ToJson(newPlayerData);
+            Debug.Log("Raw Data in Create Character: " + jsonData);
+            SetCharacterDocument("players", username, jsonData);
+        }
     }
 
     //Start is called before the first frame update
     void Start()
     {
         Debug.Log("GameObject name: " + gameObject.name);
-
-
-
-
-        PlayerData playerData = new PlayerData
-        {
-            //THESE WILL LATER GRAB FROM THE DATABASE TO HAVE UPDATED INFORMATION(NICOLE)
-            playerName = "Bob", 
-            playerLevel = 10, 
-            playerExperience = 10.2f, // Make sure this is a float value
-            playerCustomization = GetCharacterID()
-        };
-
-        string jsonData = JsonUtility.ToJson(playerData);
-        SetCharacterDocument("players", GetPlayerName(), jsonData);
-        
+        Debug.Log("Character name: " + KeepPlayerName.Instance.GetCharacterName());
+        GetPlayerData(KeepPlayerName.Instance.GetCharacterName());
     }
 
     // Update is called once per frame
@@ -71,43 +71,56 @@ public class FireBase : MonoBehaviour
         
     }
 
-    private PlayerData GetPlayerData()
+    public void GetPlayerData(string character)
     {
-    // Fetch the current data from Firebase or wherever it’s stored
-        return new PlayerData
-        {
-        playerName = GetPlayerName(),  // Example, replace with actual data
-        playerLevel = 10,
-        playerExperience = 10.0f,
-        playerCustomization = 1
-        };
-    }   
+        Debug.Log("I am in the GetPlayerData function" + character);
+        //Debug.Log("Num1" + ForGetDocumentInfo);
+        //ForGetDocumentInfo = true;
+        //Debug.Log("Num2" + ForGetDocumentInfo);
+        FirebaseFirestore.GetDocument("players", character, "Character", "DisplayData", "DisplayErrorObject");
+    }
 
+    public void HandlePlayerData(PlayerData playerData)
+    {
+        Debug.Log("Name: " + playerData.playerName);
+        Debug.Log("Player Level: " + playerData.playerLevel);
+        Debug.Log("Player Exp: " + playerData.playerExperience);
+        PlayerSaveData.Instance.SetPlayerData(playerData);
+        //isPlayerDataHandled = true;
+    }
 
-    //To access the character customization update of player!
     public void UpdateCharacterField(string fieldName, object value)
     {
-        PlayerData playerData = GetPlayerData();
-
-        switch(fieldName)
+        PlayerData currentPlayerData = PlayerSaveData.Instance.GetPlayerData();
+        Debug.Log("Name: " + currentPlayerData.playerName);
+        Debug.Log("Player Level: " + currentPlayerData.playerLevel);
+        Debug.Log("Player Exp: " + currentPlayerData.playerExperience);
+        
+        // Now proceed with updating the data
+        Debug.Log("Now updating character info");
+        switch (fieldName)
         {
             case "playerName":
-                playerData.playerName = (string)value;
+                currentPlayerData.playerName = (string)value;
                 break;
             case "playerLevel":
-                playerData.playerLevel = (int)value;
+                currentPlayerData.playerLevel = (int)value;
                 break;
             case "playerExperience":
-                playerData.playerExperience = (float)value;
+                currentPlayerData.playerExperience = (float)value;
                 break;
             case "playerCustomization":
-                playerData.playerCustomization = (int)value;
+                currentPlayerData.playerCustomization = (int)value;
                 break;
         }
 
-        string jsonUpdate = JsonUtility.ToJson(playerData);
+        //Convert the updated data to JSON and send to Firebase
+        string jsonUpdate = JsonUtility.ToJson(currentPlayerData);
         Debug.Log("Json Update: " + jsonUpdate);
-        FirebaseFirestore.UpdateDocument("players", "DentalSection1", jsonUpdate, "Character", "DisplayData", "DisplayErrorObject");//Updates the character info
+        FirebaseFirestore.UpdateDocument("players", characterName, jsonUpdate, "Character", "DisplayData", "DisplayErrorObject");
+
+        //Reset the flag for next data update
+        //isPlayerDataHandled = false;
     }
 
     public void SetCharacterDocument(string collectionPath, string documentId, string jsonData)
@@ -118,9 +131,20 @@ public class FireBase : MonoBehaviour
 
     public void DisplayData(string data)
     {
-        //Handle display data
-        Debug.Log("Received data: " + data);
+        if (!string.IsNullOrEmpty(data) && data != "null")
+        {
+            Debug.Log("Raw Data: " + data);
+
+            PlayerData playerData = JsonUtility.FromJson<PlayerData>(data);
+            HandlePlayerData(playerData);
+            Debug.Log("Player Data Retrieved: " + data);
+            //ForGetDocumentInfo = false;
+        }
+        else{
+            Debug.LogError("No data received or data is null.");
+        }
     }
+
     public void DisplayErrorObject(string error)
     {
         Debug.LogError("Error occurred: " + error);
