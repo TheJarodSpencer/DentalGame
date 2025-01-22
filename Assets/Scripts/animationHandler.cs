@@ -8,25 +8,33 @@ public class animationHandler : MonoBehaviour
     //element 0 is default frame
     //element 1 is one foot up frame
     //element 2 is second foot up frame
-    public Material[] clothesLeft;
-    public Material[] clothesRight;
+    private Material[] clothesLeft = new Material[4];
+    private Material[] clothesRight = new Material[4];
     //0 and 1 are left and left blink 2 and 3 are right and right blink
-    public Material[] skin;
+    private Material[] skin = new Material[4];
     //element 0 is left, element 1 is right
-    public Material[] hair;
+    private Material[] hair;
+    private Material[] labcoat;
+    private Material[] glasses;
     public GlobalVariables GV;
+    public GlobalCharacterMaterials GCM;
     private Renderer clothesRend;
     private Renderer skinRend;
     private Renderer hairRend;
+    private Renderer labcoatRend;
+    private Renderer glassesRend;
     private bool isWalkingLeft = false;
     private bool isWalkingRight = false;
     private bool isFacingLeft = true;
     private bool isFacingRight = false;
-
+    private bool setTheMaterials = false;
+    private bool doneMatSet = false;
 
     
-    void Start()
+    //void Start()
+    private void setMatObjects()
     {
+        
         Transform cobj = transform.Find("clothes");
         if(cobj != null)
         {
@@ -42,12 +50,34 @@ public class animationHandler : MonoBehaviour
         {
             hairRend = hobj.GetComponent<Renderer>();
         }
-        StartCoroutine(blinkingLoop());
+        Transform lObj = transform.Find("labcoat");
+        if(lObj != null)
+        {
+            labcoatRend = lObj.GetComponent<Renderer>();
+        }
+        Transform gObj = transform.Find("glasses");
+        if(gObj != null)
+        {
+            glassesRend = gObj.GetComponent<Renderer>();
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if alarm from gcm is ready, and set the materials is false setTheMaterials is true and call set materials
+        if(GV.getMatAlarm() && !setTheMaterials)
+        {
+            setTheMaterials = true; 
+        }
+        if(setTheMaterials && !doneMatSet)
+        {
+            setMaterials();
+            setMatObjects();
+            StartCoroutine(blinkingLoop());
+            doneMatSet = true;
+        }
         if(Input.GetKeyDown(KeyCode.A))
         {
             //moving left
@@ -58,6 +88,8 @@ public class animationHandler : MonoBehaviour
                 isWalkingLeft = true;
                 hairRend.material = hair[0];
                 skinRend.material = skin[0];
+                glassesRend.material = glasses[0];
+                labcoatRend.material = glasses[0];
                 StartCoroutine(walkingLeftAnimation());
                 
             }
@@ -72,6 +104,8 @@ public class animationHandler : MonoBehaviour
                 isWalkingRight = true;
                 hairRend.material = hair[1];
                 skinRend.material = skin[2];
+                glassesRend.material = glasses[1];
+                labcoatRend.material = labcoat[1];
                 StartCoroutine(walkingRightAnimation());
             }
         }
@@ -85,6 +119,28 @@ public class animationHandler : MonoBehaviour
             clothesRend.material = clothesRight[1];
             isWalkingRight = false;
         }
+    }
+    private void setMaterials()
+    {
+        //Kinda messed up the conversion here so had to manually set the elements. 
+        Material[] skinSetter = GCM.getSkin();
+        Material[] skinBlinkSetter = GCM.getSkinBlink();
+        skin[0] = skinSetter[0];
+        skin[1] = skinBlinkSetter[0];
+        skin[2] = skinSetter[1];
+        skin[3] = skinBlinkSetter[1];
+        glasses = GCM.getGlasses();
+        labcoat = GCM.getLabcoat();
+        hair = GCM.getHairColor();
+        Material[] clothesSetter = GCM.getScrubColor();
+        clothesLeft[0] = clothesSetter[1];
+        clothesLeft[1] = clothesSetter[0];
+        clothesLeft[2] = clothesSetter[2];
+        clothesLeft[3] = clothesSetter[0];
+        clothesRight[0] = clothesSetter[4];
+        clothesRight[1] = clothesSetter[3];
+        clothesRight[2] = clothesSetter[5];
+        clothesRight[3] = clothesSetter[3];
     }
     private IEnumerator blinkingLoop()
     {

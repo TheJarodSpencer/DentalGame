@@ -17,11 +17,14 @@ public class CharacterLoader : MonoBehaviour
     public Material[] clothesColorMat;
     public Material labcoatMat;
     public Material glassesMat;
+    public GlobalCharacterMaterials GCM;
     void Start()
     {
+        Debug.Log("CharacterID: " + gv.getCharacterID());
         Transform skin = character.transform.Find("skin");
         if(skin != null)
         {
+            GCM.setSkin(idDecoder(4), idDecoder(1));
             Renderer renderer = skin.GetComponent<Renderer>();
             if(renderer != null)
             {
@@ -36,6 +39,7 @@ public class CharacterLoader : MonoBehaviour
         Transform hair = character.transform.Find("hair");
         if(hair != null)
         {
+            GCM.setHairColor(idDecoder(2), idDecoder(3));
             Renderer renderer = hair.GetComponent<Renderer>();
             if(renderer != null)
             {
@@ -52,12 +56,14 @@ public class CharacterLoader : MonoBehaviour
         Transform scrub = character.transform.Find("clothes");
         if(scrub != null)
         {
+            GCM.setScrubColor(idDecoder(5));
             Renderer renderer = scrub.GetComponent<Renderer>();
             if(renderer != null)
             {
                 renderer.material = clothesColorMat[idDecoder(5)];
             }
         }
+        GCM.setLabcoat(idDecoder(6));
         if(idDecoder(6) == 1)
         {
             Transform labcoatT = character.transform.Find("labcoat");
@@ -70,6 +76,7 @@ public class CharacterLoader : MonoBehaviour
                 }
             }
         }
+        GCM.setGlasses(idDecoder(7));
         if(idDecoder(7) == 1)
         {
             Transform glass = character.transform.Find("glasses");
@@ -82,14 +89,16 @@ public class CharacterLoader : MonoBehaviour
                 }
             }
         }
+        gv.setMatTrue();
+
     }
 
 
     private int idDecoder(int part)
     {
 
-        //string id = gv.getCharacterID().ToString();
-        string id = testCharacterID.ToString();
+        string id = gv.getCharacterID().ToString();
+        //string id = testCharacterID.ToString();
         int[] idArray = new int[id.Length];
         for(int i = 0; i < id.Length; i++)
         {

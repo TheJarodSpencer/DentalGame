@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,29 @@ public class GlobalVariables : MonoBehaviour
     string objectTalking = "";
     TextAsset talkingScript;
     bool alreadyTalkedTo = false;
-
+    private bool setMat = false;
+//THIS IS FOR TESTING*****************************************************************
+    void Start()
+    {
+        System.Random random = new System.Random();
+        int a = random.Next(1, 3);
+        int b = random.Next(0, 3);
+        int c = random.Next(0, 5);
+        int d = random.Next(0, 4);
+        int e = random.Next(0, 10);
+        int f = random.Next(0, 2);
+        int g = random.Next(0, 2);
+        string characterstring = $"{a}{b}{c}{d}{e}{f}{g}";
+        characterID = int.Parse(characterstring);
+    }
+    public void setMatTrue()
+    {
+        setMat = true;
+    }
+    public bool getMatAlarm()
+    {
+        return setMat;
+    }
     public void setAudioVolume(int vol)
     {
         volume = vol;

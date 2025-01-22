@@ -34,15 +34,15 @@ public class GlobalCharacterMaterials : MonoBehaviour
     //6 and 7 are skin 4 left and right
     public Material[] skinBlinkMale;
     public Material[] skinMale;
-    public Material[] skinBlinkFemale;
-    public Material[] skinFemale;
+    public Material[] skinBlinkFemale = new Material[2];
+    public Material[] skinFemale = new Material[2];
     private Material[] finalScrubs;
-    private Material[] finalHair;
-    private Material[] finalLabcoat;
-    private Material[] finalGlasses;
-    private Material[] finalSkinBlink;
+    private Material[] finalHair = new Material[2];
+    private Material[] finalLabcoat = new Material[2];
+    private Material[] finalGlasses = new Material[2];
+    private Material[] finalSkinBlink = new Material[2];
     //finalSkin: 0 left 1 left blink 2 right 3 right blink
-    private Material[] finalSkin;
+    private Material[] finalSkin = new Material[2];
     
     public void setScrubColor(int scrubID)
     {
@@ -154,6 +154,7 @@ public class GlobalCharacterMaterials : MonoBehaviour
     }
     public void setSkin(int skinID, int sexID)
     {
+        Debug.Log("skinID: " + skinID + "sexID: " + sexID);
         if(sexID == 1)
         {
             if(skinID == 0)
