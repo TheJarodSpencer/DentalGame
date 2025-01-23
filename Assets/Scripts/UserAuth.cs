@@ -28,9 +28,10 @@ public class UserAuth : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI errorText;
 
+    public SetPlayerInfo setInfo;
     private string putIn;
 
-    private string username;
+    public string username;
     private string password;
 
     // Start is called before the first frame update
@@ -47,6 +48,7 @@ public class UserAuth : MonoBehaviour
 
     public void SetUserName(string newUsername){
         username = newUsername;
+        KeepPlayerName.Instance.SetCharacterName(username);//Sets GameObject in Login Mangaer Name to the stored name and does not delete
     }
 
     public void SubmitLogin()
@@ -65,6 +67,7 @@ public class UserAuth : MonoBehaviour
         }
         else {
             putIn = username.Split("@")[0];
+            Debug.Log("Gameobject name" + gameObject.name);
             FirebaseFirestore.GetDocument("users", putIn, gameObject.name, "DisplayData", "DisplayErrorObject");//Pulls from Database
         }
     }
@@ -80,6 +83,7 @@ public class UserAuth : MonoBehaviour
         User temp = JsonUtility.FromJson<User>(data);//Built in to make a file to json file
         if(temp.username == username && temp.password == password) {
             SetUserName(username);//SETTING THE USERNAME FOR THE DATABASE(Nicole)
+            setInfo.CheckExsistingPlayerInfo();//SETTING THE PLAYER NAME IN THE DATABASE
             SceneManager.LoadScene("CharacterCreator");
         }
         else {
