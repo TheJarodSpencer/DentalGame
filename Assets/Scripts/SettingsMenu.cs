@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SettingsMenu : MonoBehaviour
 {
     public void OnPlayButton(){
-        SceneManager.LoadScene("FirstScene");
+        SceneManager.LoadScene("LevelSelector");
     }
     public void OnReturnToStartButton(){
         SceneManager.LoadScene("WelcomeScene");

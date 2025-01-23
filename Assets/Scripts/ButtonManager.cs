@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -591,4 +592,14 @@ public class ButtonManager : MonoBehaviour
         gv.setCharacterID(int.Parse(newID));
 
     }
+
+        //Back button goes to welcome screen
+        public void OnBackButton(){
+        SceneManager.LoadScene("WelcomeScene");
+    }
+        //Starting game
+        public void OnPlayButton(){
+        SceneManager.LoadScene("LevelSelector");
+    }
+
 }

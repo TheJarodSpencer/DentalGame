@@ -15,7 +15,7 @@ public class Confirmation : MonoBehaviour
     //canvas's
     public Canvas menu;
     public Canvas confMenu;
-    
+
     void Start()
     {
         menu.enabled = true;
@@ -24,6 +24,7 @@ public class Confirmation : MonoBehaviour
         backButton.onClick.AddListener(backButtonOnClick);
 
     }
+
     public void submitButtonOnClick()
     {
         Debug.Log("" + gv.getCharacterID());
@@ -32,21 +33,24 @@ public class Confirmation : MonoBehaviour
         confMenu.enabled = true;
         confirmButton.onClick.AddListener(confirmButtonOnClick);
         returnButton.onClick.AddListener(returnButtonOnClick);
-
+        
         int characterID = gv.getCharacterID();//Gets new character ID
         Debug.Log("Character ID: " + characterID);
 
         firebase.UpdateCharacterField("playerCustomization", characterID);
+
     }
     void backButtonOnClick()
     {
-        //return to the previous scene
+        confMenu.enabled = true;
+        menu.enabled = false;
+    }
+    void confirmButtonOnClick()
+    {
+
+        
     }
 
-    public void confirmButtonOnClick()
-    {   
-        //sends off the code from gv.getCharacterID()
-    }
     void returnButtonOnClick()
     {
         menu.enabled = true;
