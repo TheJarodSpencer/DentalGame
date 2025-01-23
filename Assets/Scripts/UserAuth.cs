@@ -28,7 +28,7 @@ public class UserAuth : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI errorText;
 
-    public FireBase firebase;
+    public SetPlayerInfo setInfo;
     private string putIn;
 
     public string username;
@@ -48,7 +48,7 @@ public class UserAuth : MonoBehaviour
 
     public void SetUserName(string newUsername){
         username = newUsername;
-        KeepPlayerName.Instance.SetCharacterName(username);
+        KeepPlayerName.Instance.SetCharacterName(username);//Sets GameObject in Login Mangaer Name to the stored name and does not delete
     }
 
     public void SubmitLogin()
@@ -83,7 +83,7 @@ public class UserAuth : MonoBehaviour
         User temp = JsonUtility.FromJson<User>(data);//Built in to make a file to json file
         if(temp.username == username && temp.password == password) {
             SetUserName(username);//SETTING THE USERNAME FOR THE DATABASE(Nicole)
-            firebase.SetPlayerName(username);//SETTING THE PLAYER NAME IN THE DATABASE
+            setInfo.CheckExsistingPlayerInfo();//SETTING THE PLAYER NAME IN THE DATABASE
             SceneManager.LoadScene("CharacterCreator");
         }
         else {
