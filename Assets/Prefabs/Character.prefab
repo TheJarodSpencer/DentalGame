@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5818219532198792904}
   - component: {fileID: 2527097094178793954}
   - component: {fileID: 7089533177514970897}
-  - component: {fileID: 4037292337937210846}
   - component: {fileID: 5950967512346202488}
+  - component: {fileID: 1204411435}
+  - component: {fileID: 1204411437}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -69,19 +70,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4037292337937210846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2391823168647428408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34691997672daf419dc15e8a058e90c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!114 &5950967512346202488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +82,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a534934776d6a474d81c9d1c793dca0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlayerData:
+    playerName: 
+    playerLevel: 0
+    playerExperience: 0
+    playerCustomization: 0
+--- !u!114 &1204411435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391823168647428408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34691997672daf419dc15e8a058e90c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GV: {fileID: 0}
+  speed: 4
+--- !u!114 &1204411437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391823168647428408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cc176b361dd8d408b880fc6772460c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clothesLeft:
+  - {fileID: 2100000, guid: 82a6c4c9ee222194c803186a0c9be3bd, type: 2}
+  - {fileID: 2100000, guid: 0fc2c6f0c2d7dbb46b905f518a75dc0e, type: 2}
+  - {fileID: 2100000, guid: f2ec5731021153e4baa99a308e4d4ba8, type: 2}
+  - {fileID: 2100000, guid: 0fc2c6f0c2d7dbb46b905f518a75dc0e, type: 2}
+  clothesRight:
+  - {fileID: 2100000, guid: a1fbb0db952c84e4194c99cd878ec152, type: 2}
+  - {fileID: 2100000, guid: e2f997da88e66154fa12cc529f5f6c6f, type: 2}
+  - {fileID: 2100000, guid: fb0578ac20d8fbe4ea0cb05d03ff83ae, type: 2}
+  - {fileID: 2100000, guid: e2f997da88e66154fa12cc529f5f6c6f, type: 2}
+  skin:
+  - {fileID: 2100000, guid: f43be4226575fa849adf93e553d6700a, type: 2}
+  - {fileID: 2100000, guid: f852c9064417d2446b8a2f81fecd30e6, type: 2}
+  - {fileID: 2100000, guid: de544d64bbeea874fa4ba0fb98aa08d7, type: 2}
+  - {fileID: 2100000, guid: 47b153b1c6322104ba29808eb45cd6b3, type: 2}
+  hair:
+  - {fileID: 2100000, guid: fccb147e2e464cd45b4655faed99d14a, type: 2}
+  - {fileID: 2100000, guid: f2458503d80126440aa31cf8887c73fc, type: 2}
+  GV: {fileID: 0}
 --- !u!1 &3620242822883744720
 GameObject:
   m_ObjectHideFlags: 0

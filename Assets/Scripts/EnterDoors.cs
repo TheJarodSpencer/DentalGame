@@ -37,7 +37,7 @@ public class EnterDoors : MonoBehaviour
     // Press E to enter level
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+        if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
            ReplacePrefab();
         }

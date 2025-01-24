@@ -8,8 +8,12 @@ public class CharacterMovement : MonoBehaviour
     //public GameObject character;
     public GlobalVariables GV;
     public float speed = 5.0f;
+
+    private Rigidbody rb;
     void Start()
     {
+
+        rb = GetComponent<Rigidbody>();
         
     }
 
@@ -17,12 +21,12 @@ public class CharacterMovement : MonoBehaviour
     {
         if(!GV.isTalking() && !GV.isPaused())
         {
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
+            float moveHorizontal = Input.GetAxisRaw("Horizontal");
+            float moveVertical = Input.GetAxisRaw("Vertical");
 
-            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+            Vector3 movement = (new Vector3(moveHorizontal, rb.velocity.y, moveVertical)).normalized;
 
-            transform.Translate(movement * speed * Time.deltaTime, Space.World);
+            rb.velocity = movement * speed * Time.fixedDeltaTime * 100;
         }
     }
 }

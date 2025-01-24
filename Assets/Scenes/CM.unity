@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43835288, g: 0.48640984, b: 0.5666825, a: 1}
+  m_IndirectSpecularColor: {r: 0.43835357, g: 0.4864105, b: 0.5666836, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1204411435, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
+      propertyPath: GV
+      value: 
+      objectReference: {fileID: 2061446937}
+    - target: {fileID: 1204411437, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
+      propertyPath: GV
+      value: 
+      objectReference: {fileID: 2061446937}
     - target: {fileID: 2391823168647428408, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
       propertyPath: m_Name
       value: Character
@@ -372,61 +380,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 75.5, y: -46.3, z: 0}
---- !u!1 &1204411434 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2391823168647428408, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
-  m_PrefabInstance: {fileID: 274036771}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1204411435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204411434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34691997672daf419dc15e8a058e90c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GV: {fileID: 2061446937}
-  speed: 3
 --- !u!4 &1204411436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5818219532198792904, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
   m_PrefabInstance: {fileID: 274036771}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1204411437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204411434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25cc176b361dd8d408b880fc6772460c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clothesLeft:
-  - {fileID: 2100000, guid: 82a6c4c9ee222194c803186a0c9be3bd, type: 2}
-  - {fileID: 2100000, guid: 0fc2c6f0c2d7dbb46b905f518a75dc0e, type: 2}
-  - {fileID: 2100000, guid: f2ec5731021153e4baa99a308e4d4ba8, type: 2}
-  - {fileID: 2100000, guid: 0fc2c6f0c2d7dbb46b905f518a75dc0e, type: 2}
-  clothesRight:
-  - {fileID: 2100000, guid: a1fbb0db952c84e4194c99cd878ec152, type: 2}
-  - {fileID: 2100000, guid: e2f997da88e66154fa12cc529f5f6c6f, type: 2}
-  - {fileID: 2100000, guid: fb0578ac20d8fbe4ea0cb05d03ff83ae, type: 2}
-  - {fileID: 2100000, guid: e2f997da88e66154fa12cc529f5f6c6f, type: 2}
-  skin:
-  - {fileID: 2100000, guid: f43be4226575fa849adf93e553d6700a, type: 2}
-  - {fileID: 2100000, guid: f852c9064417d2446b8a2f81fecd30e6, type: 2}
-  - {fileID: 2100000, guid: de544d64bbeea874fa4ba0fb98aa08d7, type: 2}
-  - {fileID: 2100000, guid: 47b153b1c6322104ba29808eb45cd6b3, type: 2}
-  hair:
-  - {fileID: 2100000, guid: fccb147e2e464cd45b4655faed99d14a, type: 2}
-  - {fileID: 2100000, guid: f2458503d80126440aa31cf8887c73fc, type: 2}
-  GV: {fileID: 2061446937}
 --- !u!1 &1216430051
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,10 @@ using FirebaseWebGL.Scripts.Objects;
 
 public class FireBase : MonoBehaviour
 {
-    public UserAuth user;
+
+
+
+
     public PlayerData currentPlayerData;
 
     [System.Serializable] //Fix this to make the serializable
@@ -25,7 +28,10 @@ public class FireBase : MonoBehaviour
     void Start()
     {
         if (Application.platform != RuntimePlatform.WebGLPlayer){
-            user.DisplayError("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
+            Debug.Log("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
+            FireBase tmp = GetComponent<FireBase>();
+            tmp.enabled = false;
+            return;
         }
         
         Debug.Log("GameObject name: " + gameObject.name);
