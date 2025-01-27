@@ -10,6 +10,7 @@ public class EnterDoors : MonoBehaviour
     public GameObject[] indicatorCubes; // Array of indicator cubes
     public GameObject levelSelector;
     public GameObject pickedLevel;
+    public string targetSceneName; //Added this here to store a string of the level selected scene!
 
     private void Start()
     {
@@ -39,7 +40,9 @@ public class EnterDoors : MonoBehaviour
     {
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
-           ReplacePrefab();
+           SceneManager.LoadScene(targetSceneName);
+           
+           //ReplacePrefab();
         }
     }
 
@@ -56,6 +59,8 @@ public class EnterDoors : MonoBehaviour
         }
     }
 
+
+    //No longer using rn
     private void ReplacePrefab()
     {
         if(levelSelector != null && pickedLevel)

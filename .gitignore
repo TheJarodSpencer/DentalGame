@@ -69,22 +69,32 @@ crashlytics-build.properties
 
 # Ignore Added Assests
 # Trying to send this first
-Package04_Free_Kitchen/**
+/[Aa]ssets/Package04_Free_Kitchen/**
 
-!Package04_Free_Kitchen/Materials/
-!Package04_Free_Kitchen/Materials/Version3/**
-!Package04_Free_Kitchen/Prefabs/
-!Package04_Free_Kitchen/Prefabs/Version3/**
+!/[Aa]ssets/Package04_Free_Kitchen/FreeKitchen/Prefabs/Version03
+!/[Aa]ssets/Package04_Free_Kitchen/FreeKitchen/Prefabs/Version03/*.prefab
 
-LowPolyOfficeProps_LITE/**
+!/[Aa]ssets/Package04_Free_Kitchen/FreeKitchen/Materials/Version03/
+!/[Aa]ssets/Package04_Free_Kitchen/FreeKitchen/Materials/Version03/*
 
-!LowPolyOfficeProps_LITE/Materials/
-!LowPolyOfficeProps_LITE/Materials/**
-!LowPolyOfficeProps_LITE/Prefabs/
-!LowPolyOfficeProps_LITE/Prefabs/**
+!/[Aa]ssets/Package04_Free_Kitchen/FreeKitchen/Textures/Version03/
+!/[Aa]ssets/Package04_Free_Kitchen/FreeKitchen/Textures/Version03/*
 
-TextureHaven/**
-!TextureHavenfloor_4k/floor_4k_materials/floor_tiles_06
+/[Aa]ssets/LowPolyOfficeProps_LITE/**
+
+!/[Aa]ssets/LowPolyOfficeProps_LITE/Materials/
+!/[Aa]ssets/LowPolyOfficeProps_LITE/Materials/*
+!/[Aa]ssets/LowPolyOfficeProps_LITE/Textures/
+!/[Aa]ssets/LowPolyOfficeProps_LITE/Textures/*
+
+!/[Aa]ssets/LowPolyOfficeProps_LITE/Prefabs/Chair_DeskChair_Violet.prefab
+!/[Aa]ssets/LowPolyOfficeProps_LITE/Meshes/Chair_DeskChair_Violet.prefab
+
+!/[Aa]ssets/LowPolyOfficeProps_LITE/Prefabs/Laptop_Off.prefab
+!/[Aa]ssets/LowPolyOfficeProps_LITE/Meshes/Laptop_Off.prefab
+
+/[Aa]ssets/TextureHaven/**
+!/[Aa]ssets/TextureHaven/floor_4k/floor_4k_material/floor_tites_06.mat
 
 
 # Packed Addressables

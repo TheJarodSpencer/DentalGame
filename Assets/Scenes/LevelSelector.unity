@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45140117, g: 0.5008937, b: 0.5723182, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140058, g: 0.500893, b: 0.57231724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1231,6 +1231,10 @@ PrefabInstance:
       propertyPath: pickedLevel
       value: 
       objectReference: {fileID: 375581584683013646}
+    - target: {fileID: 366694615679820580, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
+      propertyPath: targetSceneName
+      value: Level1
+      objectReference: {fileID: 0}
     - target: {fileID: 375581586102337540, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_Name
       value: BayArea
@@ -1283,6 +1287,10 @@ PrefabInstance:
       propertyPath: pickedLevel
       value: 
       objectReference: {fileID: 375581584683013646}
+    - target: {fileID: 1281771202240384962, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
+      propertyPath: targetSceneName
+      value: Level1
+      objectReference: {fileID: 0}
     - target: {fileID: 7897039884907051409, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_text
       value: Level 2
@@ -1291,6 +1299,10 @@ PrefabInstance:
       propertyPath: pickedLevel
       value: 
       objectReference: {fileID: 309268340}
+    - target: {fileID: 8592968272883276977, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
+      propertyPath: targetSceneName
+      value: Level1
+      objectReference: {fileID: 0}
     - target: {fileID: 8733719498051896529, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_text
       value: Level 3
