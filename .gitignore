@@ -67,6 +67,26 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Ignore Added Assests
+# Trying to send this first
+Package04_Free_Kitchen/**
+
+!Package04_Free_Kitchen/Materials/
+!Package04_Free_Kitchen/Materials/Version3/**
+!Package04_Free_Kitchen/Prefabs/
+!Package04_Free_Kitchen/Prefabs/Version3/**
+
+LowPolyOfficeProps_LITE/**
+
+!LowPolyOfficeProps_LITE/Materials/
+!LowPolyOfficeProps_LITE/Materials/**
+!LowPolyOfficeProps_LITE/Prefabs/
+!LowPolyOfficeProps_LITE/Prefabs/**
+
+TextureHaven/**
+!TextureHavenfloor_4k/floor_4k_materials/floor_tiles_06
+
+
 # Packed Addressables
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
