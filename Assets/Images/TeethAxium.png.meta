@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Images/desktop.png.meta
-guid: 73cc824072d3048e5a5a09d0b044b926
-========
-guid: f2c8da98ddb244dc9a6b52bc6e206213
->>>>>>>> soph'sbranch:Assets/Images/wrench-tool-clipart-xl.png.meta
+guid: 7aaea58b144c140d1814787679f757db
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
