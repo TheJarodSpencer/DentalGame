@@ -1235,6 +1235,10 @@ PrefabInstance:
       propertyPath: targetSceneName
       value: Level1
       objectReference: {fileID: 0}
+    - target: {fileID: 375581584688907030, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 386d8b87fe9636f4dba91505711d0bb4, type: 2}
     - target: {fileID: 375581586102337540, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_Name
       value: BayArea
