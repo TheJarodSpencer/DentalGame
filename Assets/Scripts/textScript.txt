@@ -1,0 +1,39 @@
+Hello, thank you for clicking on this box!
+As you can see, everything works fine and all is quite dandy.
+Could you click the button that says "Jeff" to confirm everything works?
+1101588
+0Geoff
+0Jeffry
+1Jeff
+0Chef
+I'm sorry, while Geoff is pronounced the same, it has a a different spelling.
+I'm sorry, while Jeff is an abbreviation of Jeffry, we are looking for Jeff.
+Correct! This is the Jeff we have been looking for!
+My name chef.
+8675309
+This function is hopefully working in the system still.
+Jarod's code is often a mess and not optimized.
+Making sure it works is priority, making sure its pretty is for when everything works. 
+Anyways, which of these is not a Johnny Cash song
+1101588
+0Ring of Fire
+1Big Dawgz
+0Walk the Line
+0Chicken in Black
+Wrong, that is one of his.
+Correct, thats the big steppah song.
+Wrong, thats also the name of his biopic.
+Wrong, thats his best song.
+8675309
+Final run through of dialogue.
+I dont know what else to put.
+What color is a red firetruck
+1101588
+0Blue
+0Green
+0Yellow
+1Red
+no
+no
+no
+yea
