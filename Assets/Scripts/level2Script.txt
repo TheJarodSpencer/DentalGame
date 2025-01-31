@@ -1,0 +1,34 @@
+Hello, I am Bob, I am a 48 year old male!
+I am currently been in pain for the past 2 days and now my face is swollen!
+Please help me out!
+1101588
+0Start hurting?
+0Pain caused from?
+1Health problems?
+0Bleeding at night?
+I just told you it started 2 days ago!
+I have no clue that's why I am here to see you!
+I have hypertension and type 2 diabetes.
+That seems like a really specific question to be asking right now!
+8675309
+Hmm the patient may seem to have more patient history I should ask about.
+1101588
+0Accidents recently?
+1Other allergies?
+0Healthy diet?
+0Any makeup?
+What does that have to do with this!
+Yes, I'm allergic to penicillin.
+What does that have to do with this!
+What does that have to do with this!
+8675309
+Can you please reverify the patients age and gender?
+1101588
+0Female, 45
+0Male, 47
+0Female, 43
+1Male, 48
+No
+No
+No
+Correct
