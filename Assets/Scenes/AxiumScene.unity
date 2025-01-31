@@ -517,9 +517,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6612607087851317475, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9006501755596729389, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
       propertyPath: m_Name
       value: AxiumComputer
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006501755596729389, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}

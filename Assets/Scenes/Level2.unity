@@ -2410,6 +2410,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956734154}
   m_CullTransparentMesh: 1
+--- !u!114 &969857612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2445143681511225048, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
+  m_PrefabInstance: {fileID: 1431037410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &977709595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,6 +2566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 980951600}
   - component: {fileID: 980951599}
+  - component: {fileID: 980951601}
   m_Layer: 0
   m_Name: LevelButtonManager
   m_TagString: Untagged
@@ -2609,6 +2621,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &980951601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980951598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76e3897fedd08a4f93a0bbf2a3687bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 969857612}
+  newSprite: {fileID: 21300000, guid: 935a46a592f50374fa21fd571a6975c6, type: 3}
 --- !u!4 &1003776185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5818219532198792904, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
