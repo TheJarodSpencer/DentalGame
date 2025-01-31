@@ -11,6 +11,9 @@ public class AxiumButtonManager : MonoBehaviour
     }
 
     public List<ScreenButtonPair> Screens; // A list of screen-button pairs
+    public GameObject notes;
+    public GameObject forms;
+    public GameObject meds;
 
     // Called when a button is pressed
     public void ShowScreen(int screenIndex)
@@ -30,5 +33,22 @@ public class AxiumButtonManager : MonoBehaviour
         }
     }
 
+    public void OnClickNotes(){
+        notes.SetActive(true);
+        forms.SetActive(false);
+        meds.SetActive(false);
+    }
+
+    public void OnClickForms(){
+        notes.SetActive(false);
+        forms.SetActive(true);
+        meds.SetActive(false);
+    }
+
+    public void OnClickMeds(){
+        notes.SetActive(false);
+        forms.SetActive(false);
+        meds.SetActive(true);
+    }
 
 }

@@ -1,33 +1,35 @@
 Hello, I am Bob, I am a 48 year old male!
-I am currently been in pain for the past 2 days and now my face is swollen!
-Please help me out!
+I have been in pain for the past 2 days! Please help me out!
+What did Bob just tell you following OLDCARTS? 
 1101588
-0Start hurting?
-0Pain caused from?
-1Health problems?
-0Bleeding at night?
-I just told you it started 2 days ago!
-I have no clue that's why I am here to see you!
-I have hypertension and type 2 diabetes.
-That seems like a really specific question to be asking right now!
+0Onset
+0Location
+1Duration
+0Timing
+Incorrect, this is asking if the issue was acute, chronic, or in between.
+Incorrect, this is where the sensation felt.
+Correct, this tells the patient how long the symptoms have lasted.
+Incorrect, this deals with the time it occurs after different situations.
 8675309
-Hmm the patient may seem to have more patient history I should ask about.
+Hmm, I should gather some more information on the patient symptoms. What information should I gather from the patient?
 1101588
-0Accidents recently?
-1Other allergies?
-0Healthy diet?
-0Any makeup?
-What does that have to do with this!
+0Gender&Age?
+1Allergies?
+0Diet?
+0Exercise?
+We already know the patient is 48 years old.
 Yes, I'm allergic to penicillin.
-What does that have to do with this!
-What does that have to do with this!
+Does not pertain to current patient.
+Does not pertain to current patient.
 8675309
-Can you please reverify the patients age and gender?
+The patient also has prior health history of Hypertension and Type 2 Diabetes.
+All information from the current findings can be seen in your Axium system.
+We are trying to find the most likely location of this infection. When you have concluded your answer click the "Diagnosis" button in the right corner of the screen. Click Okay to continue.
 1101588
-0Female, 45
-0Male, 47
-0Female, 43
-1Male, 48
+0No
+0No
+0No
+1Okay
 No
 No
 No
