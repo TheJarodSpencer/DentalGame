@@ -44,7 +44,7 @@ public class LevelButtonManager : MonoBehaviour
         diagnosisButton.SetActive(false);
         medicineButton.SetActive(false);
         axiumButton.SetActive(false);
-        Camera.main.transform.position = new Vector3(985f, 650f, -400f);
+        Camera.main.transform.position = new Vector3(515f, 267f, -425f);
         Camera.main.transform.rotation = Quaternion.Euler(0f, 0f, 0f); 
     }
 

@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Login.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WelcomeScene.unity
     guid: 1d5f8ce2b4bb243ed910a8a0c980fdcf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CharacterCreator.unity
     guid: ecabc94f38522464a8c8884e46f66486
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelSelector.unity
     guid: 54b8651fa4565cc48a5885dcf374b68f
   - enabled: 0
@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/RegisterUser.unity
     guid: c6b55bf7d4a8ea149ad00670b134201d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SettingsScene.unity
     guid: 19eaf0b1e31904225b5fa5b43175f3a8
   - enabled: 0
@@ -35,7 +35,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/AppleTemp/_Scene_0.unity
     guid: a5173a53d29caed49b67faa2b68f868a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 3259a5e10a7a3664d944ecc0c305fd94
   - enabled: 1
