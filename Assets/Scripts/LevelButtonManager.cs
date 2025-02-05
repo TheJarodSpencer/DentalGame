@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelButtonManager : MonoBehaviour
 {
+    public GlobalVariables GV;
+
     public GameObject axiumUIPanel;
     public GameObject diagnosisButton;
     public GameObject medicineButton;
@@ -21,11 +24,33 @@ public class LevelButtonManager : MonoBehaviour
     public TextAsset diaFile; 
     public TextAsset medFile;
 
+    //For if wrong or right button for Med and Diagnosis
+    public int correctDiaAnswerIndex;
+    public int correctMedAnswerIndex;
+    public bool isDiaCorrect =  false;
+    public int correctAnswers = 0;
+
+
     void Start(){
         LoadTextFromFile(diaFile, diaButtons);
+        string[] diaLines = diaFile.text.Split('\n');
+        correctDiaAnswerIndex = int.Parse(diaLines[0].Trim());
         LoadTextFromFile(medFile, medButtons);
+        string[] medLines = medFile.text.Split('\n');
+        correctMedAnswerIndex = int.Parse(medLines[0].Trim());
+
+        foreach (Button button in diaButtons)
+        {
+            button.onClick.AddListener(() => OnClickColorsTheButtons(button, diaButtons, correctDiaAnswerIndex));
+        }
+        
+        foreach (Button button in medButtons)
+        {
+            button.onClick.AddListener(() => OnClickColorsTheButtons(button, medButtons, correctMedAnswerIndex));
+        }
     }
 
+    //Reads the buttons
     void LoadTextFromFile(TextAsset textFile, Button[] buttons){
         string[] lines = textFile.text.Split('\n');
 
@@ -33,8 +58,31 @@ public class LevelButtonManager : MonoBehaviour
             TMP_Text buttonText = buttons[i].GetComponentInChildren<TMP_Text>();
                 if (buttonText != null)
                 {
-                    buttonText.text = lines[i].Trim(); // Set button text from file
+                    buttonText.text = lines[i + 1].Trim(); //Set button text from file
                 }
+
+        //Color buttonColor = (i == correctAnswerIndex) ? Color.green : Color.red;
+        //buttons[i].GetComponent<Image>().color = buttonColor;
+        }
+
+    }
+
+    public void OnClickColorsTheButtons(Button clickedButton, Button[] buttons, int correctAnswerIndex){
+        int buttonIndex = System.Array.IndexOf(buttons, clickedButton);
+        if (buttonIndex == correctAnswerIndex)
+        {
+            clickedButton.GetComponent<Image>().color = Color.green; //Correct
+            isDiaCorrect = true;
+            ++correctAnswers;
+            if(correctAnswers == 2){
+                SceneManager.LoadScene("LevelSelector");
+            }
+            Debug.Log("Correct answer!");
+        }
+        else
+        {
+            clickedButton.GetComponent<Image>().color = Color.red; //Wrong
+            Debug.Log("Wrong answer!");
         }
     }
 
@@ -44,7 +92,7 @@ public class LevelButtonManager : MonoBehaviour
         diagnosisButton.SetActive(false);
         medicineButton.SetActive(false);
         axiumButton.SetActive(false);
-        Camera.main.transform.position = new Vector3(515f, 267f, -425f);
+        Camera.main.transform.position = new Vector3(515f, 267f, -435f);
         Camera.main.transform.rotation = Quaternion.Euler(0f, 0f, 0f); 
     }
 
@@ -52,7 +100,7 @@ public class LevelButtonManager : MonoBehaviour
         backButtonFromAxium.SetActive(false); 
         axiumUIPanel.SetActive(false); 
         diagnosisButton.SetActive(true);
-        medicineButton.SetActive(true);
+        medicineButton.SetActive(HandleMedShown());
         axiumButton.SetActive(true);
         Camera.main.transform.position = new Vector3(0f, 3f, -11f);
         Camera.main.transform.rotation = Quaternion.Euler(5f, 0f, 0f); 
@@ -63,7 +111,7 @@ public class LevelButtonManager : MonoBehaviour
         diagnosisAns.SetActive(false);
         backButtonFromDiaAndMed.SetActive(false);
         diagnosisButton.SetActive(true);
-        medicineButton.SetActive(true);
+        medicineButton.SetActive(HandleMedShown());
 
     }
 
@@ -79,5 +127,15 @@ public class LevelButtonManager : MonoBehaviour
         medicineButton.SetActive(false);
         medicineAns.SetActive(true);
         backButtonFromDiaAndMed.SetActive(true);
+    }
+
+
+    public bool HandleMedShown(){
+        if(isDiaCorrect == false){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }

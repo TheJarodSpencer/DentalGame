@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -977,7 +977,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &468902983
 MonoBehaviour:
@@ -1185,7 +1185,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516433599
 MonoBehaviour:
@@ -2585,6 +2585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f654dd35660df4bb0a25e421ea4dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GV: {fileID: 0}
   axiumUIPanel: {fileID: 1431037411}
   diagnosisButton: {fileID: 74326679}
   medicineButton: {fileID: 1218263010}
@@ -2605,6 +2606,9 @@ MonoBehaviour:
   - {fileID: 747217935}
   diaFile: {fileID: 4900000, guid: 7fd6e654c63f03c45bbf7d4b7bd4b312, type: 3}
   medFile: {fileID: 4900000, guid: 4364a46b89a19df4e9529d961b300690, type: 3}
+  correctDiaAnswerIndex: 0
+  correctMedAnswerIndex: 0
+  isDiaCorrect: 0
 --- !u!4 &980951600
 Transform:
   m_ObjectHideFlags: 0
@@ -2756,7 +2760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1218263011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3775,6 +3779,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AxiumComputer
       objectReference: {fileID: 0}
+    - target: {fileID: 9006501755596729389, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
 --- !u!1 &1431037411 stripped
@@ -4178,8 +4186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 352, y: -208}
-  m_SizeDelta: {x: 150, y: 30}
+  m_AnchoredPosition: {x: 333, y: -190}
+  m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1544767261
 MonoBehaviour:
@@ -4509,8 +4517,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4711,7 +4719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1786141474
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4958,8 +4966,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5328,8 +5336,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 353, y: -212}
-  m_SizeDelta: {x: 150, y: 30}
+  m_AnchoredPosition: {x: 330, y: -197}
+  m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2120986795
 MonoBehaviour:

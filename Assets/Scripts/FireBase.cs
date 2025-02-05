@@ -9,10 +9,6 @@ using FirebaseWebGL.Scripts.Objects;
 
 public class FireBase : MonoBehaviour
 {
-
-
-
-
     public PlayerData currentPlayerData;
 
     [System.Serializable] //Fix this to make the serializable

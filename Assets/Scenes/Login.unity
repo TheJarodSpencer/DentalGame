@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.047098506, g: 0.65335286, b: 0.7132075, a: 1}
+  m_Color: {r: 0.7509433, g: 0.27629036, b: 0.69599074, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -457,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &497934671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2196,7 +2196,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dentistry Quest
+  m_text: The Path of Oral Health
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2259,7 +2259,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 15.040863, y: 0, z: -214.60895, w: -0.8052368}
+  m_margin: {x: -4.205963, y: 0, z: -237.01062, w: -0.8052368}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2507,7 +2507,7 @@ MonoBehaviour:
   usernameInput: {fileID: 1001789107}
   passwordInput: {fileID: 1419996122}
   errorText: {fileID: 451591539}
-  firebase: {fileID: 0}
+  setInfo: {fileID: 0}
   username: 
 --- !u!1 &2033857029
 GameObject:
