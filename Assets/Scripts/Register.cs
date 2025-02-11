@@ -10,7 +10,7 @@ public class Register : MonoBehaviour
 {
     public TMP_InputField registerUsername;
     public TMP_InputField registerPassword;
-    public Button registerButton;
+    public Button GoBackButton;
 
     private string filePath;
  

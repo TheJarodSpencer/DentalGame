@@ -4,22 +4,19 @@ using UnityEngine;
 using TMPro; //for textmeshpro
 using UnityEngine.SceneManagement;//to go to next scene
 using UnityEngine.UI;
-using System.IO;//to use streamwriter
-
+using System.IO;
 
 using FirebaseWebGL.Examples.Utils;
 using FirebaseWebGL.Scripts.FirebaseBridge;
 using FirebaseWebGL.Scripts.Objects;
 
-public class UserAuth : MonoBehaviour
+public class AdminAuth : MonoBehaviour
 {
-
-    public struct User
+    public struct Admin
     {
         public string username;
         public string password;
     }
-
 
     [SerializeField]//show in editor but not editable
     private TMP_InputField usernameInput;
@@ -27,31 +24,20 @@ public class UserAuth : MonoBehaviour
     private TMP_InputField passwordInput;
     [SerializeField]
     private TextMeshProUGUI errorText;
+    public Button GoBackButton;
 
-    public SetPlayerInfo setInfo;
-    private string putIn;
-
-    public string username;
+    private string username;
     private string password;
+    private string putIn;
 
     // Start is called before the first frame update
     void Start()
     {
-         if (Application.platform != RuntimePlatform.WebGLPlayer)
-                DisplayError("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
-    }
-    //Executes when button pressed. Will grab username and password and check correct :)
-
-    public string GetUserName(){
-        return username;
+        if (Application.platform != RuntimePlatform.WebGLPlayer)
+            DisplayError("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
     }
 
-    public void SetUserName(string newUsername){
-        username = newUsername;
-        KeepPlayerName.Instance.SetCharacterName(username);//Sets GameObject in Login Mangaer Name to the stored name and does not delete
-    }
-
-    public void SubmitLogin()
+    public void SubmitAccess()
     {
         username = usernameInput.text;
         password = passwordInput.text;
@@ -68,10 +54,10 @@ public class UserAuth : MonoBehaviour
         else {
             putIn = username.Split("@")[0];
             Debug.Log("Gameobject name" + gameObject.name);
-            FirebaseFirestore.GetDocument("users", putIn, gameObject.name, "DisplayData", "DisplayErrorObject");//Pulls from Database
+            FirebaseFirestore.GetDocument("admins", putIn, "AdminManager", "DisplayData", "DisplayErrorObject");//Pulls from Database
         }
     }
-                
+
     public void DisplayData(string data)
     {
         Debug.Log(data);
@@ -80,34 +66,22 @@ public class UserAuth : MonoBehaviour
             errorText.text = "Incorrect Username or Password";
             return;
         }
-        User temp = JsonUtility.FromJson<User>(data);//Built in to make a file to json file
-        if(temp.username == username && temp.password == password && temp.username != "admin@siue.edu") {
-            SetUserName(username);//SETTING THE USERNAME FOR THE DATABASE(Nicole)
-            setInfo.CheckExsistingPlayerInfo();//SETTING THE PLAYER NAME IN THE DATABASE
-            SceneManager.LoadScene("CharacterCreator");
-        }
-        else if(temp.username == "admin@siue.edu" && temp.password == password){
-            SceneManager.LoadScene("AdminLogin");
+        Admin temp = JsonUtility.FromJson<Admin>(data);//Built in to make a file to json file
+        if(temp.username == username && temp.password == password) {
+            SceneManager.LoadScene("AdminPanel");
         }
         else {
             errorText.text = "Incorrect Username or Password";
         }
     }
 
-    public void DisplayErrorObject(string error)
-    {
-        var parsedError = StringSerializationAPI.Deserialize(typeof(FirebaseError), error) as FirebaseError;
-        DisplayError(parsedError.message);
-    }
     public void DisplayError(string error)
     {
         errorText.text = error;
         Debug.LogError(error);
     }
 
-    //Return empty string, otherwise return string with error :)
-    //Checks that info correct
-   private string CheckLoginInfo(string username, string password)
+    private string CheckLoginInfo(string username, string password)
     {
         if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
         {
@@ -129,5 +103,10 @@ public class UserAuth : MonoBehaviour
             }
             return "Username must be an email";
         }  
+    }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene("Login");
     }
 }
