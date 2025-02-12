@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7682570919073525814}
   - component: {fileID: 7682570919073525815}
   - component: {fileID: 7682570919073525808}
-  - component: {fileID: 7682570919073525812}
+  - component: {fileID: -6767881829693190812}
   m_Layer: 5
   m_Name: TextBoxUI
   m_TagString: Untagged
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7682570919073525812
+--- !u!114 &-6767881829693190812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,13 +114,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7682570919073525809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f0b9ec6d4a293489ac678c2437bf67, type: 3}
+  m_Script: {fileID: 11500000, guid: 3478037f77eaa544dac7a90af0fb6c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GV: {fileID: 0}
   enterImages:
   - {fileID: 2800000, guid: b0887402eecba0d4d8a678b5f745d478, type: 3}
   - {fileID: 2800000, guid: a0f5d5c73f014284b919d1b7979de967, type: 3}
+  - {fileID: 2800000, guid: f105ddd4918d8a1458685d47bcaee34a, type: 3}
   responseButtons:
   - {fileID: 7682570920983824503}
   - {fileID: 7682570920499824278}

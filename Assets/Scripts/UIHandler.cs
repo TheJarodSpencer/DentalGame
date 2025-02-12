@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class UIHandler : MonoBehaviour
 {
-    public GameObject textCanvas;
+    //public GameObject regularUI;
     public GameObject chatBoxUI;
     public GlobalVariables GV;
-    private GameObject uiCanvas;
     private bool canvasExists = false;
+    public TalkingLogic tl;
     void Start()
     {
-        
+        chatBoxUI.SetActive(false);
+        canvasExists = false;
     }
 
     // Update is called once per frame
@@ -19,17 +20,17 @@ public class UIHandler : MonoBehaviour
     {
         if(GV.isTalking())
         {
-            //chatBoxUI.SetActive(true);
             if(!canvasExists)
             {
-                uiCanvas = Instantiate(textCanvas);
+                chatBoxUI.SetActive(true);
+                //regularUI.SetActive(false);
                 canvasExists = true;
             }
         }else{
-            //chatBoxUI.SetActive(false);
             if(canvasExists)
             {
-                DestroyImmediate(uiCanvas, true);
+                chatBoxUI.SetActive(false);
+                //regularUI.SetActive(true);
                 canvasExists = false;
             }
         }
