@@ -14,35 +14,26 @@ public class TalkingLogic : MonoBehaviour
     public GameObject buttonsEmpty;
     public TextMeshProUGUI text;
     public GameObject enterImageObj;
+    private  bool done = false;
     private TextAsset textScript;
-    private bool holdForResponse = false;
-    private bool done = false;
-    private bool gtg = false;
     private int lineNumber = 0;
-    private string[] lines;
-    public void initialize()
+    private bool skipSignal = false;
+    private bool gtg = false;
+    private string[] lines = new string[4];
+    private string[] response = new string[4];
+    private int[] optionsTF = new int[4];
+    private bool enterAnimation = false;
+    private bool holdForResponse = false;
+    private bool hfr;
+    private bool backup;
+    private string finalResponse = "";
+    private bool clearButtons = false;
+    void startSignal()
     {
-        holdForResponse = false;
         textScript = GV.getScript();
-        lineNumber = 0;
         lines = textScript.text.Split('\n');
-        bool regularDialogue = true;
+        gtg = false;
         
-        for(int i = 0; i < lines.Length; i++)
-        {
-            int result;
-            bool canConvert = Int32.TryParse(lines[lineNumber], out result);
-            if(canConvert)
-            {
-                if(result == 1101588)
-                {
-                    regularDialogue = false;
-                }else if(result == 8675309){
-                    regularDialogue = true;
-                }
-
-            }
-        }
     }
     void Update()
     {
