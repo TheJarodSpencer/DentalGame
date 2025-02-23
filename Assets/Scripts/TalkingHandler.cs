@@ -27,18 +27,17 @@ public class TalkingHandler : MonoBehaviour
     private int lineNumber = 0;
     private bool skipSignal = false;
     private bool nextSignal = false;
-    private bool gtg = false;
+    public bool gtg = false;
     private string[] lines = new string[4];
     private string[] response = new string[4];
     private int[] optionsTF = new int[4];
     private bool enterAnimation = false;
-    private bool holdForResponse = false;
+    public bool holdForResponse = false;
     private string finalResponse = "";
     private bool clearButtons = false;
     void Start()
     {
         GV = Camera.main.GetComponent<GlobalVariables>();
-        skipSignal = false;
         done = false;
         textScript = GV.getScript();
         lineNumber = 0;
@@ -67,6 +66,7 @@ public class TalkingHandler : MonoBehaviour
             }
             if(!done)
             {
+                Debug.Log(holdForResponse);
                 if(!holdForResponse)
                 {
                     if(enterAnimation)
@@ -131,6 +131,7 @@ public class TalkingHandler : MonoBehaviour
         if(gtg)
         {
             holdForResponse = true;
+            Debug.Log("Here");
             responseSetup();
         }else{
             StartCoroutine(enterAnimationF());
@@ -207,6 +208,7 @@ public class TalkingHandler : MonoBehaviour
     }
     private void Response3OnClick()
     {
+        Debug.Log("Now Here wtf");
         buttonColorChanger();
         finalResponse = response[2];
         StartCoroutine(appendResponse());

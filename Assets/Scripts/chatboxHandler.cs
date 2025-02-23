@@ -30,6 +30,8 @@ public class chatboxHandler : MonoBehaviour
     private GameObject hoverDetector;
     private bool goodToClick = false;
     private bool alreadyTalkedTo = false;
+
+    private float talkDistance = 10.0f;
     void Start()
     {
         //rend = this.GetComponent<Renderer>();
@@ -59,7 +61,7 @@ public class chatboxHandler : MonoBehaviour
         float distanceFromObjX = playerX-thisObjPos.x;
         float distanceFromObjZ = playerZ-thisObjPos.z;
         
-        if((-2 < distanceFromObjX && distanceFromObjX < 2) && (-2 < distanceFromObjZ && distanceFromObjZ < 2))
+        if((MathF.Abs(distanceFromObjX) < talkDistance) && (MathF.Abs(distanceFromObjZ) < talkDistance))
         {
             if(hovering)
             {
@@ -68,10 +70,10 @@ public class chatboxHandler : MonoBehaviour
                 goodToClick = true;
             }else{
                 //rend.material = objMat[1];
-                highlighter.SetActive(false);
+                
             }
         }else{
-
+            highlighter.SetActive(false);
         }
 
         
@@ -89,7 +91,7 @@ public class chatboxHandler : MonoBehaviour
                 
                 GV.setAlreadyTalkedTo(alreadyTalkedTo);
                 GV.setScript(talkingScript);
-                alreadyTalkedTo = true;
+                alreadyTalkedTo = false;
                 GV.swapTalkSignal();
                 GV.swapTalking();
                 
