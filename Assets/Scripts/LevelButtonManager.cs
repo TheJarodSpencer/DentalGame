@@ -7,7 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelButtonManager : MonoBehaviour
 {
-    public GlobalVariables GV;
+    //public GlobalVariables GV;
+
+    //To keep track of a score of 100
+    public float score = 0f;
+    public int attempts = 0;
+    public float maxScore = 100f;
 
     public GameObject axiumUIPanel;
     public GameObject diagnosisButton;
@@ -67,6 +72,7 @@ public class LevelButtonManager : MonoBehaviour
 
     }
 
+    //Also contains score calculations!!!
     public void OnClickColorsTheButtons(Button clickedButton, Button[] buttons, int correctAnswerIndex){
         int buttonIndex = System.Array.IndexOf(buttons, clickedButton);
         if (buttonIndex == correctAnswerIndex)
@@ -74,13 +80,21 @@ public class LevelButtonManager : MonoBehaviour
             clickedButton.GetComponent<Image>().color = Color.green; //Correct
             isDiaCorrect = true;
             ++correctAnswers;
+            float rewardMultiplier = attempts == 0 ? 0.25f : 
+                                 attempts == 1 ? 0.1875f : 
+                                 attempts == 2 ? 0.125f : 
+                                 0.0625f;
+            score += maxScore * rewardMultiplier;//Maxscore times how much they earned + already exsisting score
+
             if(correctAnswers == 2){
-                SceneManager.LoadScene("LevelSelector");
+                //SceneManager.LoadScene("LevelSelector");
             }
             Debug.Log("Correct answer!");
+            attempts = 0;//Reset for next button set :)
         }
         else
         {
+            attempts++;//Each attempt wrong attempt is tracked
             clickedButton.GetComponent<Image>().color = Color.red; //Wrong
             Debug.Log("Wrong answer!");
         }

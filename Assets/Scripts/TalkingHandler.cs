@@ -14,6 +14,10 @@ using UnityEngine.UI;
 
 public class TalkingHandler : MonoBehaviour
 {
+    //Public variable adds
+    public LevelButtonManager LBM;
+    public FireBaseLevel FBL;
+
     //public variables here
     public GlobalVariables GV;
     public Texture[] enterImages;
@@ -38,6 +42,9 @@ public class TalkingHandler : MonoBehaviour
     void Start()
     {
         GV = Camera.main.GetComponent<GlobalVariables>();
+        //LBM = GameObject.Find(LevelButtonManager).GetComponenet<LevelButtonManager>();
+        //FBL = GameObject.Find(LevelButtonManager).GetComponent<FireBaseLevel>();
+        //skipSignal = false;
         done = false;
         textScript = GV.getScript();
         lineNumber = 0;
@@ -230,8 +237,10 @@ public class TalkingHandler : MonoBehaviour
             if(optionsTF[i] == 0)
             {
                 responseButtons[i].GetComponent<Image>().color = Color.red;
+                //CheckAnswerAndAwardPoints(0);
             }else{
                 responseButtons[i].GetComponent<Image>().color = Color.green;
+                //CheckAnswerAndAwardPoints(1);
             }
         }
     }
@@ -259,4 +268,22 @@ public class TalkingHandler : MonoBehaviour
         enterAnimation = true;
         //done = true;
     }
+
+/*
+   private void CheckAnswerAndAwardPoints(int buttonIndex)
+    {
+        if (buttonIndex == 0) 
+        {
+            //Correct
+            LBM.score += FBL.questionWorth*100;
+            Debug.Log("Correct!");
+        }
+        else
+        {
+            //Wrong
+            Debug.Log("Incorrect");
+        }
+    }
+    */
+
 }

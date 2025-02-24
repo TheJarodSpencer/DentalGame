@@ -2566,6 +2566,7 @@ GameObject:
   - component: {fileID: 980951600}
   - component: {fileID: 980951599}
   - component: {fileID: 980951601}
+  - component: {fileID: 980951602}
   m_Layer: 0
   m_Name: LevelButtonManager
   m_TagString: Untagged
@@ -2586,6 +2587,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GV: {fileID: 0}
+  score: 0
+  attempts: 0
+  maxScore: 100
   axiumUIPanel: {fileID: 1431037411}
   diagnosisButton: {fileID: 74326679}
   medicineButton: {fileID: 1218263010}
@@ -2609,6 +2613,7 @@ MonoBehaviour:
   correctDiaAnswerIndex: 0
   correctMedAnswerIndex: 0
   isDiaCorrect: 0
+  correctAnswers: 0
 --- !u!4 &980951600
 Transform:
   m_ObjectHideFlags: 0
@@ -2640,6 +2645,21 @@ MonoBehaviour:
   newSprite: {fileID: 21300000, guid: fadac6bbe106859408e02d7debfa613b, type: 3}
   noteText: {fileID: 4900000, guid: 298c5dc88185d7b4c81d9432d287008d, type: 3}
   textMeshPro: {fileID: 1634177778}
+--- !u!114 &980951602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980951598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fffd11478e793468f9e1ea96004f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberToTrackQuestions: 1101588
+  countOfQuestions: 0
+  npcScript: {fileID: 4900000, guid: cecee3e9aff0d0c4baee64f6114bdb43, type: 3}
 --- !u!4 &1003776185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5818219532198792904, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
@@ -4051,7 +4071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89af69d5cf8414eb6a98ed9fcc7db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetAspect: 1.7777778
 --- !u!1 &1540037300
 GameObject:
   m_ObjectHideFlags: 0
@@ -5603,8 +5622,8 @@ MonoBehaviour:
   GV: {fileID: 1521072175}
   player: {fileID: 1003776185}
   talkingScript: {fileID: 4900000, guid: cecee3e9aff0d0c4baee64f6114bdb43, type: 3}
-  xThreshold: 1000
-  zThreshold: -1000
+  xThreshold: -10000
+  zThreshold: 10000
   thisCharacter: {fileID: 1348386216082268542}
 --- !u!64 &3631656714722373796
 MeshCollider:
