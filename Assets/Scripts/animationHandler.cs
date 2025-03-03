@@ -85,6 +85,49 @@ public class animationHandler : MonoBehaviour
             clothesRend.material = clothesRight[1];
             isWalkingRight = false;
         }
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            if(!isFacingLeft)
+            {
+                isWalkingRight = true;
+                StartCoroutine(walkingRightAnimation());
+
+            }else{
+                isWalkingLeft = true;
+                StartCoroutine(walkingLeftAnimation());
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            if(!isFacingLeft)
+            {
+                isWalkingRight = true;
+                StartCoroutine(walkingRightAnimation());
+            }else{
+                isWalkingLeft = true;
+                StartCoroutine(walkingLeftAnimation());
+            }
+        }
+        if(Input.GetKeyUp(KeyCode.S))
+        {
+            if(isWalkingRight)
+            {
+                isWalkingRight = false;
+            }else if(isWalkingLeft){
+                isWalkingLeft = false;
+            }
+            
+        }
+        if(Input.GetKeyUp(KeyCode.W))
+        {
+            if(isWalkingRight)
+            {
+                isWalkingRight = false;
+            }else if(isWalkingLeft){
+                isWalkingLeft = false;
+            }
+        }
+        
     }
     private IEnumerator blinkingLoop()
     {
