@@ -25,14 +25,14 @@ public class BoxFadeIn : MonoBehaviour
         cv = GetComponent<CanvasGroup>();
         temp = 0.0f;
         cv.alpha = temp;
-        Invoke("FadeIn", 0.2f);
+        Invoke("FadeIn", 0.05f);
     }
 
     void FadeIn() {
-        if(temp < 1.0f) {
+        if(temp < 0.5f) {
             temp += 0.1f;
             cv.alpha = temp;
-            Invoke("FadeIn", 0.2f);
+            Invoke("FadeIn", 0.05f);
         } 
         else {
             cv.alpha = 1;
