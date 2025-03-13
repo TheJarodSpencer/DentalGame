@@ -14,7 +14,7 @@ using FirebaseWebGL.Scripts.Objects;
 
 public class AdminPanel : MonoBehaviour
 {
-    public InputField inputField;
+    public TMP_InputField inputField;
     public TextMeshProUGUI outputText; 
     private const string DefaultPassword = "test123";
     private string collectionPath = "users"; 
@@ -43,8 +43,9 @@ public class AdminPanel : MonoBehaviour
             //DisplayError("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
     }
 
-    public void ProcessInput(string userInput)
+    public void ProcessInput()
     {
+        string userInput = inputField.text;
         //Split the input by semicolons into individual users
         string[] users = userInput.Split(';');
         List<UserData> validUsers = new List<UserData>();  //To store valid users

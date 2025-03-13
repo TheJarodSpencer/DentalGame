@@ -2629,6 +2629,7 @@ MonoBehaviour:
   correctMedAnswerIndex: 0
   isDiaCorrect: 0
   correctAnswers: 0
+  npcHoverDetector: {fileID: 3631656714722373793}
 --- !u!4 &980951600
 Transform:
   m_ObjectHideFlags: 0
