@@ -731,6 +731,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2052000059}
   smoothSpeed: 5
+  raycastDistance: 10
+  isOnFloor1: 0
 --- !u!1 &792129075
 GameObject:
   m_ObjectHideFlags: 0

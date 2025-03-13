@@ -35,6 +35,9 @@ public class LevelButtonManager : MonoBehaviour
     public bool isDiaCorrect =  false;
     public int correctAnswers = 0;
 
+    //To disable NPC click
+    public GameObject npcHoverDetector;
+
 
     void Start(){
         LoadTextFromFile(diaFile, diaButtons);
@@ -125,6 +128,7 @@ public class LevelButtonManager : MonoBehaviour
         diagnosisAns.SetActive(false);
         backButtonFromDiaAndMed.SetActive(false);
         diagnosisButton.SetActive(true);
+        npcHoverDetector.SetActive(true);
         medicineButton.SetActive(HandleMedShown());
 
     }
@@ -134,6 +138,7 @@ public class LevelButtonManager : MonoBehaviour
         medicineButton.SetActive(false);
         diagnosisAns.SetActive(true);
         backButtonFromDiaAndMed.SetActive(true);
+        npcHoverDetector.SetActive(false);
     }
 
     public void OnClickOfMedicine(){
@@ -141,6 +146,7 @@ public class LevelButtonManager : MonoBehaviour
         medicineButton.SetActive(false);
         medicineAns.SetActive(true);
         backButtonFromDiaAndMed.SetActive(true);
+        npcHoverDetector.SetActive(false);
     }
 
 
