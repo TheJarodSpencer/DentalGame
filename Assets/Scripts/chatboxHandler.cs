@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class chatboxHandler : MonoBehaviour
 {
+    
     public GlobalVariables GV;
     public Transform player;
     public TextAsset talkingScript;
@@ -92,6 +93,7 @@ public class chatboxHandler : MonoBehaviour
                 alreadyTalkedTo = true;
                 GV.swapTalkSignal();
                 GV.swapTalking();
+                
                 
             }
         }

@@ -8,7 +8,7 @@ public class UIHandler : MonoBehaviour
     public GameObject chatBoxUI;
     public GlobalVariables GV;
     private bool canvasExists = false;
-    public TalkingLogic tl;
+    public DialogueManager dm;
     void Start()
     {
         chatBoxUI.SetActive(false);
@@ -25,6 +25,7 @@ public class UIHandler : MonoBehaviour
                 chatBoxUI.SetActive(true);
                 //regularUI.SetActive(false);
                 canvasExists = true;
+                dm.StartSignal();
             }
         }else{
             if(canvasExists)

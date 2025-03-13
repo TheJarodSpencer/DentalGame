@@ -4,17 +4,19 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Compilation;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TalkingLogic : MonoBehaviour
 {
+    public TalkingHandler TH;
     public GlobalVariables GV;
-    public Texture[] enterImages;
+    //public Texture[] enterImages;
     public Button[] responseButtons;
     public GameObject buttonsEmpty;
     public TextMeshProUGUI text;
-    public GameObject enterImageObj;
+    //public GameObject enterImageObj;
     private  bool done = false;
     private TextAsset textScript;
     private int lineNumber = 0;
@@ -29,177 +31,159 @@ public class TalkingLogic : MonoBehaviour
     private bool backup;
     private string finalResponse = "";
     private bool clearButtons = false;
-    void startSignal()
+    public void startSignal()
     {
         textScript = GV.getScript();
         lines = textScript.text.Split('\n');
         gtg = false;
         skipSignal = false;
+        lines = textScript.text.Split('\n');
+        lineNumber = 0;
+        TH.establishScriptSize(lines.Length);
         startTalking();
     }
-    private void resetStuff()
+    public void startTalking()
     {
-        response = new string[4];
-        optionsTF = new int[4];
-    }
-    private void startTalking()
-    {
-        //This can be removed or reworked depending on how we want to do this
-        if(!GV.getAlreadyTalkedTo())
+        if(clearButtons)
         {
-            int result;
-            bool canConvert = Int32.TryParse(lines[lineNumber+1], out result);
-            if(canConvert)
+            restoreButtonColors();
+            buttonsEmpty.SetActive(false);
+            lineNumber = lineNumber + 10;
+            clearButtons = false;
+        }
+        int result;
+        if(Int32.TryParse(lines[lineNumber+1], out result))
+        {
+            if(result == 1101588)
             {
-                if(result == 1101588)
-                {
-                    gtg = true;
-                }
-            }
-            displayText(lines[lineNumber]);
-            if(gtg)
-            {
-                holdForResponse = true;
-                responseSetup();
+                gtg = true;
             }
         }
-    }
-    private void responseSetup()
-    {
-        setButtonsActive();
-        lineNumber++;
-        for(int i = 0; i < 4; i++)
+
+        TH.talk(lines[lineNumber], lineNumber);
+
+        if(gtg)
         {
-            lineNumber++;
-            buttonSplitter(lines[lineNumber], i);
-        }
-        for(int i = 0; i < 4; i++)
-        {
-            lineNumber++;
-            responseSetter(lines[lineNumber], i);
-        }
-        if((lineNumber + 1) < lines.Length)
-        {
-            int result;
-            bool canConvert = Int32.TryParse(lines[lineNumber + 1], out result);
-            if(canConvert)
-            {
-                if(result == 8675309)
-                {
-                    gtg = false;
-                    lineNumber++;
-                }
-            }else{
-                done = true;
-            }
+            addButtonListeners();
+            buttonSetup(lineNumber+2, 0);
+            buttonSetup(lineNumber+3, 1);
+            buttonSetup(lineNumber+4, 2);
+            buttonSetup(lineNumber+5, 3);
+            responseSetup(lineNumber+6, 0);
+            responseSetup(lineNumber+7, 1);
+            responseSetup(lineNumber+8, 2);
+            responseSetup(lineNumber+9, 3);
+            holdForResponse = true;
         }
     }
-    private void buttonSplitter(string rLine, int button)
+    private void responseSetup(int ln, int element)
     {
+        response[element] = lines[ln];
+    }
+    private void buttonSetup(int ln, int element)
+    {
+        
         bool firstChar = true;
-        foreach(char character in rLine)
+        foreach(char character in lines[ln])
         {
             if(firstChar)
             {
-                optionsTF[button] = Int32.Parse(new string(character, 1));
-                responseButtons[button].GetComponentInChildren<TextMeshProUGUI>().text = "";
-                firstChar = false;  
+                optionsTF[element] = Int32.Parse(new string(character, 1));
+                responseButtons[element].GetComponentInChildren<TextMeshProUGUI>().text = ""; 
+                firstChar = false;
             }else{
-                responseButtons[button].GetComponentInChildren<TextMeshProUGUI>().text += character;
+                responseButtons[element].GetComponentInChildren<TextMeshProUGUI>().text += character;
             }
         }
+        //response[element] = lines[ln];
     }
-    private void responseSetter(string rLine, int value)
+    private void addButtonListeners()
     {
-        response[value] = rLine;
+        responseButtons[0].onClick.AddListener(onButton1Click);
+        responseButtons[1].onClick.AddListener(onButton2Click);
+        responseButtons[2].onClick.AddListener(onButton3Click);
+        responseButtons[3].onClick.AddListener(onButton4Click);
+        
     }
-    private void setButtonsInactive()
+    private void removeButtonListeners()
     {
         responseButtons[0].onClick.RemoveAllListeners();
-        responseButtons[1].onClick.RemoveAllListeners();
         responseButtons[2].onClick.RemoveAllListeners();
         responseButtons[3].onClick.RemoveAllListeners();
-        buttonsEmpty.SetActive(true);
-    }
-    private void setButtonsActive()
-    {
-        buttonsEmpty.SetActive(true);
-        responseButtons[0].onClick.AddListener(Response1OnClick);
-        responseButtons[1].onClick.AddListener(Response2OnClick);
-        responseButtons[2].onClick.AddListener(Response3OnClick);
-        responseButtons[4].onClick.AddListener(Response4OnClick);
-    }
-    private void displayText(string line)
-    {
-        text.text = "";
-        foreach(char character in line)
-        {
-            //look into invoke if this does not work
-            text.text += character;
-            if(!skipSignal)
-            {
-                StartCoroutine(waitASec());
-            }else{
-                text.text = line;
-                return;
-            }
-        }
-        if(clearButtons)
-        {
-            setButtonsInactive();
-            resetStuff();
-        }
-    }
-    private IEnumerator waitASec()
-    {
-        yield return new WaitForSeconds(0.05f);
+        responseButtons[4].onClick.RemoveAllListeners();
+        
     }
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            if(TH.getIsTalking())
+            {
+                TH.skipSignal(lines[lineNumber], lineNumber);
+            }else{
+                if(!holdForResponse)
+                {
+                    lineNumber++;
+                    startTalking();
+                }
+            }
+        }
+        if(holdForResponse && !TH.getIsTalking())
+        {
+            buttonsEmpty.SetActive(true);
+        }
     }
-    void Response1OnClick()
+    public void onButton1Click()
     {
-
+        respond(0);
     }
-    void Response2OnClick()
+    public void onButton2Click()
     {
-
+        respond(1);
     }
-    void Response3OnClick()
+    public void onButton3Click()
     {
-
+        respond(2);
     }
-    void Response4OnClick()
+    public void onButton4Click()
     {
-
+        respond(3);
     }
-    void collectiveButtonsFunction(int buttonValue)
+    public void respond(int buttonValue)
     {
-        buttonColorChanger();
-        finalResponse = response[buttonValue];
-        displayText(finalResponse);
+        holdForResponse = false;
+        int ln = lineNumber + 6 + buttonValue;
+        TH.talk(response[buttonValue], ln);
+        changeButtonColors(buttonValue);
         clearButtons = true;
     }
-    private void buttonColorChanger()
+    private void changeButtonColors(int buttonValue)
     {
         for(int i = 0; i < 4; i++)
         {
             if(optionsTF[i] == 0)
             {
                 responseButtons[i].GetComponent<Image>().color = Color.red;
+                if(i == buttonValue)
+                {
+                    //Send incorrect to score card
+                }
             }else{
                 responseButtons[i].GetComponent<Image>().color = Color.green;
+                if(i == buttonValue)
+                {
+                    //Send correct to score card
+                }
             }
         }
-        backup = true;
     }
-    private void buttonColorReset()
+    private void restoreButtonColors()
     {
         for(int i = 0; i < 4; i++)
         {
-            responseButtons[i].GetComponent<Image>().color = Color.white;
+            responseButtons[i].GetComponent<Image>().color = Color.grey;
         }
     }
-    
+
+
 }
