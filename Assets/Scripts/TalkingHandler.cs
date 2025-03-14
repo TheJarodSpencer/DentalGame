@@ -63,7 +63,7 @@ public class TalkingHandler : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Return))
         {
             if(clearButtons)
             {
@@ -199,36 +199,48 @@ public class TalkingHandler : MonoBehaviour
     }
     private void Response1OnClick()
     {
-        buttonColorChanger();
-        finalResponse = response[0];
-        StartCoroutine(appendResponse());
-        holdForResponse = false;
-        clearButtons = true;
+        if(GV.getButtonValue() == 1)
+        {
+            buttonColorChanger();
+            finalResponse = response[0];
+            StartCoroutine(appendResponse());
+            holdForResponse = false;
+            clearButtons = true;
+        }
     }
     private void Response2OnClick()
     {
-        buttonColorChanger();
-        finalResponse = response[1];
-        StartCoroutine(appendResponse());
-        holdForResponse = false;
-        clearButtons = true;
+        if(GV.getButtonValue() == 2)
+        {
+            buttonColorChanger();
+            finalResponse = response[1];
+            StartCoroutine(appendResponse());
+            holdForResponse = false;
+            clearButtons = true;
+        }
     }
     private void Response3OnClick()
     {
-        Debug.Log("Now Here wtf");
-        buttonColorChanger();
-        finalResponse = response[2];
-        StartCoroutine(appendResponse());
-        holdForResponse = false;
-        clearButtons = true;
+        if(GV.getButtonValue() == 3)
+        {
+            Debug.Log("Now Here wtf");
+            buttonColorChanger();
+            finalResponse = response[2];
+            StartCoroutine(appendResponse());
+            holdForResponse = false;
+            clearButtons = true;
+        }
     }
     private void Response4OnClick()
     {
-        buttonColorChanger();
-        finalResponse = response[3];
-        StartCoroutine(appendResponse());
-        holdForResponse = false;
-        clearButtons = true;
+        if(GV.getButtonValue() == 4)
+        {
+            buttonColorChanger();
+            finalResponse = response[3];
+            StartCoroutine(appendResponse());
+            holdForResponse = false;
+            clearButtons = true;
+        }
     }
     private void buttonColorChanger()
     {
