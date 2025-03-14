@@ -7,6 +7,7 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.IO;
+using UnityEngine.SceneManagement;//Go back to main menu
 
 using FirebaseWebGL.Examples.Utils;
 using FirebaseWebGL.Scripts.FirebaseBridge;
@@ -15,10 +16,12 @@ using FirebaseWebGL.Scripts.Objects;
 public class AdminPanel : MonoBehaviour
 {
     public TMP_InputField inputField;
+    public TMP_InputField removeField;
     public TextMeshProUGUI outputText; 
     private const string DefaultPassword = "test123";
     private string collectionPath = "users"; 
     private TextMeshProUGUI errorText; 
+    public FireBase fireBase;
 
     [SerializeField]
     public Button SubmittButtonNew;
@@ -63,7 +66,7 @@ public class AdminPanel : MonoBehaviour
             }
 
             string username = trimmedUser.Split('@')[0];
-            UserData userData = new UserData(username, DefaultPassword); //User data
+            UserData userData = new UserData(username + "@siue.edu", DefaultPassword); //User data
             validUsers.Add(userData);  
         }
 
@@ -72,13 +75,22 @@ public class AdminPanel : MonoBehaviour
         {
             string jsonData = JsonUtility.ToJson(userData);
             Debug.Log($"Valid SIUE User: {userData.username}");
-            FirebaseFirestore.SetDocument(collectionPath, userData.username, jsonData, gameObject.name, "DisplayData", "DisplayErrorObject");
+            string username = userData.username.Replace("@siue.edu", "");
+            FirebaseFirestore.SetDocument(collectionPath, username, jsonData, gameObject.name, "DisplayData", "DisplayErrorObject");
+            PlayerSetUp(username);
         }
 
         if (validUsers.Count == 0)
         {
             Debug.LogError("No valid SIUE users were found.");
         }
+    }
+
+    public void ProcessRemoval(){
+
+
+
+
     }
 
     bool IsValidSIUEEmail(string email)
@@ -105,4 +117,25 @@ public class AdminPanel : MonoBehaviour
         errorText.text = error;
         Debug.LogError(error);
     }
+
+    public void PlayerSetUp(string username)
+    {
+        FireBase.PlayerData newPlayerData = new FireBase.PlayerData
+        {
+            playerName = username + "@siue.edu",  // Use the user's username as the character name
+            playerLevel = 0,
+            playerExperience = 0.0f,
+            playerCustomization = 0
+        };
+
+        string jsonData = JsonUtility.ToJson(newPlayerData);
+        Debug.Log("Raw Data in Create Character: " + jsonData);
+
+        fireBase.SetCharacterDocument("players", username + "@siue.edu", jsonData);
+    } 
+
+    public void Return(){
+        SceneManager.LoadScene("Login");
+    }
+
 }
