@@ -31,6 +31,7 @@ public class TalkingHandler : MonoBehaviour
     private int lineNumber = 0;
     private bool skipSignal = false;
     private bool nextSignal = false;
+    private bool isTalking = false;
     public bool gtg = false;
     private string[] lines = new string[4];
     private string[] response = new string[4];
@@ -39,6 +40,7 @@ public class TalkingHandler : MonoBehaviour
     public bool holdForResponse = false;
     private string finalResponse = "";
     private bool clearButtons = false;
+    private bool finished = false;
     void Start()
     {
         GV = Camera.main.GetComponent<GlobalVariables>();
@@ -71,24 +73,31 @@ public class TalkingHandler : MonoBehaviour
                 buttonsEmpty.SetActive(false);
                 clearButtons = false;
             }
-            if(!done)
+            if(!done && !finished)
             {
-                Debug.Log(holdForResponse);
+                //Debug.Log(holdForResponse);
                 if(!holdForResponse)
                 {
-                    if(enterAnimation)
+                    if(!isTalking)
                     {
                         enterAnimation = false;
                         startTalking();
                     }else{
                         skipSignal = true;
+
                     }
                 }
             }else{
+            //}else if(done && !finished){
+                
+            //}else if (done && finished){
                 GV.clearScript();
                 GV.swapTalking();
             }
         }
+        GV.setTalkingSound(isTalking);
+        Debug.Log(isTalking);
+
     }
     private IEnumerator enterAnimationF()
     {
@@ -113,26 +122,44 @@ public class TalkingHandler : MonoBehaviour
                     gtg = true;
                 }
             }
+            StopAllCoroutines();
             StartCoroutine(AppendCharacters(lines[lineNumber]));
+            if(gtg)
+            {
+                holdForResponse = true;
+                Debug.Log("Here");
+                responseSetup();
+            }else{
+                StartCoroutine(enterAnimationF());
+            }
             lineNumber++;
+            
         }else{
             done = true;
             StartCoroutine(AppendCharacters("Sorry, I'm afraid you have already talked with me."));
+            //StartCoroutine(AppendCharacters("Sorry, I'm afraid you have already talked with me."));
         }
     }
+
+
     private IEnumerator AppendCharacters(string line)
     {
         text.text = "";
         foreach(char character in line)
         {
+            
             if(!skipSignal)
             {
+                isTalking = true;
                 text.text += character;
+                yield return new WaitForSeconds(0.02f);
             }else{
                 text.text = line;
+                isTalking = false;
                 yield return null;
             }
         }
+        isTalking = false;
         skipSignal = false;
         enterAnimation = true;
         if(gtg)
@@ -163,8 +190,8 @@ public class TalkingHandler : MonoBehaviour
             responseSetter(lines[lineNumber], i);
         }
         lineNumber++;
-        if(lineNumber < lines.Length)
-        {
+        //if(lineNumber < lines.Length)
+        //{
             int result;
             bool canConvert = Int32.TryParse(lines[lineNumber], out result);
             if(canConvert)
@@ -174,9 +201,10 @@ public class TalkingHandler : MonoBehaviour
                     gtg = false;
                 }
             }
-        }else{
-            done = true;
-        }
+            
+        //}else{
+            //done = true;
+        //}
     }
     private void responseSetter(string rLine, int value)
     {
@@ -201,6 +229,7 @@ public class TalkingHandler : MonoBehaviour
     {
         if(GV.getButtonValue() == 1)
         {
+            StopAllCoroutines();
             buttonColorChanger();
             finalResponse = response[0];
             StartCoroutine(appendResponse());
@@ -212,6 +241,7 @@ public class TalkingHandler : MonoBehaviour
     {
         if(GV.getButtonValue() == 2)
         {
+            StopAllCoroutines();
             buttonColorChanger();
             finalResponse = response[1];
             StartCoroutine(appendResponse());
@@ -223,10 +253,12 @@ public class TalkingHandler : MonoBehaviour
     {
         if(GV.getButtonValue() == 3)
         {
+            StopAllCoroutines();
             Debug.Log("Now Here wtf");
             buttonColorChanger();
             finalResponse = response[2];
             StartCoroutine(appendResponse());
+
             holdForResponse = false;
             clearButtons = true;
         }
@@ -235,9 +267,11 @@ public class TalkingHandler : MonoBehaviour
     {
         if(GV.getButtonValue() == 4)
         {
+            StopAllCoroutines();
             buttonColorChanger();
             finalResponse = response[3];
             StartCoroutine(appendResponse());
+
             holdForResponse = false;
             clearButtons = true;
         }
@@ -263,21 +297,31 @@ public class TalkingHandler : MonoBehaviour
             responseButtons[i].GetComponent<Image>().color = Color.white;
         }
     }
+    
     private IEnumerator appendResponse()
     {
         text.text = "";
         foreach(char character in finalResponse)
         {
+            
             if(!skipSignal)
             {
+                isTalking = true;
                 text.text += character;
+                yield return new WaitForSeconds(0.02f);
             }else{
                 text.text = finalResponse;
+                isTalking = false;
                 yield return null;
             }
         }
+        isTalking = false;
         skipSignal = false;
         enterAnimation = true;
+        if(lineNumber + 1 >= lines.Length)
+            {
+                done = true;
+            }
         //done = true;
     }
 

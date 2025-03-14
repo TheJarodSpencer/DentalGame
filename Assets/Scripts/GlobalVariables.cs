@@ -21,6 +21,16 @@ public class GlobalVariables : MonoBehaviour
     TextAsset talkingScript;
     bool alreadyTalkedTo = false;
     int buttonValue = 0;
+    bool playTalkingSound = false;
+    //this is for talking audio
+    public void setTalkingSound(bool sound)
+    {
+        playTalkingSound = sound;
+    }
+    public bool getTalkingSound()
+    {
+        return playTalkingSound;
+    }
     //this is for mouse hover over buttons
     public void setButtonValue(int button)
     {
