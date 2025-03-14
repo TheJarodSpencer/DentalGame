@@ -72,7 +72,8 @@ public class ButtonManager : MonoBehaviour
     void Start()
     {
         //starts blinking animation
-        StartCoroutine(BlinkingLoop());
+        //StartCoroutine(BlinkingLoop());
+        
         //Set everything to be invisible
         sexEmpty.SetActive(false);
         hairEmpty.SetActive(false);

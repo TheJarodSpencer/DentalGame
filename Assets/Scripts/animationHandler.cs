@@ -42,7 +42,7 @@ public class animationHandler : MonoBehaviour
         {
             hairRend = hobj.GetComponent<Renderer>();
         }
-        StartCoroutine(blinkingLoop());
+        //StartCoroutine(blinkingLoop());
     }
 
     // Update is called once per frame
