@@ -68,7 +68,7 @@ public class UserAuth : MonoBehaviour
         else {
             putIn = username.Split("@")[0];
             Debug.Log("Gameobject name" + gameObject.name);
-            FirebaseFirestore.GetDocument("users", putIn, gameObject.name, "DisplayData", "DisplayErrorObject");//Pulls from Database
+            FirebaseFirestore.GetDocument("users", putIn, "LoginManager", "DisplayData", "DisplayErrorObject");//Pulls from Database
         }
     }
                 

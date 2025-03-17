@@ -23,6 +23,8 @@ public class animationHandler : MonoBehaviour
     private bool isFacingLeft = true;
     private bool isFacingRight = false;
 
+    public CharacterLoader loader;
+
 
     
     void Start()
@@ -145,8 +147,10 @@ public class animationHandler : MonoBehaviour
         if(isFacingLeft)
         {
             skinRend.material = skin[1];
+            //skinRend.material.SetColor("_BaseColor", loader.skinColor);
         }else if(isFacingRight){
             skinRend.material = skin[3];
+            //skinRend.material.SetColor("_Color", loader.skinColor);
         }
     }
     private void unblink()
@@ -154,6 +158,7 @@ public class animationHandler : MonoBehaviour
         if(isFacingLeft)
         {
             skinRend.material = skin[0];
+            //skinRend.material.SetColor("_BaseColor", loader.skinColor);
         }else if(isFacingRight){
             skinRend.material = skin[2];
         }

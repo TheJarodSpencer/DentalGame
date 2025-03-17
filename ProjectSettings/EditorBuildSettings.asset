@@ -21,20 +21,26 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterCreator.unity
     guid: ecabc94f38522464a8c8884e46f66486
   - enabled: 1
-    path: Assets/Scenes/LevelSelectorMainFloor.unity
-    guid: 54b8651fa4565cc48a5885dcf374b68f
-  - enabled: 1
     path: Assets/Scenes/ElevatorScene.unity
     guid: 9db680c3968a04a75abf592799522d7e
   - enabled: 1
     path: Assets/Scenes/SettingsScene.unity
     guid: 19eaf0b1e31904225b5fa5b43175f3a8
   - enabled: 1
+    path: Assets/Scenes/LevelSelectorMainFloor.unity
+    guid: 54b8651fa4565cc48a5885dcf374b68f
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 15959bfbda77b0f479e80c8f90050b49
+  - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 815ff2c646e45f440b771a4a0193eab3
-  - enabled: 0
-    path: Assets/Scenes/FirstScene.unity
-    guid: 9a2fbbf70d29eac4ca1c537148d846cf
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 9fc56f748df745944a305c42af1d2b21
+  - enabled: 1
+    path: Assets/Scenes/LevelSelector2ndFloor.unity
+    guid: 0cbc9f6f5faa33b44babc7687f7a020a
   - enabled: 0
     path: Assets/Scenes/AppleTemp/StartScreen.unity
     guid: ac5c91c40d144a946b3343d2e691f254
@@ -45,6 +51,9 @@ EditorBuildSettings:
     path: Assets/Scenes/AppleTemp/_Scene_0.unity
     guid: a5173a53d29caed49b67faa2b68f868a
   - enabled: 0
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Level1NO.unity
     guid: 3259a5e10a7a3664d944ecc0c305fd94
+  - enabled: 0
+    path: Assets/Scenes/FirstScene.unity
+    guid: 9a2fbbf70d29eac4ca1c537148d846cf
   m_configObjects: {}

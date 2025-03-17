@@ -24,4 +24,8 @@ public class PlayerSaveData : MonoBehaviour
     public FireBase.PlayerData GetPlayerData(){
         return currentSaveData;
     }
+
+    public int GetPlayerCustomization(){
+        return currentSaveData.playerCustomization;
+    }
 }

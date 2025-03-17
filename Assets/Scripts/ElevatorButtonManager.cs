@@ -9,4 +9,8 @@ public class ElevatorButtonManager : MonoBehaviour
     public void OnFloorOneButton(){
         SceneManager.LoadScene("LevelSelectorMainFloor");
     }
+
+    public void OnFloor2Button(){
+        SceneManager.LoadScene("LevelSelector2ndFloor");
+    }
 }

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CharacterLoader : MonoBehaviour
 {
+
+    //public material color changes for animation
+    public Color clothesColor;
+    public Color skinColor;
+    public Color hairColor;
+
     public int testCharacterID = 0;
     public GlobalVariables gv;
     public GameObject character;
@@ -17,7 +23,24 @@ public class CharacterLoader : MonoBehaviour
     public Material[] clothesColorMat;
     public Material labcoatMat;
     public Material glassesMat;
+    
     void Start()
+    {
+        testCharacterID = PlayerSaveData.Instance.GetPlayerCustomization();
+        UpdateCharacterAppearance();
+    }
+
+    void Update()
+    {
+        //Updated every frame
+        if(character != null)
+        {
+            UpdateCharacterAppearance();
+        }
+
+    }
+
+    void UpdateCharacterAppearance()
     {
         Transform skin = character.transform.Find("skin");
         if(skin != null)
@@ -28,8 +51,10 @@ public class CharacterLoader : MonoBehaviour
                 if(idDecoder(1) == 1)
                 {
                     renderer.material = maleSkinMat[idDecoder(4)];
+                    skinColor = renderer.material.color;
                 }else if(idDecoder(1) == 2){
                     renderer.material = femaleSkinMat[idDecoder(4)];
+                    skinColor = renderer.material.color;
                 }
             }
         }
