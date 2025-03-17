@@ -14,6 +14,20 @@ using UnityEngine.UI;
 
 public class TalkingHandler : MonoBehaviour
 {
+    //For score tracking
+    private int playerScore = 0;
+    private int questionsAnswered = 0;
+
+    public void AddScore(int points)
+    {
+        playerScore += points;
+    }
+
+    public int GetScore()
+    {
+        return playerScore;
+    }
+
     //Public variable adds
     public LevelButtonManager LBM;
     public FireBaseLevel FBL;
@@ -235,6 +249,14 @@ public class TalkingHandler : MonoBehaviour
             StartCoroutine(appendResponse());
             holdForResponse = false;
             clearButtons = true;
+
+            if (optionsTF[0] == 1) //is correct
+            {
+                AddScore(1);
+                Debug.Log("Correct Answer! Score: " + GetScore());
+            }
+            questionsAnswered++;
+            Debug.Log("Questions Answered: " + questionsAnswered);
         }
     }
     private void Response2OnClick()
@@ -247,6 +269,14 @@ public class TalkingHandler : MonoBehaviour
             StartCoroutine(appendResponse());
             holdForResponse = false;
             clearButtons = true;
+
+            if (optionsTF[1] == 1) //is correct
+            {
+                AddScore(1);
+                Debug.Log("Correct Answer! Score: " + GetScore());
+            }
+            questionsAnswered++;
+            Debug.Log("Questions Answered: " + questionsAnswered);
         }
     }
     private void Response3OnClick()
@@ -261,6 +291,14 @@ public class TalkingHandler : MonoBehaviour
 
             holdForResponse = false;
             clearButtons = true;
+
+            if (optionsTF[2] == 1) //is correct
+            {
+                AddScore(1);
+                Debug.Log("Correct Answer! Score: " + GetScore());
+            }
+            questionsAnswered++;
+            Debug.Log("Questions Answered: " + questionsAnswered);
         }
     }
     private void Response4OnClick()
@@ -274,6 +312,13 @@ public class TalkingHandler : MonoBehaviour
 
             holdForResponse = false;
             clearButtons = true;
+            if (optionsTF[3] == 1) //is correct
+            {
+                AddScore(1);
+                Debug.Log("Correct Answer! Score: " + GetScore());
+            }
+            questionsAnswered++;
+            Debug.Log("Questions Answered: " + questionsAnswered);
         }
     }
     private void buttonColorChanger()

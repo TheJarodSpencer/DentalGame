@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public void OnPlayButton(){
-        SceneManager.LoadScene("LevelSelector");
+        SceneManager.LoadScene("LevelSelectorMainFloor");
     }
     public void OnSettingsButton(){
         SceneManager.LoadScene("SettingsScene");

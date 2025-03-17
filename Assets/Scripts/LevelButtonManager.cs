@@ -22,12 +22,16 @@ public class LevelButtonManager : MonoBehaviour
     public GameObject diagnosisAns;
     public GameObject medicineAns;
     public GameObject backButtonFromDiaAndMed;
+    public GameObject completeLevel;
 
     //For the Diagnosis and Medicine Anwsers
     public Button[] medButtons;
     public Button[] diaButtons;
     public TextAsset diaFile; 
     public TextAsset medFile;
+
+    //For Score
+    public TMP_Text scoreText;
 
     //For if wrong or right button for Med and Diagnosis
     public int correctDiaAnswerIndex;
@@ -83,14 +87,25 @@ public class LevelButtonManager : MonoBehaviour
             clickedButton.GetComponent<Image>().color = Color.green; //Correct
             isDiaCorrect = true;
             ++correctAnswers;
-            float rewardMultiplier = attempts == 0 ? 0.25f : 
-                                 attempts == 1 ? 0.1875f : 
-                                 attempts == 2 ? 0.125f : 
-                                 0.0625f;
+            float rewardMultiplier = attempts == 0 ? 0.5f : 
+                                 attempts == 1 ? 0.25f : 
+                                 attempts == 2 ? 0.1875f : 
+                                 0.125f;
             score += maxScore * rewardMultiplier;//Maxscore times how much they earned + already exsisting score
 
             if(correctAnswers == 2){
-                //SceneManager.LoadScene("LevelSelector");
+                axiumUIPanel.SetActive(false);
+                diagnosisButton.SetActive(false);
+                medicineButton.SetActive(false);
+                backButtonFromAxium.SetActive(false);
+                axiumButton.SetActive(false);
+                diagnosisAns.SetActive(false);
+                medicineAns.SetActive(false);
+                backButtonFromDiaAndMed.SetActive(false);
+                diagnosisButton.SetActive(false);
+                medicineButton.SetActive(false);
+                completeLevel.SetActive(true);
+                scoreText.text = score.ToString() + "%";
             }
             Debug.Log("Correct answer!");
             attempts = 0;//Reset for next button set :)
