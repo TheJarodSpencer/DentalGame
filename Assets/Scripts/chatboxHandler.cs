@@ -70,7 +70,7 @@ public class chatboxHandler : MonoBehaviour
                 goodToClick = true;
             }else{
                 //rend.material = objMat[1];
-                
+                highlighter.SetActive(false);
             }
         }else{
             highlighter.SetActive(false);
@@ -91,7 +91,7 @@ public class chatboxHandler : MonoBehaviour
                 
                 GV.setAlreadyTalkedTo(alreadyTalkedTo);
                 GV.setScript(talkingScript);
-                alreadyTalkedTo = false;
+                alreadyTalkedTo = true;
                 GV.swapTalkSignal();
                 GV.swapTalking();
                 
