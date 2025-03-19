@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -264,6 +264,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 125848766}
     m_Modifications:
+    - target: {fileID: 4582452132619619317, guid: 976c3d49948064cd68f0c77532a6ef8b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnNextButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4582452134203698150, guid: 976c3d49948064cd68f0c77532a6ef8b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6180,26 +6184,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3887223397292081382, guid: 6edb4d168e39ef741b79b7e00172d488, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -17.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3887223397292081382, guid: 6edb4d168e39ef741b79b7e00172d488, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 13.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3887223397716985329, guid: 6edb4d168e39ef741b79b7e00172d488, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3887223397716985329, guid: 6edb4d168e39ef741b79b7e00172d488, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 13.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3887223398361594309, guid: 6edb4d168e39ef741b79b7e00172d488, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 386d8b87fe9636f4dba91505711d0bb4, type: 2}
     - target: {fileID: 8539986326127432089, guid: 6edb4d168e39ef741b79b7e00172d488, type: 3}
       propertyPath: m_Name
       value: LevelScene
