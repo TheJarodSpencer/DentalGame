@@ -4,6 +4,155 @@ using UnityEngine;
 
 public class GlobalCharacterMaterials : MonoBehaviour
 {
+
+    public Material[] skinMale1;
+    public Material[] skinMale2;
+    public Material[] skinMale3;
+    public Material[] skinMale4;
+    public Material[] skinFemale1;
+    public Material[] skinFemale2;
+    public Material[] skinFemale3;
+    public Material[] skinFemale4;
+    //0 is look left eyes open mouth close      4 is look right eyes open mouth close
+    //1 is look left eyes close mouth close     5 is look right eyes close mouth close
+    //2 is look left eyes open mouth open       6 is look right eyes open mouth open
+    //3 is look left eyes close mouth open      7 is look right eyes close mouth open
+    public Material[] scrubs;
+    //0 is look left                    //3 is look right
+    //1 is look left leg up frame 1     //4 is look right leg up frame 1
+    //2 is look left leg up frame 2     //5 is look right leg up frame 2
+    public Material[] glasses;
+    //0 is look left 1 is look right
+    public Material[] labCoat;
+    //0 is look left 1 is look right;
+    public Material[] hairShort;
+    //0 is look left 1 is look right;
+    public Material[] hairPonytail;
+    //0 is look let 1 is look right;
+    public Material blankMat;
+    
+    public Material[] getSkinMaterial(int sexID, int skinID)
+    {
+        Material[] skinReturn = new Material[8];
+        if(sexID == 1)
+        {
+            //Male
+            if(skinID == 1)
+            {
+                skinReturn = skinMale1;
+            }else if(skinID == 2){
+                skinReturn = skinMale2;
+            }else if(skinID == 3){
+                skinReturn = skinMale3;
+            }else if(skinID == 4){
+                skinReturn = skinMale4;
+            }
+        }else if(sexID == 2){
+            //Female
+            if(skinID == 1)
+            {
+                skinReturn = skinFemale1;
+            }else if(skinID == 2){
+                skinReturn = skinFemale2;
+            }else if(skinID == 3){
+                skinReturn = skinFemale3;
+            }else if(skinID == 4){
+                skinReturn = skinFemale4;
+            }
+        }
+        return skinReturn;
+    }
+    public Material[] getHair(int hairID, int colorID)
+    {
+        Material[] hairReturn = new Material[2];
+        if(hairID == 0)
+        {
+            //bald
+            hairReturn[0] = blankMat;
+            hairReturn[1] = blankMat;
+        }else if(hairID == 1){
+            //short
+            if(colorID == 0){
+                //black
+            }else if(colorID == 1){
+                //blonde
+            }else if(colorID == 2){
+                //brown
+            }else if(colorID == 3){
+                //orange
+            }else if(colorID == 4){
+                //red
+            }
+        }else if(hairID == 2){
+            //ponytail
+            if(colorID == 0)
+            {
+                //black
+            }else if(colorID == 1){
+                //blonde
+            }else if(colorID == 2){
+                //brown
+            }else if(colorID == 3){
+                //orange
+            }else if(colorID == 4){
+                //red
+            }
+        }
+        return hairReturn;
+    }
+    public Material[] getGlasses(int glassesID)
+    {
+        Material[] glassesRet = new Material[2];
+        if(glassesID == 0)
+        {
+            glassesRet[0] = blankMat;
+            glassesRet[1] = blankMat;
+        }else{
+            glassesRet = glasses;
+        }
+        return glassesRet;
+    }
+    public Material[] getLabcoat(int labcoat)
+    {
+        Material[] labcoatRet = new Material[2];
+        if(labcoat == 0)
+        {
+            labcoatRet[0] = blankMat;
+            labcoatRet[1] = blankMat;
+        }else if(labcoat == 1){
+            labcoatRet = labCoat;
+        }
+        return labcoatRet;
+    }
+    public Material[] getScrubs(int colorID)
+    {
+        Material[] scrubRet = new Material[6];
+        if(colorID == 0)
+        {
+            //cyan
+        }else if(colorID == 1){
+            //black
+        }else if(colorID == 2){
+            //grey
+        }else if(colorID == 3){
+            //blue
+        }else if(colorID == 4){
+            //orange
+        }else if(colorID == 5){
+            //purple
+        }else if(colorID == 6){
+            //pink
+        }else if(colorID == 7){
+            //red
+        }else if(colorID == 8){
+            //white
+        }else if(colorID == 9){
+            //yellow
+        }
+        return scrubRet;
+    }
+    
+    /*
     //THIS SCRIPT IS USED FOR STORING AND GIVING MATERIALS FOR ANIMATIONS FOR THE CHARACTER
     public Material[] WhiteScrubs;
     public Material[] BlueScrubs;
@@ -211,4 +360,5 @@ public class GlobalCharacterMaterials : MonoBehaviour
     {
         return finalSkinBlink;
     }
+    */
 }
