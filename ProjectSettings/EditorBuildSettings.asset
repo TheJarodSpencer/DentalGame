@@ -31,16 +31,16 @@ EditorBuildSettings:
     guid: 54b8651fa4565cc48a5885dcf374b68f
   - enabled: 1
     path: Assets/Scenes/Level1.unity
-    guid: 15959bfbda77b0f479e80c8f90050b49
+    guid: 2520aea062f191346aef3c589f3bc1d8
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/Level3.unity
     guid: 815ff2c646e45f440b771a4a0193eab3
   - enabled: 1
     path: Assets/Scenes/Level3.unity
-    guid: 9fc56f748df745944a305c42af1d2b21
+    guid: 815ff2c646e45f440b771a4a0193eab3
   - enabled: 1
     path: Assets/Scenes/LevelSelector2ndFloor.unity
-    guid: 0cbc9f6f5faa33b44babc7687f7a020a
+    guid: b5303d79f8beb9c40859e8bdcd45ce04
   - enabled: 0
     path: Assets/Scenes/AppleTemp/StartScreen.unity
     guid: ac5c91c40d144a946b3343d2e691f254

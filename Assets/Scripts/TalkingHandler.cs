@@ -15,7 +15,7 @@ using UnityEngine.UI;
 public class TalkingHandler : MonoBehaviour
 {
     //For score tracking
-    private int playerScore;
+    private int playerScore = 0;
     private int questionsAnswered = 0;
 
     public void AddScore(int points)
@@ -40,7 +40,7 @@ public class TalkingHandler : MonoBehaviour
     public TextMeshProUGUI text;
     public GameObject enterImageObj;
     //private ints here
-    public bool done = false;
+    private bool done = false;
     private TextAsset textScript;
     private int lineNumber = 0;
     private bool skipSignal = false;

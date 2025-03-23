@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Text.RegularExpressions;
 
 public class KeepPlayerPOS : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class KeepPlayerPOS : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     public Vector3 GetPlayerPosition()
     {
         return playerPosition;

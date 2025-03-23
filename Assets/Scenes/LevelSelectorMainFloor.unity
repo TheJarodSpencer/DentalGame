@@ -2574,6 +2574,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 366694615679820580, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
+      propertyPath: sceneToLoad
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 366694615679820580, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: targetSceneName
       value: Level3
       objectReference: {fileID: 0}
@@ -2592,6 +2596,10 @@ PrefabInstance:
     - target: {fileID: 375581584581028757, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_LocalPosition.y
       value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 375581584581028761, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
+      propertyPath: m_TagString
+      value: Level
       objectReference: {fileID: 0}
     - target: {fileID: 375581584581028763, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2612,6 +2620,10 @@ PrefabInstance:
     - target: {fileID: 375581584892308108, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_LocalPosition.y
       value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 375581584892308112, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
+      propertyPath: m_TagString
+      value: Level
       objectReference: {fileID: 0}
     - target: {fileID: 375581584892308114, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2648,6 +2660,10 @@ PrefabInstance:
     - target: {fileID: 375581585683090403, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_LocalPosition.y
       value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 375581585683090407, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
+      propertyPath: m_TagString
+      value: Level
       objectReference: {fileID: 0}
     - target: {fileID: 375581586102337540, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_Name
@@ -2706,8 +2722,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1281771202240384962, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
+      propertyPath: sceneToLoad
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281771202240384962, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: targetSceneName
-      value: Level2
+      value: Level1
       objectReference: {fileID: 0}
     - target: {fileID: 1281771202240384962, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: indicatorCubes.Array.data[0]

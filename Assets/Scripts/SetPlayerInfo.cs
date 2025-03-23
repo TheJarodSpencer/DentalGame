@@ -38,12 +38,18 @@ public class SetPlayerInfo : MonoBehaviour
 
     public void TheCharacterDoesNotExsist()
     {
+        float[] newLevelExperience = new float[20];
+
+        for (int i = 0; i < newLevelExperience.Length; i++)
+        {
+            newLevelExperience[i] = 0.0f;
+        }
+
         FireBase.PlayerData newPlayerData = new FireBase.PlayerData
             {
                 playerName = KeepPlayerName.Instance.GetCharacterName(),
-                playerLevel = 2,            // Default level
-                playerExperience = 2.0f,    // Default experience
-                playerCustomization = 2     // Default customization
+                playerExperience = newLevelExperience,
+                playerCustomization = 1110200     //Default customization
             };
 
             //Convert PlayerData to JSON and store it

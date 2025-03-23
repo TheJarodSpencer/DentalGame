@@ -42,8 +42,8 @@ public class AdminPanel : MonoBehaviour
 
     void Start()
     {
-        //if (Application.platform != RuntimePlatform.WebGLPlayer)
-            //DisplayError("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
+        if (Application.platform != RuntimePlatform.WebGLPlayer)
+            DisplayError("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
     }
 
     public void ProcessInput()
@@ -86,12 +86,14 @@ public class AdminPanel : MonoBehaviour
         }
     }
 
+/*
     public void ProcessRemoval(){
 
 
 
 
     }
+*/
 
     bool IsValidSIUEEmail(string email)
     {
@@ -120,12 +122,18 @@ public class AdminPanel : MonoBehaviour
 
     public void PlayerSetUp(string username)
     {
+        float[] newLevelExperience = new float[20];
+
+        for (int i = 0; i < newLevelExperience.Length; i++)
+        {
+            newLevelExperience[i] = 0.0f;
+        }
+
         FireBase.PlayerData newPlayerData = new FireBase.PlayerData
         {
             playerName = username + "@siue.edu",  // Use the user's username as the character name
-            playerLevel = 0,
-            playerExperience = 0.0f,
-            playerCustomization = 0
+            playerExperience = newLevelExperience,
+            playerCustomization = 1110200
         };
 
         string jsonData = JsonUtility.ToJson(newPlayerData);

@@ -42,7 +42,7 @@ public class EnterDoors : MonoBehaviour
     {
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
-            KeepPlayerPOS.Instance.SetPlayerPosition(characterForPOS);//Added to grab the users POS before entering scene 
+            KeepPlayerPOS.Instance.SetPlayerPosition(characterForPOS);//Added to grab the users POS before entering scene
             SceneManager.LoadScene(targetSceneName);  
            //ReplacePrefab();
         }
