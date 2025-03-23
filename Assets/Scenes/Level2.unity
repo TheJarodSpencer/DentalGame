@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2793,8 +2793,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f654dd35660df4bb0a25e421ea4dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FB: {fileID: 0}
+  pos: {fileID: 0}
   score: 0
-  attempts: 0
+  attemptsMed: 0
+  attemptsDia: 0
   maxScore: 100
   axiumUIPanel: {fileID: 1431037411}
   diagnosisButton: {fileID: 74326679}
@@ -2805,6 +2808,7 @@ MonoBehaviour:
   medicineAns: {fileID: 516433597}
   backButtonFromDiaAndMed: {fileID: 2120986793}
   completeLevel: {fileID: 558704889}
+  npc: {fileID: 7149868718697764494}
   medButtons:
   - {fileID: 1337363650}
   - {fileID: 450983281}
@@ -2821,8 +2825,13 @@ MonoBehaviour:
   correctDiaAnswerIndex: 0
   correctMedAnswerIndex: 0
   isDiaCorrect: 0
-  correctAnswers: 0
+  isMedCorrect: 0
+  correctAnswerDia: 0
+  correctAnswerMed: 0
+  onlyCountOnceDia: 0
+  onlyCountOnceMed: 0
   npcHoverDetector: {fileID: 3631656714722373793}
+  currentSceneName: 
 --- !u!4 &980951600
 Transform:
   m_ObjectHideFlags: 0
@@ -6020,8 +6029,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7149868718697764494}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13, y: 0.47198707, z: 12.4}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 0.47198707, z: 8.3}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6034,7 +6043,7 @@ Transform:
   - {fileID: 3631656714722373794}
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!1 &3631656714082797461
 GameObject:
   m_ObjectHideFlags: 0
