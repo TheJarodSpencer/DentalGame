@@ -14,8 +14,7 @@ public class ReAnimationLoader : MonoBehaviour
     public Material[] labcoat;
     // Start is called before the first frame update
     //to do list
-    //right facing glasses
-    //right facing labcoat?
+    
     //right facing ponytail. 
     //Everything i did for scrubs, hair.
     void Start()
@@ -40,6 +39,14 @@ public class ReAnimationLoader : MonoBehaviour
         converter = charID[5] + "";
         int labcoatID = Int32.Parse(converter);
         labcoat = GCM.getLabcoat(labcoatID);
+    }
+
+    public Material[] getScrubsAnimationFrames()
+    {
+        Material[] formattedScrubs;
+        //format the scrubs to be good for the animation
+        return formattedScrubs;
+
     }
 
     // Update is called once per frame

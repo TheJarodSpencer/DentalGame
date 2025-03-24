@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4541,10 +4541,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: f7b83c631b14ce44e8608b577d5bbcb7, type: 2}
   glasses:
   - {fileID: 2100000, guid: 84fc60bd07063a64c8d5045fdfa98eeb, type: 2}
-  - {fileID: 2100000, guid: 84fc60bd07063a64c8d5045fdfa98eeb, type: 2}
+  - {fileID: 2100000, guid: 4856a0ccbc5fd6b44864e2437b301445, type: 2}
   labCoat:
   - {fileID: 2100000, guid: a694c060504fce04184ea9db67d92caa, type: 2}
-  - {fileID: 2100000, guid: a694c060504fce04184ea9db67d92caa, type: 2}
+  - {fileID: 2100000, guid: c9db5184a356bdc4ba75f0133618e255, type: 2}
   hairShort:
   - {fileID: 2100000, guid: fccb147e2e464cd45b4655faed99d14a, type: 2}
   - {fileID: 2100000, guid: f2458503d80126440aa31cf8887c73fc, type: 2}
