@@ -86,14 +86,43 @@ public class AdminPanel : MonoBehaviour
         }
     }
 
-/*
+
     public void ProcessRemoval(){
+        string userInput = inputField.text;
+        //Split the input by semicolons into individual users
+        string[] users = userInput.Split(';');
+        List<UserData> validUsers = new List<UserData>();  //To store valid users
 
+        foreach (string user in users)
+        {
+            string trimmedUser = user.Trim();  //Trim spaces from the user input
+            Debug.Log("User: " + trimmedUser);
 
+            //Validate SIUE email format
+            if (!IsValidSIUEEmail(trimmedUser))
+            {
+                Debug.LogError($"Invalid email: {trimmedUser}. Must be an SIUE email (@siue.edu).");
+                continue;  //Skip invalid emails
+            }
 
+            string username = trimmedUser.Split('@')[0];
+            UserData userData = new UserData(username + "@siue.edu", DefaultPassword); //User data
+            validUsers.Add(userData);  
+        }
 
+        foreach (UserData userData in validUsers)
+        {
+            Debug.Log($"Valid SIUE User: {userData.username}");
+            FirebaseFirestore.DeleteDocument("users", userData.username, gameObject.name,"DisplayInfo", "DisplayErrorObject");
+            FirebaseFirestore.DeleteDocument("players", userData.username, gameObject.name,"DisplayInfo", "DisplayErrorObject");
+        }
+
+        if (validUsers.Count == 0)
+        {
+            Debug.LogError("No valid SIUE users were found.");
+        }
     }
-*/
+
 
     bool IsValidSIUEEmail(string email)
     {

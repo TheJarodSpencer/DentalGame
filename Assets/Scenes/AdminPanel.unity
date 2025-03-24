@@ -422,9 +422,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Register, Assembly-CSharp
-        m_MethodName: OnRegisterButtonClick
+      - m_Target: {fileID: 1055085908}
+        m_TargetAssemblyTypeName: AdminPanel, Assembly-CSharp
+        m_MethodName: ProcessRemoval
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1386,6 +1386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 630619619}
+  removeField: {fileID: 0}
   outputText: {fileID: 0}
   fireBase: {fileID: 0}
   SubmittButtonNew: {fileID: 1622168534}
@@ -1553,6 +1554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 0}
+  removeField: {fileID: 0}
   outputText: {fileID: 0}
   fireBase: {fileID: 0}
   SubmittButtonNew: {fileID: 0}

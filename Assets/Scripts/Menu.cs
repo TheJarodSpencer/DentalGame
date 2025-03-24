@@ -9,7 +9,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("LevelSelectorMainFloor");
     }
     public void OnSettingsButton(){
-        SceneManager.LoadScene("SettingsScene");
+        SceneManager.LoadScene("SettingsScene");//CHANGE BACK TO SETTINGS!
     }
     
     public void OnCharacterButton(){
