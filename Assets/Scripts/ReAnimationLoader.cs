@@ -13,6 +13,11 @@ public class ReAnimationLoader : MonoBehaviour
     public Material[] glasses;
     public Material[] labcoat;
     // Start is called before the first frame update
+    //to do list
+    //right facing glasses
+    //right facing labcoat?
+    //right facing ponytail. 
+    //Everything i did for scrubs, hair.
     void Start()
     {
         //ADD HERE WHATEVER YOU NEED TO GRAB CHARACTER ID

@@ -13,10 +13,10 @@ public class GlobalCharacterMaterials : MonoBehaviour
     public Material[] skinFemale2;
     public Material[] skinFemale3;
     public Material[] skinFemale4;
-    //0 is look left eyes open mouth close      4 is look right eyes open mouth close
-    //1 is look left eyes close mouth close     5 is look right eyes close mouth close
-    //2 is look left eyes open mouth open       6 is look right eyes open mouth open
-    //3 is look left eyes close mouth open      7 is look right eyes close mouth open
+    //0 is look left eyes open mouth close      3 is look right eyes open mouth close
+    //1 is look left eyes close mouth close     4 is look right eyes close mouth close
+    //2 is look left eyes open mouth open       5 is look right eyes open mouth open
+
     public Material[] scrubs;
     //0 is look left                    //3 is look right
     //1 is look left leg up frame 1     //4 is look right leg up frame 1
@@ -65,6 +65,7 @@ public class GlobalCharacterMaterials : MonoBehaviour
     public Material[] getHair(int hairID, int colorID)
     {
         Material[] hairReturn = new Material[2];
+        Color newColor = Color.white;
         if(hairID == 0)
         {
             //bald
@@ -74,29 +75,52 @@ public class GlobalCharacterMaterials : MonoBehaviour
             //short
             if(colorID == 0){
                 //black
+                //373637
+                newColor = HexToColor("373637");
+                
             }else if(colorID == 1){
                 //blonde
+                //FEFFB2
+                newColor = HexToColor("FEFFB2");
             }else if(colorID == 2){
                 //brown
+                //603e23
+                newColor = HexToColor("603E23");
             }else if(colorID == 3){
                 //orange
+                //f78f00
+                newColor = HexToColor("F78F00");
             }else if(colorID == 4){
                 //red
+                //f70000
+                newColor = HexToColor("F70000");
             }
+            hairReturn = hairShort;
+            hairReturn[0].color = newColor;
+            hairReturn[1].color = newColor;
+        
         }else if(hairID == 2){
             //ponytail
             if(colorID == 0)
             {
                 //black
+                newColor = HexToColor("373637");
             }else if(colorID == 1){
                 //blonde
+                newColor = HexToColor("FEFFB2");
             }else if(colorID == 2){
                 //brown
+                newColor = HexToColor("603E23");
             }else if(colorID == 3){
                 //orange
+                newColor = HexToColor("F78F00");
             }else if(colorID == 4){
                 //red
+                newColor = HexToColor("F70000");
             }
+            hairReturn = hairPonytail;
+            hairReturn[0].color = newColor;
+            hairReturn[1].color = newColor;
         }
         return hairReturn;
     }
@@ -127,29 +151,64 @@ public class GlobalCharacterMaterials : MonoBehaviour
     public Material[] getScrubs(int colorID)
     {
         Material[] scrubRet = new Material[6];
+        Color newColor = Color.white;
         if(colorID == 0)
         {
             //cyan
+            //01e1ff
+            newColor = HexToColor("01E1FF");
         }else if(colorID == 1){
             //black
+            //000000
+            newColor = HexToColor("000000");
         }else if(colorID == 2){
             //grey
+            //8a8a8a
+            newColor = HexToColor("8A8A8A");
         }else if(colorID == 3){
-            //blue
+            //blue or indigo
+            //4c00ff
+            newColor = HexToColor("4C00FF");
         }else if(colorID == 4){
             //orange
+            //ff9500
+            newColor = HexToColor("FF9500");
         }else if(colorID == 5){
             //purple
+            //d900ff
+            newColor = HexToColor("D900FF");
         }else if(colorID == 6){
             //pink
+            //ff00bb
+            newColor = HexToColor("FF00BB");
         }else if(colorID == 7){
             //red
+            //ff0034
+            newColor = HexToColor("FF0034");
         }else if(colorID == 8){
             //white
+            //ffffff
+            newColor = HexToColor("FFFFFF");
         }else if(colorID == 9){
             //yellow
+            //d9df00
+            newColor = HexToColor("D9DF00");
         }
+        for(int i = 0; i < 6; i++)
+        {
+            scrubs[i].color = newColor;
+        }
+        scrubRet = scrubs;
         return scrubRet;
+    }
+    private Color HexToColor(string hex)
+    {
+        if(ColorUtility.TryParseHtmlString("#" + hex, out Color color))
+        {
+            return color;
+        }
+        Debug.Log("Color error");
+        return Color.white;
     }
     
     /*
