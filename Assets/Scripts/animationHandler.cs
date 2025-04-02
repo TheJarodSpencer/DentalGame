@@ -12,7 +12,7 @@ public class animationHandler : MonoBehaviour
     public Material[] clothesRight;
     //0 and 1 are left and left blink 2 and 3 are right and right blink
     public Material[] skin;
-    //element 0 is left, element 1 is right
+    //element 0 is left, 1 is left blink, 2 is left mouth open, 3 is right, 4 is right blink, 5 is right mouth open.
     public Material[] hair;
     public GlobalVariables GV;
     private Renderer clothesRend;
@@ -25,8 +25,6 @@ public class animationHandler : MonoBehaviour
 
     public CharacterLoader loader;
 
-
-    
     void Start()
     {
         Transform cobj = transform.Find("clothes");

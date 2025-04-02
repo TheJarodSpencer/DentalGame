@@ -41,12 +41,42 @@ public class ReAnimationLoader : MonoBehaviour
         labcoat = GCM.getLabcoat(labcoatID);
     }
 
-    public Material[] getScrubsAnimationFrames()
-    {
-        Material[] formattedScrubs;
-        //format the scrubs to be good for the animation
-        return formattedScrubs;
 
+    public Material[] getScrubsLeftAnimationFrames()
+    {
+        Material[] formattedScrubs = new Material[4];
+        //format the scrubs to be good for the animation
+        formattedScrubs[0] = scrubs[0];
+        formattedScrubs[1] = scrubs[1];
+        formattedScrubs[2] = scrubs[0];
+        formattedScrubs[3] = scrubs[2];
+        return formattedScrubs;
+    }
+    public Material[] getScrubsRightAnimationFrames()
+    {
+        Material[] formattedScrubs = new Material[4];
+        formattedScrubs[0] = scrubs[3];
+        formattedScrubs[1] = scrubs[4];
+        formattedScrubs[2] = scrubs[3];
+        formattedScrubs[3] = scrubs[5];
+        return formattedScrubs;
+    }
+    public Material[] getHairFrames()
+    {
+        return hair;
+    }
+    public Material[] getSkinFrames()
+    {
+        return skin;
+    }
+    public Material[] getLabcoat()
+    {
+        return labcoat;
+
+    }
+    public Material[] getGlasses()
+    {
+        return glasses;
     }
 
     // Update is called once per frame
