@@ -33,30 +33,31 @@ public class GlobalCharacterMaterials : MonoBehaviour
     
     public Material[] getSkinMaterial(int sexID, int skinID)
     {
-        Material[] skinReturn = new Material[8];
+        Material[] skinReturn = new Material[6];
         if(sexID == 1)
         {
+            Debug.Log("" + sexID);
             //Male
-            if(skinID == 1)
+            if(skinID == 0)
             {
                 skinReturn = skinMale1;
-            }else if(skinID == 2){
+            }else if(skinID == 1){
                 skinReturn = skinMale2;
-            }else if(skinID == 3){
+            }else if(skinID == 2){
                 skinReturn = skinMale3;
-            }else if(skinID == 4){
+            }else if(skinID == 3){
                 skinReturn = skinMale4;
             }
         }else if(sexID == 2){
             //Female
-            if(skinID == 1)
+            if(skinID == 0)
             {
                 skinReturn = skinFemale1;
-            }else if(skinID == 2){
+            }else if(skinID == 1){
                 skinReturn = skinFemale2;
-            }else if(skinID == 3){
+            }else if(skinID == 2){
                 skinReturn = skinFemale3;
-            }else if(skinID == 4){
+            }else if(skinID == 3){
                 skinReturn = skinFemale4;
             }
         }

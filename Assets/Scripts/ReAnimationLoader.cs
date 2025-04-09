@@ -14,10 +14,10 @@ public class ReAnimationLoader : MonoBehaviour
     public Material[] labcoat;
     // Start is called before the first frame update
     //to do list
-    
+
     //right facing ponytail. 
     //Everything i did for scrubs, hair.
-    void Start()
+    public void StartLoading()
     {
         //ADD HERE WHATEVER YOU NEED TO GRAB CHARACTER ID
         int id = GV.getCharacterID();
@@ -39,6 +39,9 @@ public class ReAnimationLoader : MonoBehaviour
         converter = charID[5] + "";
         int labcoatID = Int32.Parse(converter);
         labcoat = GCM.getLabcoat(labcoatID);
+        converter = charID[4] + "";
+        int scrubsColor = Int32.Parse(converter);
+        scrubs = GCM.getScrubs(scrubsColor);
     }
 
 
@@ -46,19 +49,19 @@ public class ReAnimationLoader : MonoBehaviour
     {
         Material[] formattedScrubs = new Material[4];
         //format the scrubs to be good for the animation
-        formattedScrubs[0] = scrubs[0];
-        formattedScrubs[1] = scrubs[1];
-        formattedScrubs[2] = scrubs[0];
-        formattedScrubs[3] = scrubs[2];
+        formattedScrubs[0] = scrubs[1];
+        formattedScrubs[1] = scrubs[0];
+        formattedScrubs[2] = scrubs[2];
+        formattedScrubs[3] = scrubs[0];
         return formattedScrubs;
     }
     public Material[] getScrubsRightAnimationFrames()
     {
         Material[] formattedScrubs = new Material[4];
-        formattedScrubs[0] = scrubs[3];
-        formattedScrubs[1] = scrubs[4];
-        formattedScrubs[2] = scrubs[3];
-        formattedScrubs[3] = scrubs[5];
+        formattedScrubs[0] = scrubs[4];
+        formattedScrubs[1] = scrubs[3];
+        formattedScrubs[2] = scrubs[5];
+        formattedScrubs[3] = scrubs[3];
         return formattedScrubs;
     }
     public Material[] getHairFrames()

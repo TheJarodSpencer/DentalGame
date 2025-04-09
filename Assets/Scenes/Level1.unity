@@ -2967,6 +2967,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1521072175}
     - target: {fileID: 1204411437, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
+      propertyPath: RAL
+      value: 
+      objectReference: {fileID: 1521072179}
+    - target: {fileID: 1204411437, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
       propertyPath: loader
       value: 
       objectReference: {fileID: 980951603}
@@ -4351,6 +4355,7 @@ GameObject:
   - component: {fileID: 1521072175}
   - component: {fileID: 1521072176}
   - component: {fileID: 1521072177}
+  - component: {fileID: 1521072179}
   - component: {fileID: 1521072178}
   m_Layer: 0
   m_Name: Main Camera
@@ -4552,6 +4557,25 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 1ab8724d8fe056b4b915c957b1f070c3, type: 2}
   - {fileID: 2100000, guid: 1ab8724d8fe056b4b915c957b1f070c3, type: 2}
   blankMat: {fileID: 2100000, guid: dc1957f31dfd118439e081fc56b0665f, type: 2}
+--- !u!114 &1521072179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521072171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c278cc104fbbed74890b34495c3c227a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GCM: {fileID: 1521072178}
+  GV: {fileID: 1521072175}
+  skin: []
+  scrubs: []
+  hair: []
+  glasses: []
+  labcoat: []
 --- !u!1 &1540037300
 GameObject:
   m_ObjectHideFlags: 0
