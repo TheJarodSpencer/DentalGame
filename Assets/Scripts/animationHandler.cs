@@ -75,16 +75,20 @@ public class animationHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log($"{isWalkingLeft}");
         if(Input.GetKeyDown(KeyCode.A))
         {
             //moving left
             if(!GV.isTalking() && !GV.isPaused())
             {
+                Debug.Log("F");
                 isFacingLeft = true;
                 isFacingRight = false;
                 isWalkingLeft = true;
                 hairRend.material = hair[0];
                 skinRend.material = skin[0];
+                labcoatRend.material = labcoat[0];
+                glassesRend.material = glasses[0];
                 StartCoroutine(walkingLeftAnimation());
                 
             }
@@ -99,6 +103,8 @@ public class animationHandler : MonoBehaviour
                 isWalkingRight = true;
                 hairRend.material = hair[1];
                 skinRend.material = skin[3];
+                labcoatRend.material = labcoat[1];
+                glassesRend.material = glasses[1];
                 StartCoroutine(walkingRightAnimation());
             }
         }
@@ -195,6 +201,7 @@ public class animationHandler : MonoBehaviour
         int matIndex = 0;
         while(isWalkingLeft)
         {
+            
             clothesRend.material = clothesLeft[matIndex];
             matIndex++;
             if(matIndex > 3)
@@ -202,6 +209,7 @@ public class animationHandler : MonoBehaviour
                 matIndex = 0;
             }
             yield return new WaitForSeconds(0.1f);
+        
         }
     }
     private IEnumerator walkingRightAnimation()
@@ -209,6 +217,7 @@ public class animationHandler : MonoBehaviour
         int matIndex = 0;
         while(isWalkingRight)
         {
+            
             clothesRend.material = clothesRight[matIndex];
             matIndex++;
             if(matIndex > 3)
@@ -216,6 +225,7 @@ public class animationHandler : MonoBehaviour
                 matIndex = 0;
             }
             yield return new WaitForSeconds(0.1f);
+            
         }
     }
 }
