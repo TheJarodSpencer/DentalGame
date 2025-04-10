@@ -70,7 +70,6 @@ public class AdminPanel : MonoBehaviour
             validUsers.Add(userData);  
         }
 
-        // Now that all users are validated, write to Firebase
         foreach (UserData userData in validUsers)
         {
             string jsonData = JsonUtility.ToJson(userData);
@@ -106,7 +105,7 @@ public class AdminPanel : MonoBehaviour
             }
 
             string username = trimmedUser.Split('@')[0];
-            UserData userData = new UserData(username + "@siue.edu", DefaultPassword); //User data
+            UserData userData = new UserData(username, DefaultPassword); //User data
             validUsers.Add(userData);  
         }
 
@@ -114,7 +113,7 @@ public class AdminPanel : MonoBehaviour
         {
             Debug.Log($"Valid SIUE User: {userData.username}");
             FirebaseFirestore.DeleteDocument("users", userData.username, gameObject.name,"DisplayInfo", "DisplayErrorObject");
-            FirebaseFirestore.DeleteDocument("players", userData.username, gameObject.name,"DisplayInfo", "DisplayErrorObject");
+            FirebaseFirestore.DeleteDocument("players", userData.username + "@siue.edu", gameObject.name,"DisplayInfo", "DisplayErrorObject");
         }
 
         if (validUsers.Count == 0)
@@ -172,6 +171,7 @@ public class AdminPanel : MonoBehaviour
     } 
 
     public void Return(){
+        Application.ExternalCall("hideTextInput");
         SceneManager.LoadScene("Login");
     }
 
