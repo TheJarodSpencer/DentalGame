@@ -88,7 +88,12 @@ public class UserAuth : MonoBehaviour
         if(temp.username == username && temp.password == password && temp.username != "admin@siue.edu") {
             SetUserName(username);//SETTING THE USERNAME FOR THE DATABASE(Nicole)
             setInfo.CheckExsistingPlayerInfo();//SETTING THE PLAYER NAME IN THE DATABASE
-            SceneManager.LoadScene("WelcomeScene");
+            if(temp.password == "test123"){
+                SceneManager.LoadScene("ChangePassword");
+            }
+            else{
+                SceneManager.LoadScene("WelcomeScene");
+            }
         }
         else if(temp.username == "admin@siue.edu" && temp.password == password){
             SceneManager.LoadScene("AdminLogin");
