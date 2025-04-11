@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45140058, g: 0.500893, b: 0.57231724, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140117, g: 0.5008937, b: 0.5723182, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -632,6 +632,9 @@ GameObject:
   - component: {fileID: 582504652}
   - component: {fileID: 582504655}
   - component: {fileID: 582504656}
+  - component: {fileID: 582504659}
+  - component: {fileID: 582504658}
+  - component: {fileID: 582504657}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -734,6 +737,128 @@ MonoBehaviour:
   isOnFloor1: 0
   stopPosition1X: -70
   stopPosition2X: 80.5
+--- !u!114 &582504657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582504651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418e8151a6a6c784c83669801c70720f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinMale1:
+  - {fileID: 2100000, guid: f43be4226575fa849adf93e553d6700a, type: 2}
+  - {fileID: 2100000, guid: f852c9064417d2446b8a2f81fecd30e6, type: 2}
+  - {fileID: 2100000, guid: 915096ed32b90da4eb83f3873bc0e821, type: 2}
+  - {fileID: 2100000, guid: de544d64bbeea874fa4ba0fb98aa08d7, type: 2}
+  - {fileID: 2100000, guid: 47b153b1c6322104ba29808eb45cd6b3, type: 2}
+  - {fileID: 2100000, guid: 9d5449efa710e1d4da91afc4df93d472, type: 2}
+  skinMale2:
+  - {fileID: 2100000, guid: 519288b64dd2ebf46b43865dec46c925, type: 2}
+  - {fileID: 2100000, guid: f5f957b2170adb646a140c590edbb80c, type: 2}
+  - {fileID: 2100000, guid: 8bb66899a17af6f46807cb876d755e45, type: 2}
+  - {fileID: 2100000, guid: 14e116d6b855dd4438d39433e0ba8d9f, type: 2}
+  - {fileID: 2100000, guid: 6dad58af972aff14c8cc87d75cc5fcb4, type: 2}
+  - {fileID: 2100000, guid: 372ffd178dd43ef42a0b14716c4be56a, type: 2}
+  skinMale3:
+  - {fileID: 2100000, guid: 625fe849cf9d77d49a8bebdf572cd9e4, type: 2}
+  - {fileID: 2100000, guid: 0c5d7157aa2d4f24bb6fad0c1cf78613, type: 2}
+  - {fileID: 2100000, guid: 2232b89f39843214092fb154d91b6ac3, type: 2}
+  - {fileID: 2100000, guid: 579944aa6ad60ee459957a60344f926c, type: 2}
+  - {fileID: 2100000, guid: 6d1b5161d862bb848b88df7b58350527, type: 2}
+  - {fileID: 2100000, guid: 9064f0bfbd5baf44299ef3797d52c6f9, type: 2}
+  skinMale4:
+  - {fileID: 2100000, guid: 582113428cfcb9e47bd4dc54402b8a48, type: 2}
+  - {fileID: 2100000, guid: ae0cc0057adcb0f42997291b7bc17e0c, type: 2}
+  - {fileID: 2100000, guid: 71642640807a7a54ca64e05cf5209f7a, type: 2}
+  - {fileID: 2100000, guid: d039e1bf7985a9748a5ac90a15d296e7, type: 2}
+  - {fileID: 2100000, guid: 73c38391d9be9d0499992bddd942a3de, type: 2}
+  - {fileID: 2100000, guid: 071fb8f580eb5b440b025e59e8e14625, type: 2}
+  skinFemale1:
+  - {fileID: 2100000, guid: b542e2671ab102941af82fd1b1fdaf0f, type: 2}
+  - {fileID: 2100000, guid: 2ea4cfbe9cb0f29428ecfe8034104e61, type: 2}
+  - {fileID: 2100000, guid: c7abbd6bcae11b3449fee3ecc7d4a94a, type: 2}
+  - {fileID: 2100000, guid: 5cc0987fcdeb2a642aeb32c595298af2, type: 2}
+  - {fileID: 2100000, guid: 0d16093aa9e42dd4cac0e87160ba79bd, type: 2}
+  - {fileID: 2100000, guid: 78363a2182387d34ca434241010a4cf5, type: 2}
+  skinFemale2:
+  - {fileID: 2100000, guid: e6eb7b6190ac3754abb7f9f2501a8bd3, type: 2}
+  - {fileID: 2100000, guid: 53f01e4af30d61041a47e6d96deb526e, type: 2}
+  - {fileID: 2100000, guid: ff6dab05276e5974f94bb1a835775a58, type: 2}
+  - {fileID: 2100000, guid: aeead4e6cf06e404eb9b1f924047675b, type: 2}
+  - {fileID: 2100000, guid: e5af134cda45d3d45a0c79b42c2b708f, type: 2}
+  - {fileID: 2100000, guid: 744d3f56a1b670546a3cdd598f210201, type: 2}
+  skinFemale3:
+  - {fileID: 2100000, guid: 80eaa083b007c454c82d09fca86bfb12, type: 2}
+  - {fileID: 2100000, guid: de7c0ba49456034439c816bde55668de, type: 2}
+  - {fileID: 2100000, guid: 29a44f4d5f71fbe4ab89e01de4ff1414, type: 2}
+  - {fileID: 2100000, guid: 4a57aa636a2886d4eb911f17d8510ead, type: 2}
+  - {fileID: 2100000, guid: ab3bcb0c630367941abd882a42a86dcb, type: 2}
+  - {fileID: 2100000, guid: 18c9bfea83ca5bf48bb1608d9585650d, type: 2}
+  skinFemale4:
+  - {fileID: 2100000, guid: 2cf9d25d1db6d894c820741100ae5b6f, type: 2}
+  - {fileID: 2100000, guid: 4b8868d5478565b41821366b6892cbf5, type: 2}
+  - {fileID: 2100000, guid: 2ca20c66fa11405499a3931870466e85, type: 2}
+  - {fileID: 2100000, guid: 8848983a027fcf44ea27db1698cfdd26, type: 2}
+  - {fileID: 2100000, guid: c4ef6935553d3cc4d8ae15519ef2e448, type: 2}
+  - {fileID: 2100000, guid: 6eb16dce36a3d184cb9a28b971c02494, type: 2}
+  scrubs:
+  - {fileID: 2100000, guid: fac894144ef3b7b43ba4dda54572f74a, type: 2}
+  - {fileID: 2100000, guid: 047a8c0cd1f424a47baa503328eac049, type: 2}
+  - {fileID: 2100000, guid: 784ddac9d3396174094c4035158ab023, type: 2}
+  - {fileID: 2100000, guid: 05d4488a08be32a4b8705589df39a667, type: 2}
+  - {fileID: 2100000, guid: 6f559b44f47787c488b125774ca2548d, type: 2}
+  - {fileID: 2100000, guid: f7b83c631b14ce44e8608b577d5bbcb7, type: 2}
+  glasses:
+  - {fileID: 2100000, guid: 84fc60bd07063a64c8d5045fdfa98eeb, type: 2}
+  - {fileID: 2100000, guid: 4856a0ccbc5fd6b44864e2437b301445, type: 2}
+  labCoat:
+  - {fileID: 2100000, guid: a694c060504fce04184ea9db67d92caa, type: 2}
+  - {fileID: 2100000, guid: c9db5184a356bdc4ba75f0133618e255, type: 2}
+  hairShort:
+  - {fileID: 2100000, guid: fccb147e2e464cd45b4655faed99d14a, type: 2}
+  - {fileID: 2100000, guid: f2458503d80126440aa31cf8887c73fc, type: 2}
+  hairPonytail:
+  - {fileID: 2100000, guid: 1ab8724d8fe056b4b915c957b1f070c3, type: 2}
+  - {fileID: 2100000, guid: 1ab8724d8fe056b4b915c957b1f070c3, type: 2}
+  blankMat: {fileID: 2100000, guid: dc1957f31dfd118439e081fc56b0665f, type: 2}
+--- !u!114 &582504658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582504651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c278cc104fbbed74890b34495c3c227a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GCM: {fileID: 582504657}
+  GV: {fileID: 582504655}
+  skin: []
+  scrubs: []
+  hair: []
+  glasses: []
+  labcoat: []
+--- !u!114 &582504659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582504651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0061402d3a8a1448934cb53f206cf4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textCanvas: {fileID: 7682570919073525809, guid: f216d8acc88bdae4091349594aa3cab8, type: 3}
+  chatBoxUI: {fileID: 0}
+  GV: {fileID: 582504655}
 --- !u!1 &792129075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,6 +1467,10 @@ PrefabInstance:
       propertyPath: GV
       value: 
       objectReference: {fileID: 582504655}
+    - target: {fileID: 1204411437, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
+      propertyPath: RAL
+      value: 
+      objectReference: {fileID: 582504658}
     - target: {fileID: 2391823168647428408, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
       propertyPath: m_Name
       value: Character
