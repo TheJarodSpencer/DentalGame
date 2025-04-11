@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq; //OrderByDescending
+using System.Linq; // For OrderByDescending
 using TMPro;
+using SimpleJSON;
+using UnityEngine.SceneManagement;
 
 using FirebaseWebGL.Examples.Utils;
 using FirebaseWebGL.Scripts.FirebaseBridge;
@@ -17,8 +19,9 @@ public class WrapperList
 
 public class LeaderBoardManager : MonoBehaviour
 {
-    public TextMeshProUGUI outputText;  //For Output
-    public TextMeshProUGUI errorText;
+    public TextMeshProUGUI levelsColumnText;     // Left column - Levels
+    public TextMeshProUGUI scoresColumnText;     // Right column - Scores
+    public TextMeshProUGUI errorText;            // For errors
 
     void Start()
     {
@@ -28,50 +31,91 @@ public class LeaderBoardManager : MonoBehaviour
     public void GetTop10Players()
     {
         Debug.Log("In top10 players");
-        string collectionPath = "players"; //Collect player name
+        string collectionPath = "players";
 
-        //Fetch all player data
         FirebaseFirestore.GetDocumentsInCollection(collectionPath, "LeaderBoardManager", "DisplayData", "DisplayErrorObject");
         Debug.Log("ProcessedCollection");
     }
 
     public void DisplayData(string data)
+{
+    if (!string.IsNullOrEmpty(data) && data != "null")
     {
-        Debug.Log("In DisplayData LB");
+        Debug.Log("Raw Data: " + data);
 
-        if (!string.IsNullOrEmpty(data) && data != "null")
+        // Parse the data using SimpleJSON
+        var jsonData = JSON.Parse(data);
+
+        // Check if the JSON data is valid
+        if (jsonData != null && jsonData.IsObject)
         {
-            Debug.Log("Raw Data: " + data);
+            var players = new List<FireBase.PlayerData>();
 
-            //Parse JSON
-            WrapperList wrapper = JsonUtility.FromJson<WrapperList>("{\"players\":" + data + "}");
-            Debug.Log($"Total Players Found: {wrapper.players.Count}");
-
-            if (wrapper != null && wrapper.players != null && wrapper.players.Count > 0)
+            // Loop through the JSON data and create PlayerData objects
+            foreach (var key in jsonData.Keys)
             {
-                foreach (var player in wrapper.players)
+                // Access each player node
+                var playerNode = jsonData[key].AsObject;
+
+                // Get the playerName
+                string playerName = playerNode["playerName"];
+
+                // Get the playerExperience array and convert to float[]
+                var experienceArray = playerNode["playerExperience"].AsArray;
+                float[] playerExperience = new float[experienceArray.Count];
+
+                for (int i = 0; i < experienceArray.Count; i++)
                 {
-                    Debug.Log($"Player: {player.playerName}, Level Count: {player.playerExperience.Length}, Best Score: {GetBestScore(player)}");
+                    playerExperience[i] = experienceArray[i].AsFloat;  // Convert each element to a float
                 }
 
-                //Grab top 10 players
-                List<FireBase.PlayerData> players = wrapper.players.OrderByDescending(player => GetHighestLevel(player))
-                    .ThenByDescending(player => GetBestScore(player))
-                    .Take(10)
-                    .ToList();
+                // Get the playerCustomization (assumed to be an int)
+                int playerCustomization = playerNode["playerCustomization"].AsInt;
 
-                DisplayTopPlayers(players);
+                // Create and add PlayerData to the list
+                var playerData = new FireBase.PlayerData
+                {
+                    playerName = playerName,
+                    playerExperience = playerExperience,
+                    playerCustomization = playerCustomization
+                };
+
+                players.Add(playerData);
             }
-            else
+
+            Debug.Log($"Total Players Found: {players.Count}");
+
+            // Optionally display player information for debugging purposes
+            foreach (var player in players)
             {
-                DisplayError("No valid player data found.");
+                Debug.Log($"Player: {player.playerName} | XP: {string.Join(",", player.playerExperience)} | Customization: {player.playerCustomization}");
             }
+
+            // Now you can process and display the data, for example:
+            DisplayTopPlayers(players);
         }
         else
         {
-            DisplayError("No data received.");
+            Debug.LogError("No valid data found in the JSON.");
         }
     }
+    else
+    {
+        Debug.LogError("No data received or data is null.");
+    }
+}
+
+private void DisplayTopPlayers(List<FireBase.PlayerData> players)
+{
+    // Sort players by best score (assuming you want to show top scores)
+    var sortedByScores = players.OrderByDescending(player => player.playerExperience.Max()).ToList();
+    
+    // Sort players by the highest level completed (assuming you want to show most levels completed)
+    var sortedByLevels = players.OrderByDescending(player => player.playerExperience.Length).ToList();
+
+    // Display the top players (you can call your existing method for this)
+    DisplayTopPlayersByCategory(sortedByLevels, sortedByScores);
+}
 
     public void DisplayErrorObject(string error)
     {
@@ -86,15 +130,29 @@ public class LeaderBoardManager : MonoBehaviour
 
     private float GetBestScore(FireBase.PlayerData player)
     {
-        return player.playerExperience != null && player.playerExperience.Length > 0 ? player.playerExperience.Max() : 0f;
+        return player.playerExperience != null && player.playerExperience.Length > 0
+            ? player.playerExperience.Max()
+            : 0f;
     }
 
-    private void DisplayTopPlayers(List<FireBase.PlayerData> players)
+    private void DisplayTopPlayersByCategory(List<FireBase.PlayerData> byLevels, List<FireBase.PlayerData> byScores)
     {
-        outputText.text = "Top 10 Players:\n";
-        foreach (var player in players)
+        levelsColumnText.text = "Most Levels Completed\n";
+        scoresColumnText.text = "Highest Scores\n";
+
+        for (int i = 0; i < Mathf.Max(byLevels.Count, byScores.Count); i++)
         {
-            outputText.text += $"{player.playerName} - Level: {GetHighestLevel(player)}, Best Score: {GetBestScore(player)}\n";
+            if (i < byLevels.Count)
+            {
+                var p = byLevels[i];
+                levelsColumnText.text += $"{i + 1}. {p.playerName} - {GetHighestLevel(p)} Levels\n";
+            }
+
+            if (i < byScores.Count)
+            {
+                var p = byScores[i];
+                scoresColumnText.text += $"{i + 1}. {p.playerName} - Score: {GetBestScore(p)}\n";
+            }
         }
     }
 
@@ -102,5 +160,9 @@ public class LeaderBoardManager : MonoBehaviour
     {
         errorText.text = error;
         Debug.LogError(error);
+    }
+
+    public void BackButton(){
+        SceneManager.LoadScene("SettingsScene");
     }
 }

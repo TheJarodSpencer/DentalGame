@@ -18,5 +18,8 @@ public class SettingsMenu : MonoBehaviour
     public void OnHelpButton(){
         HelpPanel.SetActive(true);
     }
+    public void OnLeaderboardButton(){
+        SceneManager.LoadScene("Leaderboard");
+    }
 
 }
