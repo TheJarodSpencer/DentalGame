@@ -79,7 +79,8 @@ public class TalkingHandler : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        //if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetMouseButtonDown(0))
         {
             if(clearButtons)
             {
