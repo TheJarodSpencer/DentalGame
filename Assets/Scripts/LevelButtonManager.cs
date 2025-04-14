@@ -9,7 +9,9 @@ using System.Text.RegularExpressions;
 
 public class LevelButtonManager : MonoBehaviour
 {
-    //public GlobalVariables GV;
+    public GlobalVariables GV;
+
+    public chatboxHandler cbh;
     //public TalkingHandler talkingHandlerScript;
     public FireBase FB;
     public KeepPlayerPOS pos;
@@ -240,11 +242,14 @@ public class LevelButtonManager : MonoBehaviour
     }
 
     public void OnClickOfAxium(){
+        GV.setCheckedAxium(true);
+        cbh.canFLip = true;
         axiumUIPanel.SetActive(true);
         backButtonFromAxium.SetActive(true); 
         diagnosisButton.SetActive(false);
         medicineButton.SetActive(false);
         axiumButton.SetActive(false);
+        axiumButton.GetComponent<HoveringText>().hoverText.SetActive(false);
         Camera.main.transform.position = new Vector3(515f, 267f, -435f);
         Camera.main.transform.rotation = Quaternion.Euler(0f, 0f, 0f); 
     }

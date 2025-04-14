@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 using FirebaseWebGL.Examples.Utils;
 using FirebaseWebGL.Scripts.FirebaseBridge;
 using FirebaseWebGL.Scripts.Objects;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class WrapperList
@@ -50,10 +51,14 @@ public class LeaderBoardManager : MonoBehaviour
         if (jsonData != null && jsonData.IsObject)
         {
             var players = new List<FireBase.PlayerData>();
+            int count = 0;
 
             // Loop through the JSON data and create PlayerData objects
             foreach (var key in jsonData.Keys)
             {
+                if (count == 10) {
+                    break;
+                }
                 // Access each player node
                 var playerNode = jsonData[key].AsObject;
 
@@ -81,6 +86,7 @@ public class LeaderBoardManager : MonoBehaviour
                 };
 
                 players.Add(playerData);
+                count++;
             }
 
             Debug.Log($"Total Players Found: {players.Count}");
@@ -125,7 +131,18 @@ private void DisplayTopPlayers(List<FireBase.PlayerData> players)
 
     private int GetHighestLevel(FireBase.PlayerData player)
     {
-        return player.playerExperience != null ? player.playerExperience.Length : 0;
+        int total = 0;
+        if(player.playerExperience != null) {
+            for (int i = 0; i < player.playerExperience.Length; i++) {
+                if(player.playerExperience[i] > 0f) {
+                    total++;
+                }
+            }
+            return total;
+        } 
+        else {
+            return 0;
+        }
     }
 
     private float GetBestScore(FireBase.PlayerData player)

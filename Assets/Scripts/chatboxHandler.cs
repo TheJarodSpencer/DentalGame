@@ -31,6 +31,8 @@ public class chatboxHandler : MonoBehaviour
     private bool goodToClick = false;
     private bool alreadyTalkedTo = false;
 
+    public bool canFLip;
+
     private float talkDistance = 10.0f;
     void Start()
     {
@@ -91,7 +93,9 @@ public class chatboxHandler : MonoBehaviour
                 
                 GV.setAlreadyTalkedTo(alreadyTalkedTo);
                 GV.setScript(talkingScript);
-                alreadyTalkedTo = true;
+                if(canFLip) {
+                    alreadyTalkedTo = true;
+                }
                 GV.swapTalkSignal();
                 GV.swapTalking();
                 

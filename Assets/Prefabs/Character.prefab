@@ -84,9 +84,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlayerData:
     playerName: 
-    playerLevel: 0
-    playerExperience: 0
+    playerExperience: []
     playerCustomization: 0
+  LBM: {fileID: 0}
 --- !u!114 &1204411435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2391823168647428408}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25cc176b361dd8d408b880fc6772460c, type: 3}
   m_Name: 
@@ -132,6 +132,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: fccb147e2e464cd45b4655faed99d14a, type: 2}
   - {fileID: 2100000, guid: f2458503d80126440aa31cf8887c73fc, type: 2}
   GV: {fileID: 0}
+  loader: {fileID: 0}
 --- !u!1 &3620242822883744720
 GameObject:
   m_ObjectHideFlags: 0
