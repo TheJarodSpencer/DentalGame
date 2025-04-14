@@ -721,7 +721,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: What is the prescription of the patient?
+  m_text: Which medication is most likely to be a necessary addition to this patient's
+    treatment plan?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -748,8 +749,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2828,6 +2829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f654dd35660df4bb0a25e421ea4dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GV: {fileID: 1521072175}
+  cbh: {fileID: 3631656714722373795}
   FB: {fileID: 0}
   pos: {fileID: 0}
   score: 0
@@ -2895,8 +2898,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 969857612}
-  newSprite: {fileID: 21300000, guid: fadac6bbe106859408e02d7debfa613b, type: 3}
-  noteText: {fileID: 4900000, guid: 298c5dc88185d7b4c81d9432d287008d, type: 3}
+  newSprite: {fileID: 21300000, guid: 85e0544541b41f6488baac3e34628357, type: 3}
+  noteText: {fileID: 4900000, guid: 8877082158f4e98459799f5ab6f2767c, type: 3}
   textMeshPro: {fileID: 1634177778}
 --- !u!114 &980951602
 MonoBehaviour:
@@ -4304,11 +4307,21 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 7975488315723787498, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
+      propertyPath: m_text
+      value: 'Name: Tim
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 9006501755596729389, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
       propertyPath: m_Name
       value: AxiumComputer
       objectReference: {fileID: 0}
     - target: {fileID: 9006501755596729389, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085655363253107546, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -4553,6 +4566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b185d2738294094fbada3a349354c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alreadyTalkedTo: 0
 --- !u!114 &1521072176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5372,8 +5386,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Notxium
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b37fcb9a617534f4cb125456a2ad2b38, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5436,7 +5450,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1786141476
@@ -6226,10 +6240,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GV: {fileID: 1521072175}
   player: {fileID: 1003776185}
-  talkingScript: {fileID: 4900000, guid: cecee3e9aff0d0c4baee64f6114bdb43, type: 3}
+  talkingScript: {fileID: 4900000, guid: dbc0123a947eff24885187cc3038d69f, type: 3}
   xThreshold: -10000
   zThreshold: 10000
   thisCharacter: {fileID: 1348386216082268542}
+  canFLip: 0
 --- !u!64 &3631656714722373796
 MeshCollider:
   m_ObjectHideFlags: 0
