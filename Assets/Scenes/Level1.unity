@@ -3179,6 +3179,10 @@ PrefabInstance:
       propertyPath: loader
       value: 
       objectReference: {fileID: 980951603}
+    - target: {fileID: 1204411437, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2391823168647428408, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
       propertyPath: m_Name
       value: Character
@@ -4697,7 +4701,6 @@ GameObject:
   - component: {fileID: 1521072172}
   - component: {fileID: 1521072175}
   - component: {fileID: 1521072176}
-  - component: {fileID: 1521072177}
   - component: {fileID: 1521072179}
   - component: {fileID: 1521072178}
   m_Layer: 0
@@ -4803,18 +4806,6 @@ MonoBehaviour:
   textCanvas: {fileID: 7682570919073525809, guid: f216d8acc88bdae4091349594aa3cab8, type: 3}
   chatBoxUI: {fileID: 0}
   GV: {fileID: 1521072175}
---- !u!114 &1521072177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521072171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e89af69d5cf8414eb6a98ed9fcc7db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1521072178
 MonoBehaviour:
   m_ObjectHideFlags: 0

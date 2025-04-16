@@ -20,7 +20,7 @@ public class ReAnimationLoader : MonoBehaviour
     public void StartLoading()
     {
         //ADD HERE WHATEVER YOU NEED TO GRAB CHARACTER ID
-        int id = GV.getCharacterID();
+        int id = PlayerSaveData.Instance.GetPlayerCustomization();
         string ids = "" + id;
         char[] charID = ids.ToCharArray();
         string converter = charID[0] + "";
