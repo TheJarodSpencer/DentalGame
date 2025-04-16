@@ -12,23 +12,27 @@ public class animationHandler : MonoBehaviour
     public Material[] clothesRight;
     //0 and 1 are left and left blink 2 and 3 are right and right blink
     public Material[] skin;
-    //element 0 is left, element 1 is right
+    //element 0 is left, 1 is left blink, 2 is left mouth open, 3 is right, 4 is right blink, 5 is right mouth open.
     public Material[] hair;
+    public Material[] labcoat;
+    private Material[] glasses;
     public GlobalVariables GV;
+    public ReAnimationLoader RAL;
     private Renderer clothesRend;
     private Renderer skinRend;
     private Renderer hairRend;
+    private Renderer labcoatRend;
+    private Renderer glassesRend;
     private bool isWalkingLeft = false;
     private bool isWalkingRight = false;
     private bool isFacingLeft = true;
     private bool isFacingRight = false;
 
-    public CharacterLoader loader;
+    //public CharacterLoader loader;
 
-
-    
     void Start()
     {
+        RAL.StartLoading();
         Transform cobj = transform.Find("clothes");
         if(cobj != null)
         {
@@ -44,22 +48,47 @@ public class animationHandler : MonoBehaviour
         {
             hairRend = hobj.GetComponent<Renderer>();
         }
-        //StartCoroutine(blinkingLoop());
+        Transform lcobj = transform.Find("labcoat");
+        if(lcobj != null)
+        {
+            labcoatRend = lcobj.GetComponent<Renderer>();
+        }
+        Transform gobj = transform.Find("glasses");
+        if(gobj != null)
+        {
+            glassesRend = gobj.GetComponent<Renderer>();
+        }
+        clothesLeft = RAL.getScrubsLeftAnimationFrames();
+        clothesRight = RAL.getScrubsRightAnimationFrames();
+        skin = RAL.getSkinFrames();
+        hair = RAL.getHairFrames();
+        labcoat = RAL.getLabcoat();
+        glasses = RAL.getGlasses();
+        clothesRend.material = clothesLeft[1];
+        skinRend.material = skin[0];
+        hairRend.material = hair[0];
+        labcoatRend.material = labcoat[0];
+        glassesRend.material = glasses[0];
+        StartCoroutine(blinkingLoop());
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log($"{isWalkingLeft}");
         if(Input.GetKeyDown(KeyCode.A))
         {
             //moving left
             if(!GV.isTalking() && !GV.isPaused())
             {
+                Debug.Log("F");
                 isFacingLeft = true;
                 isFacingRight = false;
                 isWalkingLeft = true;
                 hairRend.material = hair[0];
                 skinRend.material = skin[0];
+                labcoatRend.material = labcoat[0];
+                glassesRend.material = glasses[0];
                 StartCoroutine(walkingLeftAnimation());
                 
             }
@@ -73,7 +102,9 @@ public class animationHandler : MonoBehaviour
                 isFacingLeft = false;
                 isWalkingRight = true;
                 hairRend.material = hair[1];
-                skinRend.material = skin[2];
+                skinRend.material = skin[3];
+                labcoatRend.material = labcoat[1];
+                glassesRend.material = glasses[1];
                 StartCoroutine(walkingRightAnimation());
             }
         }
@@ -115,8 +146,10 @@ public class animationHandler : MonoBehaviour
             if(isWalkingRight)
             {
                 isWalkingRight = false;
+                clothesRend.material = clothesRight[1];
             }else if(isWalkingLeft){
                 isWalkingLeft = false;
+                clothesRend.material = clothesLeft[1];
             }
             
         }
@@ -149,7 +182,7 @@ public class animationHandler : MonoBehaviour
             skinRend.material = skin[1];
             //skinRend.material.SetColor("_BaseColor", loader.skinColor);
         }else if(isFacingRight){
-            skinRend.material = skin[3];
+            skinRend.material = skin[4];
             //skinRend.material.SetColor("_Color", loader.skinColor);
         }
     }
@@ -160,7 +193,7 @@ public class animationHandler : MonoBehaviour
             skinRend.material = skin[0];
             //skinRend.material.SetColor("_BaseColor", loader.skinColor);
         }else if(isFacingRight){
-            skinRend.material = skin[2];
+            skinRend.material = skin[3];
         }
     }
     private IEnumerator walkingLeftAnimation()
@@ -168,6 +201,7 @@ public class animationHandler : MonoBehaviour
         int matIndex = 0;
         while(isWalkingLeft)
         {
+            
             clothesRend.material = clothesLeft[matIndex];
             matIndex++;
             if(matIndex > 3)
@@ -175,6 +209,7 @@ public class animationHandler : MonoBehaviour
                 matIndex = 0;
             }
             yield return new WaitForSeconds(0.1f);
+        
         }
     }
     private IEnumerator walkingRightAnimation()
@@ -182,6 +217,7 @@ public class animationHandler : MonoBehaviour
         int matIndex = 0;
         while(isWalkingRight)
         {
+            
             clothesRend.material = clothesRight[matIndex];
             matIndex++;
             if(matIndex > 3)
@@ -189,6 +225,7 @@ public class animationHandler : MonoBehaviour
                 matIndex = 0;
             }
             yield return new WaitForSeconds(0.1f);
+            
         }
     }
 }

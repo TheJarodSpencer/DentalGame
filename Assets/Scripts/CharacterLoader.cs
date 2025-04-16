@@ -6,6 +6,7 @@ public class CharacterLoader : MonoBehaviour
 {
 
     //public material color changes for animation
+    /*
     public Color clothesColor;
     public Color skinColor;
     public Color hairColor;
@@ -148,4 +149,5 @@ public class CharacterLoader : MonoBehaviour
         }
         return returner;
     }
+    */
 }
