@@ -10,13 +10,14 @@ using FirebaseWebGL.Scripts.Objects;
 public class FireBase : MonoBehaviour
 {
     public PlayerData currentPlayerData;
+    //public KeepPlayerPOS pos;
+    public LevelButtonManager LBM;
 
     [System.Serializable] //Fix this to make the serializable
     public struct PlayerData
     {
         public string playerName;
-        public int playerLevel;
-        public float playerExperience;
+        public float[] playerExperience;
         public int playerCustomization;
     }
 
@@ -50,17 +51,18 @@ public class FireBase : MonoBehaviour
     public void HandlePlayerData(PlayerData playerData)
     {
         Debug.Log("Name: " + playerData.playerName);
-        Debug.Log("Player Level: " + playerData.playerLevel);
-        Debug.Log("Player Exp: " + playerData.playerExperience);
+        //Debug.Log("Player Level: " + playerData.playerLevel);
+        //Debug.Log("Player Exp: " + playerData.playerExperience);
         PlayerSaveData.Instance.SetPlayerData(playerData);//Saves the PlayerData to a Gameobject and does not delete it
     }
 
     public void UpdateCharacterField(string fieldName, object value)
     {
+        Debug.Log("In FB: "+ LBM.GetLevelNumber());
         PlayerData currentPlayerData = PlayerSaveData.Instance.GetPlayerData();
         Debug.Log("Name: " + currentPlayerData.playerName);
-        Debug.Log("Player Level: " + currentPlayerData.playerLevel);
-        Debug.Log("Player Exp: " + currentPlayerData.playerExperience);
+        //Debug.Log("Player Level: " + currentPlayerData.playerLevel);
+        //Debug.Log("Player Exp: " + currentPlayerData.playerExperience);
         
         // Now proceed with updating the data
         Debug.Log("Now updating character info");
@@ -69,11 +71,11 @@ public class FireBase : MonoBehaviour
             case "playerName":
                 currentPlayerData.playerName = (string)value;
                 break;
-            case "playerLevel":
-                currentPlayerData.playerLevel = (int)value;
-                break;
             case "playerExperience":
-                currentPlayerData.playerExperience = (float)value;
+                if (currentPlayerData.playerExperience[LBM.GetLevelNumber()] == 0f)
+                {
+                    currentPlayerData.playerExperience[LBM.GetLevelNumber()] = (float)value;  //Only overwrite if the experience is 0 (first entry of progression)
+                }
                 break;
             case "playerCustomization":
                 currentPlayerData.playerCustomization = (int)value;

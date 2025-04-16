@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f0b9ec6d4a293489ac678c2437bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScore: 0
+  questionsAnswered: 0
   LBM: {fileID: 0}
   FBL: {fileID: 0}
   GV: {fileID: 0}
@@ -226,8 +228,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -361,8 +363,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -505,7 +507,7 @@ RectTransform:
   m_GameObject: {fileID: 7682570920129586174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -9.139222}
-  m_LocalScale: {x: 1.1005, y: 1.1005, z: 1.1005}
+  m_LocalScale: {x: 2, y: 4, z: 1.1005}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7682570919394408794}
@@ -514,7 +516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 309.3415, y: 0.7780876}
+  m_AnchoredPosition: {x: -170, y: -30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7682570920129586162
@@ -598,7 +600,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7682570920129586163}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7682570919073525812}
+        m_TargetAssemblyTypeName: TalkingHandler, Assembly-CSharp
+        m_MethodName: Response3OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8167193275873050593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,7 +657,7 @@ RectTransform:
   m_GameObject: {fileID: 7682570920143722650}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -9.139222}
-  m_LocalScale: {x: 1.1005, y: 1.1005, z: 1.1005}
+  m_LocalScale: {x: 2, y: 4, z: 1.1005}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7682570920577734714}
@@ -652,7 +666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 309.3415, y: -37.739414}
+  m_AnchoredPosition: {x: 230, y: -30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7682570920143722654
@@ -736,7 +750,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7682570920143722655}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7682570919073525812}
+        m_TargetAssemblyTypeName: TalkingHandler, Assembly-CSharp
+        m_MethodName: Response4OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3283265074491105418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,7 +942,7 @@ RectTransform:
   m_GameObject: {fileID: 7682570920499824272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -9.139222}
-  m_LocalScale: {x: 1.1005, y: 1.1005, z: 1.1005}
+  m_LocalScale: {x: 2, y: 4, z: 1.1005}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7682570919225315802}
@@ -925,7 +951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 309.3415, y: 39.29559}
+  m_AnchoredPosition: {x: 230, y: 100}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7682570920499824276
@@ -1009,7 +1035,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7682570920499824277}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7682570919073525812}
+        m_TargetAssemblyTypeName: TalkingHandler, Assembly-CSharp
+        m_MethodName: Response2OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1328691763221052432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,8 +1233,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1365,8 +1403,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1436,7 +1474,7 @@ RectTransform:
   m_GameObject: {fileID: 7682570920983824497}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -9.139222}
-  m_LocalScale: {x: 1.1005, y: 1.1005, z: 1.1005}
+  m_LocalScale: {x: 2, y: 4, z: 1.1005}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7682570920893115377}
@@ -1445,7 +1483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 309.3415, y: 77.81308}
+  m_AnchoredPosition: {x: -170, y: 100}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7682570920983824501
@@ -1529,7 +1567,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7682570920983824502}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7682570919073525812}
+        m_TargetAssemblyTypeName: TalkingHandler, Assembly-CSharp
+        m_MethodName: Response1OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1785723695848090398
 MonoBehaviour:
   m_ObjectHideFlags: 0

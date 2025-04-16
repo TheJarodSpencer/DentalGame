@@ -10,10 +10,12 @@ public class EnterDoors : MonoBehaviour
     public GameObject[] indicatorCubes; // Array of indicator cubes
     public GameObject levelSelector;
     public GameObject pickedLevel;
+    public GameObject characterForPOS;
     public string targetSceneName; //Added this here to store a string of the level selected scene!
 
     private void Start()
     {
+        characterForPOS = GameObject.Find("MCharacter");
         // Ensure all indicator cubes are inactive at the start
         foreach (GameObject cube in indicatorCubes)
         {
@@ -40,8 +42,8 @@ public class EnterDoors : MonoBehaviour
     {
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
-           SceneManager.LoadScene(targetSceneName);
-           
+            KeepPlayerPOS.Instance.SetPlayerPosition(characterForPOS);//Added to grab the users POS before entering scene
+            SceneManager.LoadScene(targetSceneName);  
            //ReplacePrefab();
         }
     }

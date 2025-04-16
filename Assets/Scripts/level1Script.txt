@@ -1,0 +1,36 @@
+Hello, my name is Tim, I am a 48 year old male!
+I have a burning sensation on the inside of my mouth! FIX ME.
+I hope you read my intake form, I hate repeating myself!
+Which of the following best describes the pathogenesis of the condition observed in this patient? 
+1101588
+0Bacterial toxins induce direct damage to epithelial cells, leading to ulceration and sloughing of the mucosa
+0Viral infection leads to epithelial dysplasia and malignant transformation of mucosal tissues
+1T-cell mediated response leading to apoptosis of basal cells and subepithelial band-like infiltrate
+0Excessive keratin production due to chronic irritation causes hyperkeratosis
+WebMD told me that wasn't the case.
+WebMD told me that wasn't the case.
+Correct, at least thats what chatGPT said in the waiting room.
+WebMD told me that wasn't the case.
+8675309
+What is the most appropriate initial management strategy for this patient's condition?
+1101588
+0Rx: Fluocinonide (Lidex ) gel; Disp: 30 g tube\n Sig: Apply thin film to affected site(s) after each meal and at bedtime. NPO 30 min. after.
+1Rx: Dexamethasone oral solution 0.5mg/5mL; Disp: 500 mL; Sig:Rinse with 1 tsp (5mL) for 2 3 min four; times daily and expectorate. NPO 30 min. after
+0Rx: Tacrolimus 0.1% oint; Disp : 30 g; Sig: Apply thin film to affected site(s) twice daily. NPO 30 min. after.
+0Rx: 10% Docosanol (Abreva) cream (OTC); Disp: 2 (two) g tube; Sig: Dab on lesion five times daily during waking hrs for four days beginning when symptoms first occur.
+Nope
+Yes
+Nope
+Nope
+8675309
+Which medication has anti-inflammatory and immunosuppressive actions that would make it an effective therapy for this patient? 
+1101588
+0Acyclovir 
+0Clotrimazole
+0Docosanol
+1Dexamethasone 
+No
+No
+No
+Correct
+8675309

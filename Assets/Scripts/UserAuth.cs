@@ -13,6 +13,8 @@ using FirebaseWebGL.Scripts.Objects;
 
 public class UserAuth : MonoBehaviour
 {
+    public GameObject LoginManagerPulled;//Added to always find!
+    private string loginManagerName;
 
     public struct User
     {
@@ -37,8 +39,10 @@ public class UserAuth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        loginManagerName = LoginManagerPulled.name;
          if (Application.platform != RuntimePlatform.WebGLPlayer)
                 DisplayError("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
+
     }
     //Executes when button pressed. Will grab username and password and check correct :)
 
@@ -68,7 +72,7 @@ public class UserAuth : MonoBehaviour
         else {
             putIn = username.Split("@")[0];
             Debug.Log("Gameobject name" + gameObject.name);
-            FirebaseFirestore.GetDocument("users", putIn, "LoginManager", "DisplayData", "DisplayErrorObject");//Pulls from Database
+            FirebaseFirestore.GetDocument("users", putIn, loginManagerName, "DisplayData", "DisplayErrorObject");//Pulls from Database
         }
     }
                 
@@ -84,7 +88,12 @@ public class UserAuth : MonoBehaviour
         if(temp.username == username && temp.password == password && temp.username != "admin@siue.edu") {
             SetUserName(username);//SETTING THE USERNAME FOR THE DATABASE(Nicole)
             setInfo.CheckExsistingPlayerInfo();//SETTING THE PLAYER NAME IN THE DATABASE
-            SceneManager.LoadScene("WelcomeScene");
+            if(temp.password == "test123"){
+                SceneManager.LoadScene("ChangePassword");
+            }
+            else{
+                SceneManager.LoadScene("WelcomeScene");
+            }
         }
         else if(temp.username == "admin@siue.edu" && temp.password == password){
             SceneManager.LoadScene("AdminLogin");

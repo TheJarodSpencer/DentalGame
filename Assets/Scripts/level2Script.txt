@@ -23,7 +23,7 @@ Does not pertain to current patient.
 Does not pertain to current patient.
 8675309
 The patient also has prior health history of Hypertension and Type 2 Diabetes.
-All information from the current findings can be seen in your Axium system.
+All information from the current findings can be seen in your Notxium system.
 We are trying to find the most likely location of this infection. When you have concluded your answer click the "Diagnosis" button in the right corner of the screen. Click Okay to continue.
 1101588
 0No

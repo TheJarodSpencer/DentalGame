@@ -15,8 +15,8 @@ using UnityEngine.UI;
 public class TalkingHandler : MonoBehaviour
 {
     //For score tracking
-    private int playerScore = 0;
-    private int questionsAnswered = 0;
+    public int playerScore = 0;
+    public int questionsAnswered = 0;
 
     public void AddScore(int points)
     {
@@ -79,7 +79,8 @@ public class TalkingHandler : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        //if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetMouseButtonDown(0))
         {
             if(clearButtons)
             {
@@ -110,7 +111,7 @@ public class TalkingHandler : MonoBehaviour
             }
         }
         GV.setTalkingSound(isTalking);
-        Debug.Log(isTalking);
+        //Debug.Log(isTalking);
 
     }
     private IEnumerator enterAnimationF()
@@ -125,7 +126,12 @@ public class TalkingHandler : MonoBehaviour
     }
     private void startTalking()
     {
-        if(!GV.getAlreadyTalkedTo())
+        if(!GV.getCheckedAxium()) {
+            done = true;
+            GV.setAlreadyTalkedTo(false);
+            StartCoroutine(AppendCharacters("Please check your computer machine for the details first, I don't like repeating myself."));
+        }
+        else if(!GV.getAlreadyTalkedTo())
         {
             int result;
             bool canConvert = Int32.TryParse(lines[lineNumber+1], out result);
@@ -148,7 +154,8 @@ public class TalkingHandler : MonoBehaviour
             }
             lineNumber++;
             
-        }else{
+        }
+        else{
             done = true;
             StartCoroutine(AppendCharacters("Sorry, I'm afraid you have already talked with me."));
             //StartCoroutine(AppendCharacters("Sorry, I'm afraid you have already talked with me."));
@@ -188,10 +195,12 @@ public class TalkingHandler : MonoBehaviour
     private void responseSetup()
     {
         buttonsEmpty.SetActive(true);
-        responseButtons[0].onClick.AddListener(Response1OnClick);
-        responseButtons[1].onClick.AddListener(Response2OnClick);
-        responseButtons[2].onClick.AddListener(Response3OnClick);
-        responseButtons[3].onClick.AddListener(Response4OnClick);
+        //responseButtons[0].onClick.AddListener(Response1OnClick);
+        //responseButtons[1].onClick.AddListener(Response2OnClick);
+        //responseButtons[2].onClick.AddListener(Response3OnClick);
+        //responseButtons[3].onClick.AddListener(Response4OnClick);
+        //JAROD THE BUG WAS HERE THE WHOLE TIME GODS DAMMIT WHY DOES COFFEE AT 5AM HELP ME FIND THIS?!?!?!?!
+
         lineNumber++;
         for(int i = 0; i < 4; i++)
         {
@@ -239,7 +248,7 @@ public class TalkingHandler : MonoBehaviour
             }
         }
     }
-    private void Response1OnClick()
+    public void Response1OnClick()
     {
         if(GV.getButtonValue() == 1)
         {
@@ -259,7 +268,7 @@ public class TalkingHandler : MonoBehaviour
             Debug.Log("Questions Answered: " + questionsAnswered);
         }
     }
-    private void Response2OnClick()
+    public void Response2OnClick()
     {
         if(GV.getButtonValue() == 2)
         {
@@ -279,7 +288,7 @@ public class TalkingHandler : MonoBehaviour
             Debug.Log("Questions Answered: " + questionsAnswered);
         }
     }
-    private void Response3OnClick()
+    public void Response3OnClick()
     {
         if(GV.getButtonValue() == 3)
         {
@@ -301,7 +310,7 @@ public class TalkingHandler : MonoBehaviour
             Debug.Log("Questions Answered: " + questionsAnswered);
         }
     }
-    private void Response4OnClick()
+    public void Response4OnClick()
     {
         if(GV.getButtonValue() == 4)
         {

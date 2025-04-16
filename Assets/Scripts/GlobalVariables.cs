@@ -19,7 +19,9 @@ public class GlobalVariables : MonoBehaviour
     bool talkSignal = false;
     string objectTalking = "";
     TextAsset talkingScript;
-    bool alreadyTalkedTo = false;
+    public bool alreadyTalkedTo = false;
+
+    bool checkedAxium = false;
     int buttonValue = 0;
     bool playTalkingSound = false;
     //this is for talking audio
@@ -31,6 +33,18 @@ public class GlobalVariables : MonoBehaviour
     {
         return playTalkingSound;
     }
+
+
+    public void setCheckedAxium(bool val)
+    {
+        checkedAxium = val;
+    }
+    public bool getCheckedAxium()
+    {
+        return checkedAxium;
+    }
+
+
     //this is for mouse hover over buttons
     public void setButtonValue(int button)
     {

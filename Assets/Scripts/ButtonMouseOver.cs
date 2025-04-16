@@ -18,12 +18,12 @@ public class ButtonMouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnPointerEnter(PointerEventData eventData)
     {
         GV.setButtonValue(ButtonValue);
-        Debug.Log("" + ButtonValue);
+        //Debug.Log("" + ButtonValue);
     }
     public void OnPointerExit(PointerEventData evetData)
     {
         GV.setButtonValue(0);        
-        Debug.Log("" + 0);
+        //Debug.Log("" + 0);
     }
     // Update is called once per frame
     void Update()

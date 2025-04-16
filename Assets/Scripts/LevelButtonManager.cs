@@ -4,14 +4,22 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading;
+using System.Text.RegularExpressions;
 
 public class LevelButtonManager : MonoBehaviour
 {
-    //public GlobalVariables GV;
+    public GlobalVariables GV;
+
+    public chatboxHandler cbh;
+    //public TalkingHandler talkingHandlerScript;
+    public FireBase FB;
+    public KeepPlayerPOS pos;
 
     //To keep track of a score of 100
     public float score = 0f;
-    public int attempts = 0;
+    public int attemptsMed = 0;
+    public int attemptsDia = 0;
     public float maxScore = 100f;
 
     public GameObject axiumUIPanel;
@@ -23,6 +31,7 @@ public class LevelButtonManager : MonoBehaviour
     public GameObject medicineAns;
     public GameObject backButtonFromDiaAndMed;
     public GameObject completeLevel;
+    public GameObject npc;
 
     //For the Diagnosis and Medicine Anwsers
     public Button[] medButtons;
@@ -37,10 +46,19 @@ public class LevelButtonManager : MonoBehaviour
     public int correctDiaAnswerIndex;
     public int correctMedAnswerIndex;
     public bool isDiaCorrect =  false;
-    public int correctAnswers = 0;
+    public bool isMedCorrect = false;
+    public int correctAnswerDia = 0;
+    public int correctAnswerMed = 0;
+    public int onlyCountOnceDia = 0;
+    public int onlyCountOnceMed = 0;
+    private bool[] diaButtonClicked;
+    private bool[] medButtonClicked;
 
     //To disable NPC click
     public GameObject npcHoverDetector;
+
+    //To grab scene name for score
+    public string currentSceneName;
 
 
     void Start(){
@@ -50,16 +68,75 @@ public class LevelButtonManager : MonoBehaviour
         LoadTextFromFile(medFile, medButtons);
         string[] medLines = medFile.text.Split('\n');
         correctMedAnswerIndex = int.Parse(medLines[0].Trim());
+        //diagnosisButton.SetActive(false);
 
-        foreach (Button button in diaButtons)
+        diaButtonClicked = new bool[diaButtons.Length];
+        medButtonClicked = new bool[medButtons.Length];
+
+        for (int i = 0; i < diaButtons.Length; i++)
         {
-            button.onClick.AddListener(() => OnClickColorsTheButtons(button, diaButtons, correctDiaAnswerIndex));
+            int buttonIndex = i; // Capture index
+            diaButtons[i].onClick.AddListener(() =>
+            {
+                if (!diaButtonClicked[buttonIndex])
+                {
+                    diaButtonClicked[buttonIndex] = true;
+                    OnClickColorsTheButtonsDia(diaButtons[buttonIndex], diaButtons, correctDiaAnswerIndex);
+                }
+            });
         }
         
-        foreach (Button button in medButtons)
+        for (int i = 0; i < medButtons.Length; i++)
         {
-            button.onClick.AddListener(() => OnClickColorsTheButtons(button, medButtons, correctMedAnswerIndex));
+            int buttonIndex = i; // Capture index
+            medButtons[i].onClick.AddListener(() =>
+            {
+                if (!medButtonClicked[buttonIndex])
+                {
+                    medButtonClicked[buttonIndex] = true;
+                    OnClickColorsTheButtonsMed(medButtons[buttonIndex], medButtons, correctMedAnswerIndex);
+                }
+            });
         }
+        //StartCoroutine(UpdateToGrabTheDiaAfterTalk());
+    }
+
+    /*
+    IEnumerator UpdateToGrabTheDiaAfterTalk()
+    {
+        while (true) // Run forever (or use a condition to stop)
+        {
+            if(GV.getAlreadyTalkedTo() == true){
+                ActivateDia();
+            }
+            yield return new WaitForSeconds(1f); 
+        }
+    }
+    */
+    
+   public int GetLevelNumber()
+    {
+        currentSceneName = SceneManager.GetActiveScene().name;
+        Debug.Log("Current Scene Name: " + currentSceneName);
+
+        //Grab Number of Level
+        string numberString = Regex.Match(currentSceneName, @"\d+").Value;
+        if (int.TryParse(numberString, out int levelNumber))
+        {
+            Debug.Log("Extracted Level Number: " + levelNumber);//Check output
+            return levelNumber;
+        }
+        else
+        {
+            Debug.Log("No valid level number found in the scene name.");
+            return 0;
+        }
+    } 
+
+
+
+    public void ActivateDia(){
+        diagnosisButton.SetActive(true);
     }
 
     //Reads the buttons
@@ -79,51 +156,100 @@ public class LevelButtonManager : MonoBehaviour
 
     }
 
-    //Also contains score calculations!!!
-    public void OnClickColorsTheButtons(Button clickedButton, Button[] buttons, int correctAnswerIndex){
+    //Track buttons for DIA
+    public void OnClickColorsTheButtonsDia(Button clickedButton, Button[] buttons, int correctAnswerIndex){
         int buttonIndex = System.Array.IndexOf(buttons, clickedButton);
-        if (buttonIndex == correctAnswerIndex)
+
+        if ((buttonIndex == correctAnswerIndex) && (onlyCountOnceDia == 0))
         {
+            onlyCountOnceDia++;
             clickedButton.GetComponent<Image>().color = Color.green; //Correct
             isDiaCorrect = true;
-            ++correctAnswers;
-            float rewardMultiplier = attempts == 0 ? 0.5f : 
-                                 attempts == 1 ? 0.25f : 
-                                 attempts == 2 ? 0.1875f : 
+            float rewardMultiplier = attemptsDia == 0 ? 0.5f : 
+                                 attemptsDia == 1 ? 0.25f : 
+                                 attemptsDia == 2 ? 0.1875f : 
                                  0.125f;
             score += maxScore * rewardMultiplier;//Maxscore times how much they earned + already exsisting score
-
-            if(correctAnswers == 2){
-                axiumUIPanel.SetActive(false);
-                diagnosisButton.SetActive(false);
-                medicineButton.SetActive(false);
-                backButtonFromAxium.SetActive(false);
-                axiumButton.SetActive(false);
-                diagnosisAns.SetActive(false);
-                medicineAns.SetActive(false);
-                backButtonFromDiaAndMed.SetActive(false);
-                diagnosisButton.SetActive(false);
-                medicineButton.SetActive(false);
-                completeLevel.SetActive(true);
-                scoreText.text = score.ToString() + "%";
-            }
-            Debug.Log("Correct answer!");
-            attempts = 0;//Reset for next button set :)
         }
-        else
+        else if(onlyCountOnceDia == 1){
+            return;
+        }
+        else if(attemptsDia <= 4)
         {
-            attempts++;//Each attempt wrong attempt is tracked
+            attemptsDia++;//Each attempt wrong attempt is tracked
             clickedButton.GetComponent<Image>().color = Color.red; //Wrong
             Debug.Log("Wrong answer!");
         }
+        else{
+            return;
+        }
+    }
+
+    //Track the buttons for MED
+    public void OnClickColorsTheButtonsMed(Button clickedButton, Button[] buttons, int correctAnswerIndex){
+        int buttonIndex = System.Array.IndexOf(buttons, clickedButton);
+
+        if ((buttonIndex == correctAnswerIndex) && (onlyCountOnceMed == 0))
+        {
+            onlyCountOnceMed++;
+            clickedButton.GetComponent<Image>().color = Color.green; //Correct
+            isMedCorrect = true;
+            float rewardMultiplier = attemptsMed == 0 ? 0.5f : 
+                                 attemptsMed == 1 ? 0.25f : 
+                                 attemptsMed == 2 ? 0.1875f : 
+                                 0.125f;
+            score += maxScore * rewardMultiplier;//Maxscore times how much they earned + already exsisting score
+        }
+        else if(onlyCountOnceMed == 1){
+            return;
+        }
+        else if(attemptsMed <= 4)
+        {
+            attemptsMed++;//Each attempt wrong attempt is tracked
+            clickedButton.GetComponent<Image>().color = Color.red; //Wrong
+            Debug.Log("Wrong answer!");
+        }
+        else{
+            return;
+        }
+    }
+
+    //Output the score
+    public void CalculationOfDiaAndMed(){
+        axiumUIPanel.SetActive(false);
+        diagnosisButton.SetActive(false);
+        medicineButton.SetActive(false);
+        backButtonFromAxium.SetActive(false);
+        axiumButton.SetActive(false);
+        diagnosisAns.SetActive(false);
+        medicineAns.SetActive(false);
+        backButtonFromDiaAndMed.SetActive(false);
+        diagnosisButton.SetActive(false);
+        medicineButton.SetActive(false);
+        npc.SetActive(false);
+        completeLevel.SetActive(true);
+
+        scoreText.text = score.ToString() + "%";
+        Debug.Log("In LBM: "+ GetLevelNumber());
+
+        FB.UpdateCharacterField("playerExperience", score);
+
+        Debug.Log("Correct answer!");
+        attemptsMed = 0;//Reset for next button set
+        attemptsDia = 0;
+        isDiaCorrect = false;
+        isMedCorrect = false;
     }
 
     public void OnClickOfAxium(){
+        GV.setCheckedAxium(true);
+        cbh.canFLip = true;
         axiumUIPanel.SetActive(true);
         backButtonFromAxium.SetActive(true); 
         diagnosisButton.SetActive(false);
         medicineButton.SetActive(false);
         axiumButton.SetActive(false);
+        axiumButton.GetComponent<HoveringText>().hoverText.SetActive(false);
         Camera.main.transform.position = new Vector3(515f, 267f, -435f);
         Camera.main.transform.rotation = Quaternion.Euler(0f, 0f, 0f); 
     }
@@ -145,6 +271,11 @@ public class LevelButtonManager : MonoBehaviour
         diagnosisButton.SetActive(true);
         npcHoverDetector.SetActive(true);
         medicineButton.SetActive(HandleMedShown());
+
+        //Outputs the final grad screen
+        if(isDiaCorrect == true && isMedCorrect == true){
+            CalculationOfDiaAndMed();
+        }
 
     }
 
