@@ -1,0 +1,12 @@
+Patient:
+Male, 52 years old
+
+Cheif Complaint
+"The inside of my mouth burns"
+
+Background and/or Patient History:
+Recent long-term management with broad-spectrum antibiotics
+
+Current Findings:
+Severe xerostomia
+Generalized, white, pseudomembranous plaques - wipeable with gauze/ cotton tip applicator.

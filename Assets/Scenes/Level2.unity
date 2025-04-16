@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -721,8 +721,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Which medication is most likely to be a necessary addition to this patient's
-    treatment plan?
+  m_text: Which of the following is the MOST appropriate medication (Rx) for topical
+    application?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2898,8 +2898,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 969857612}
-  newSprite: {fileID: 21300000, guid: 85e0544541b41f6488baac3e34628357, type: 3}
-  noteText: {fileID: 4900000, guid: 8877082158f4e98459799f5ab6f2767c, type: 3}
+  newSprite: {fileID: 21300000, guid: b8c6df869522ef44fafea2ce09caf19a, type: 3}
+  noteText: {fileID: 4900000, guid: c1012c8961e7ee1429046eef31ea2c86, type: 3}
   textMeshPro: {fileID: 1634177778}
 --- !u!114 &980951602
 MonoBehaviour:
@@ -2918,7 +2918,7 @@ MonoBehaviour:
   countOfQuestions: 0
   totalPercentWorth: 50
   questionWorth: 0
-  npcScript: {fileID: 4900000, guid: cecee3e9aff0d0c4baee64f6114bdb43, type: 3}
+  npcScript: {fileID: 4900000, guid: f5c96c9e4a212d34b862060e7b8775da, type: 3}
 --- !u!114 &980951603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4297,7 +4297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919529499178037865, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 110
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7535811775453313741, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
       propertyPath: m_fontSize
@@ -4309,7 +4309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7975488315723787498, guid: 4c7abafaaa03d450caa20b267878fb8f, type: 3}
       propertyPath: m_text
-      value: 'Name: Tim
+      value: 'Name: Sophia
 
 '
       objectReference: {fileID: 0}
@@ -6240,7 +6240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GV: {fileID: 1521072175}
   player: {fileID: 1003776185}
-  talkingScript: {fileID: 4900000, guid: dbc0123a947eff24885187cc3038d69f, type: 3}
+  talkingScript: {fileID: 4900000, guid: f5c96c9e4a212d34b862060e7b8775da, type: 3}
   xThreshold: -10000
   zThreshold: 10000
   thisCharacter: {fileID: 1348386216082268542}
@@ -6402,7 +6402,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fccb147e2e464cd45b4655faed99d14a, type: 2}
+  - {fileID: 2100000, guid: 341aee755e1ee564096fcf92e8eb813d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6752,7 +6752,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b542e2671ab102941af82fd1b1fdaf0f, type: 2}
+  - {fileID: 2100000, guid: 80eaa083b007c454c82d09fca86bfb12, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6808,7 +6808,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6978f8309d5801b429e7323ea65e7b98, type: 2}
+  - {fileID: 2100000, guid: cc095611fbcbf5c4c852486a006a27a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

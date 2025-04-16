@@ -1,37 +1,57 @@
-Hello, I am Bob, I am a 48 year old male!
-I have been in pain for the past 2 days! Please help me out!
-What did Bob just tell you following OLDCARTS? 
+Hello, I am Sophia, I am a 26 year old female!
+I get these little bumps on my lip that scabbed over. Please help me out!
+Based on the typical progression of this condition, at which stage would therapy be MOST effective in reducing symptom severity and duration?
 1101588
-0Onset
-0Location
-1Duration
-0Timing
-Incorrect, this is asking if the issue was acute, chronic, or in between.
-Incorrect, this is where the sensation felt.
-Correct, this tells the patient how long the symptoms have lasted.
-Incorrect, this deals with the time it occurs after different situations.
+0Papule stage
+0Vesicle stage
+1Prodromal stage
+0Crusting stage
+Incorrect.
+Incorrect.
+Correct.
+Incorrect.
 8675309
-Hmm, I should gather some more information on the patient symptoms. What information should I gather from the patient?
+Of the following, which of the following is the MOST appropriate medication for topical application?
 1101588
-0Gender&Age?
-1Allergies?
-0Diet?
-0Exercise?
-We already know the patient is 48 years old.
-Yes, I'm allergic to penicillin.
-Does not pertain to current patient.
-Does not pertain to current patient.
+1Rx: 10% Docosanol (Abreva) cream; Disp: 2 (two) g tube; Sig: Dab on lesion five times daily during waking hrs for four days beginning when symptoms first occur.
+0Rx: Fluocinonide (Lidex) gel 0.05%; Disp: 30 g tube; Sig: Apply thin film to affected site(s) after each meal and at bedtime. NPO 30 min. after.
+0Rx: Nystatin triamcinolone acetonide ( Mycolog II, Mytrex ) oint; Disp : 15 g tube.;Sig: Apply to affected area after each meal and at bedtime
+0Rx: Tacrolimus 0.1% oint; Disp : 30 g; Sig: Apply thin film to affected site(s) twice daily. NPO 30 min. after
+Correct.
+Incorrect.
+Incorrect.
+Incorrect.
 8675309
-The patient also has prior health history of Hypertension and Type 2 Diabetes.
-All information from the current findings can be seen in your Notxium system.
-We are trying to find the most likely location of this infection. When you have concluded your answer click the "Diagnosis" button in the right corner of the screen. Click Okay to continue.
+Which of the following statements about docosanol is true?
 1101588
-0No
-0No
-0No
-1Okay
-No
-No
-No
-Correct
+0Adrenal suppression is a concern when docosanol is used for greater than 1 week 
+0Docosanol is associated with an increased risk for development of Clostridioides difficile 
+0Docosanol is effective for the treatment of various Candida infections 
+1Docosanol is available over-the-counter (OTC)
+Incorrect.
+Incorrect.
+Incorrect.
+Correct.
+8675309
+In this patient, systemic antiviral therapy should be taken continuously to prevent future outbreaks, rather than on an as-needed basis during prodromal symptoms.
+1101588
+0Sometimes True
+1False
+0True
+0Sometimes False
+Incorrect.
+Correct.
+Incorrect.
+Incorrect.
+8675309
+Once the vesicular lesions have started to crust over, the risk of viral transmission is minimal, and the patient can resume activities such as sharing utensils and kissing without concern.
+1101588
+0Sometimes True
+1False
+0True
+0Sometimes False
+Incorrect.
+Correct.
+Incorrect.
+Incorrect.
 8675309

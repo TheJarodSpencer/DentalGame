@@ -1,6 +1,11 @@
-Blood Pressure: 150/93
-Temperature: 100.3F
-Blood Glucose: 240 mg/dL
-Facial Edema
-Lymphadenopathy
-Extensive apical radiolucency associated with tooth 6
+Patient:
+Female, 26 years old
+
+Cheif Complaint
+"I  get these little bumps on my lip that scabbed over."
+
+Background and/or Patient History:
+Recurrent lesions triggered by stress and prolonged sun exposure.
+
+Current Findings:
+Clustered vesicles with mild crusting on the vermilion border of the lip.

@@ -1,5 +1,5 @@
-1
-Nystatin triamcinolone acetonide
-Clotrimazole
-Acyclovir
-10% Docosanol
+2
+Rx: Tacrolimus 0.1% oint
+Rx: Nystatin triamcinolone acetonide ( Mycolog II, Mytrex ) oint
+Rx: 10% Docosanol (Abreva) cream
+Rx: Fluocinonide (Lidex) gel 0.05%
