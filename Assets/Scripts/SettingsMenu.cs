@@ -24,4 +24,7 @@ public class SettingsMenu : MonoBehaviour
     public void OnHelpBackButton(){
         HelpPanel.SetActive(false);
     }
+    public void OnExitButton(){
+        SceneManager.LoadScene("Login");
+    }
 }
