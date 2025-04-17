@@ -493,7 +493,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: f2458503d80126440aa31cf8887c73fc, type: 2}
   hairPonytail:
   - {fileID: 2100000, guid: 1ab8724d8fe056b4b915c957b1f070c3, type: 2}
-  - {fileID: 2100000, guid: 1ab8724d8fe056b4b915c957b1f070c3, type: 2}
+  - {fileID: 2100000, guid: fcd34a050fb68374cb39dea32e2e2fc6, type: 2}
   blankMat: {fileID: 2100000, guid: dc1957f31dfd118439e081fc56b0665f, type: 2}
 --- !u!114 &121645968
 MonoBehaviour:
