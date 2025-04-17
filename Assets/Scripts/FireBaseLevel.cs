@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireBaseLevel : MonoBehaviour
 {
+    //DO NOT USE THIS SCRIPT TO MY KNOWLEDGE KILL IT
     public LevelButtonManager LBM;
 
     public string numberToTrackQuestions = "1101588";

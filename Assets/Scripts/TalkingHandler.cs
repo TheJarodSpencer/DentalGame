@@ -14,26 +14,11 @@ using UnityEngine.UI;
 
 public class TalkingHandler : MonoBehaviour
 {
-    //For score tracking
-    public int playerScore = 0;
-    public int questionsAnswered = 0;
-
-    public void AddScore(int points)
-    {
-        playerScore += points;
-    }
-
-    public int GetScore()
-    {
-        return playerScore;
-    }
-
-    //Public variable adds
-    public LevelButtonManager LBM;
-    public FireBaseLevel FBL;
 
     //public variables here
     public GlobalVariables GV;
+    public LevelButtonManager LBM;
+    public FireBaseLevel FBL;
     public Texture[] enterImages;
     public Button[] responseButtons;
     public GameObject buttonsEmpty;
@@ -55,10 +40,52 @@ public class TalkingHandler : MonoBehaviour
     private string finalResponse = "";
     private bool clearButtons = false;
     private bool finished = false;
+
+    //For score tracking
+    public int questions = 0;
+    public int questionsCorrect = 0;
+
+    public void GetDialogueScore(){
+        Debug.Log("Get Dialogue Score");
+        
+        int questionsAsked = GetNumQuestions();
+        Debug.Log("Questions asked: " + questionsAsked);
+        int correctQuestions = GetScore();
+        Debug.Log("Correct: " + correctQuestions);
+
+        float baseScore = 0.5f; // 50%
+        float accuracy = (float)correctQuestions / questionsAsked;
+        Debug.Log("Dialogue Score " + accuracy);
+        LBM.score += baseScore * accuracy * 100f;
+        Debug.Log("Final Score: " + LBM.score);
+    }
+
+    public int GetNumQuestions()
+    {
+        return questions;
+    }
+
+    public void AddScore(int points)
+    {
+        questionsCorrect += points;
+    }
+
+    public int GetScore()
+    {
+        return questionsCorrect;
+    }
+
+    private int CheckIfDialogueFinished()
+    {
+        int lineCount = textScript.text.Split('\n').Length;
+        Debug.Log("Line count: " + lineCount);
+        return lineCount;
+    }
+
     void Start()
     {
         GV = Camera.main.GetComponent<GlobalVariables>();
-        //LBM = GameObject.Find(LevelButtonManager).GetComponenet<LevelButtonManager>();
+        LBM = GameObject.Find("LevelButtonManager").GetComponent<LevelButtonManager>();
         //FBL = GameObject.Find(LevelButtonManager).GetComponent<FireBaseLevel>();
         //skipSignal = false;
         done = false;
@@ -153,7 +180,7 @@ public class TalkingHandler : MonoBehaviour
                 StartCoroutine(enterAnimationF());
             }
             lineNumber++;
-            
+            Debug.Log("Line Number: " + lineNumber);
         }
         else{
             done = true;
@@ -264,8 +291,11 @@ public class TalkingHandler : MonoBehaviour
                 AddScore(1);
                 Debug.Log("Correct Answer! Score: " + GetScore());
             }
-            questionsAnswered++;
-            Debug.Log("Questions Answered: " + questionsAnswered);
+            questions++;
+            Debug.Log("Questions Answered: " + questions);
+            if(lineNumber == CheckIfDialogueFinished()){
+                GetDialogueScore();
+            }
         }
     }
     public void Response2OnClick()
@@ -284,8 +314,11 @@ public class TalkingHandler : MonoBehaviour
                 AddScore(1);
                 Debug.Log("Correct Answer! Score: " + GetScore());
             }
-            questionsAnswered++;
-            Debug.Log("Questions Answered: " + questionsAnswered);
+            questions++;
+            Debug.Log("Questions Answered: " + questions);
+            if(lineNumber == CheckIfDialogueFinished()){
+                GetDialogueScore();
+            }
         }
     }
     public void Response3OnClick()
@@ -306,8 +339,11 @@ public class TalkingHandler : MonoBehaviour
                 AddScore(1);
                 Debug.Log("Correct Answer! Score: " + GetScore());
             }
-            questionsAnswered++;
-            Debug.Log("Questions Answered: " + questionsAnswered);
+            questions++;
+            Debug.Log("Questions Answered: " + questions);
+            if(lineNumber == CheckIfDialogueFinished()){
+                GetDialogueScore();
+            }
         }
     }
     public void Response4OnClick()
@@ -326,8 +362,11 @@ public class TalkingHandler : MonoBehaviour
                 AddScore(1);
                 Debug.Log("Correct Answer! Score: " + GetScore());
             }
-            questionsAnswered++;
-            Debug.Log("Questions Answered: " + questionsAnswered);
+            questions++;
+            Debug.Log("Questions Answered: " + questions);
+            if(lineNumber == CheckIfDialogueFinished()){
+                GetDialogueScore();
+            }
         }
     }
     private void buttonColorChanger()

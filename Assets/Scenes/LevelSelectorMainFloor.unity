@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4514007, g: 0.500893, b: 0.57231736, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140058, g: 0.500893, b: 0.57231724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3003,6 +3003,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5950967512346202488, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
+      propertyPath: currentPlayerData.playerCustomization
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7089533177514970897, guid: 37ed52cef54881d4b985a29f40e94204, type: 3}
       propertyPath: m_Drag
       value: 0
@@ -3307,7 +3311,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Cheif Complaint:
 
-        "My gums hurt over my front tooth"
+        "The inside of my mouth burns"
 
 
 '
@@ -3324,8 +3328,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Chief Complaint:
 
-        "My mouth burns and stings whenever I use
-        my toothpaste or eat certain spicy food."'
+        "The inside of my mouth burns."'
       objectReference: {fileID: 0}
     - target: {fileID: 4028541006160995301, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_fontSize
@@ -3343,8 +3346,8 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Cheif Complaint:
 
-        "I have been in pain for 2 days now my face
-        is swollen"'
+        "I  get these little bumps on my lip that
+        scabbed over."'
       objectReference: {fileID: 0}
     - target: {fileID: 4475606945907693281, guid: b16f9a1904ecb1040a2b2cf7e9839bd0, type: 3}
       propertyPath: m_fontSize

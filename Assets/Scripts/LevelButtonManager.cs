@@ -10,9 +10,8 @@ using System.Text.RegularExpressions;
 public class LevelButtonManager : MonoBehaviour
 {
     public GlobalVariables GV;
-
     public chatboxHandler cbh;
-    //public TalkingHandler talkingHandlerScript;
+    public TalkingHandler TH;
     public FireBase FB;
     public KeepPlayerPOS pos;
 
@@ -20,7 +19,7 @@ public class LevelButtonManager : MonoBehaviour
     public float score = 0f;
     public int attemptsMed = 0;
     public int attemptsDia = 0;
-    public float maxScore = 100f;
+    public float maxScore = 50f;
 
     public GameObject axiumUIPanel;
     public GameObject diagnosisButton;
@@ -53,6 +52,10 @@ public class LevelButtonManager : MonoBehaviour
     public int onlyCountOnceMed = 0;
     private bool[] diaButtonClicked;
     private bool[] medButtonClicked;
+
+    public int onlyUpdateOnce = 0;
+    public int correctAnswerDialogue;
+    public int numOfQuestions;
 
     //To disable NPC click
     public GameObject npcHoverDetector;
@@ -134,7 +137,6 @@ public class LevelButtonManager : MonoBehaviour
     } 
 
 
-
     public void ActivateDia(){
         diagnosisButton.SetActive(true);
     }
@@ -165,11 +167,17 @@ public class LevelButtonManager : MonoBehaviour
             onlyCountOnceDia++;
             clickedButton.GetComponent<Image>().color = Color.green; //Correct
             isDiaCorrect = true;
-            float rewardMultiplier = attemptsDia == 0 ? 0.5f : 
-                                 attemptsDia == 1 ? 0.25f : 
-                                 attemptsDia == 2 ? 0.1875f : 
+            float rewardMultiplier = attemptsDia == 0 ? 1f :      //100% of DIA section on first try
+                                 attemptsDia == 1 ? 0.5f :
+                                 attemptsDia == 2 ? 0.25f :
                                  0.125f;
-            score += maxScore * rewardMultiplier;//Maxscore times how much they earned + already exsisting score
+
+            float diaWeight = 0.25f; //DIA is worth 25% of total score
+            float percentEarned = diaWeight * rewardMultiplier;
+
+            score += (percentEarned * 100f); 
+
+            Debug.Log("Percent earned from DIA: " + (percentEarned * 100f) + "%");
         }
         else if(onlyCountOnceDia == 1){
             return;
@@ -194,11 +202,17 @@ public class LevelButtonManager : MonoBehaviour
             onlyCountOnceMed++;
             clickedButton.GetComponent<Image>().color = Color.green; //Correct
             isMedCorrect = true;
-            float rewardMultiplier = attemptsMed == 0 ? 0.5f : 
-                                 attemptsMed == 1 ? 0.25f : 
-                                 attemptsMed == 2 ? 0.1875f : 
+            float rewardMultiplier = attemptsMed == 0 ? 1f :      // 100% of MED section on first try
+                                 attemptsMed == 1 ? 0.5f :
+                                 attemptsMed == 2 ? 0.25f :
                                  0.125f;
-            score += maxScore * rewardMultiplier;//Maxscore times how much they earned + already exsisting score
+
+            float medWeight = 0.25f; //Med is worth 25% of total score
+            float percentEarned = medWeight * rewardMultiplier;
+
+            score += (percentEarned*100f); 
+
+            Debug.Log("Percent earned from Med: " + (percentEarned * 100f) + "%");
         }
         else if(onlyCountOnceMed == 1){
             return;
@@ -229,7 +243,7 @@ public class LevelButtonManager : MonoBehaviour
         npc.SetActive(false);
         completeLevel.SetActive(true);
 
-        scoreText.text = score.ToString() + "%";
+        scoreText.text = score.ToString("F2") + "%";
         Debug.Log("In LBM: "+ GetLevelNumber());
 
         FB.UpdateCharacterField("playerExperience", score);

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class LoadCharacterPOS : MonoBehaviour
 {
+    /*
      void Start()
     {
         // Find the specific character GameObject
-        GameObject character = GameObject.Find("MCharacter");
+        //GameObject character = GameObject.Find("MCharacter");
+        GameObject character = GameObject.FindGameObjectWithTag("Player");
+
 
         if (character != null && KeepPlayerPOS.Instance.GetPlayerPosition() != Vector3.zero)
         {   
@@ -19,5 +22,15 @@ public class LoadCharacterPOS : MonoBehaviour
         {
             Debug.LogError("Character GameObject not found in the scene!");
         }
+    }
+*/
+    IEnumerator Start() {
+        yield return new WaitForSeconds(0.1f);
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player == null)
+            Debug.LogError("Player not found!");
+        else
+            Debug.Log("Player found: " + player.name);
     }
 }
