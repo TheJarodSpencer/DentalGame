@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43835357, g: 0.4864105, b: 0.5666836, a: 1}
+  m_IndirectSpecularColor: {r: 0.43835288, g: 0.48640984, b: 0.5666825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -960,9 +960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Are you sure?
-
-    You may not be able to change some of these later.'
+  m_text: Are you sure?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b37fcb9a617534f4cb125456a2ad2b38, type: 2}
   m_sharedMaterial: {fileID: 7850458512447926103, guid: b37fcb9a617534f4cb125456a2ad2b38, type: 2}
@@ -8779,6 +8777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b185d2738294094fbada3a349354c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alreadyTalkedTo: 0
 --- !u!114 &2062457635
 MonoBehaviour:
   m_ObjectHideFlags: 0
