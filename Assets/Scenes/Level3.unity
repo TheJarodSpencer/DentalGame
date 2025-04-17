@@ -2678,7 +2678,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1807088568}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &872660848
 AudioSource:
@@ -5680,6 +5680,7 @@ GameObject:
   - component: {fileID: 1807088563}
   - component: {fileID: 1807088562}
   - component: {fileID: 1807088561}
+  - component: {fileID: 1807088569}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5899,11 +5900,25 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1877853519}
   - {fileID: 872660847}
+  - {fileID: 1877853519}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
+--- !u!114 &1807088569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807088560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e914caa24a9b7ef40b328c41b8977136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GV: {fileID: 1807088565}
+  song: {fileID: 8300000, guid: f85708d7537702d4cb53d1b1fa6d614b, type: 3}
 --- !u!1 &1877853518
 GameObject:
   m_ObjectHideFlags: 0
@@ -5935,7 +5950,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1807088568}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1877853520
 MonoBehaviour:
