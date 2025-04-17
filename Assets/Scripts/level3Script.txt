@@ -72,6 +72,8 @@ You conduct a smear test on this patient. Which of the following statements is T
 1A smear test can detect the presence of fungal hyphae.
 0A smear test is only indicated when a patient has chronic, non-wipeable oral lesions.
 0A smear test requires a full-thickness biopsy to confirm the presence of yeast organisms.
+Incorrect.
+Correct.
+Incorrect.
+Incorrect.
 8675309
-
-

@@ -271,7 +271,7 @@ public class LevelButtonManager : MonoBehaviour
     public void BackButtonInAxium(){
         backButtonFromAxium.SetActive(false); 
         axiumUIPanel.SetActive(false); 
-        diagnosisButton.SetActive(true);
+        diagnosisButton.SetActive(GV.getAlreadyTalkedTo());
         medicineButton.SetActive(HandleMedShown());
         axiumButton.SetActive(true);
         Camera.main.transform.position = new Vector3(0f, 3f, -11f);

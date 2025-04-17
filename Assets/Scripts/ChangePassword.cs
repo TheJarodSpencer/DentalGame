@@ -31,6 +31,12 @@ public class ChangePassword : MonoBehaviour
             return;
         }
 
+        if (newPassword == "test123")
+        {
+            ShowFeedback("Please make a new password", Color.red);
+            return;
+        }
+
         string userEmail = KeepPlayerName.Instance.GetCharacterName();
         string username = userEmail.Split('@')[0];
 

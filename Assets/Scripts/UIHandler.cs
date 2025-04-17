@@ -9,9 +9,16 @@ public class UIHandler : MonoBehaviour
     public GlobalVariables GV;
     private GameObject uiCanvas;
     private bool canvasExists = false;
+
+    public LevelButtonManager LBM;
+
+    public GameObject FadePrefab;
+
+    private GameObject temp;
     void Start()
     {
-        
+        temp = Instantiate(FadePrefab);
+        Invoke("Kill", 0.5f);
     }
 
     // Update is called once per frame
@@ -24,6 +31,8 @@ public class UIHandler : MonoBehaviour
             {
                 uiCanvas = Instantiate(textCanvas);
                 canvasExists = true;
+                //LBM.diagnosisButton.SetActive(false);
+
             }
         }else{
             //chatBoxUI.SetActive(false);
@@ -31,7 +40,12 @@ public class UIHandler : MonoBehaviour
             {
                 DestroyImmediate(uiCanvas, true);
                 canvasExists = false;
+                GV.setTalkingSound(false);
             }
         }
+    }
+
+    void Kill() {
+        Destroy(temp);
     }
 }

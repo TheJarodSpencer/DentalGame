@@ -200,14 +200,16 @@ public class TalkingHandler : MonoBehaviour
             {
                 isTalking = true;
                 text.text += character;
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.01f);
             }else{
                 text.text = line;
                 isTalking = false;
+                resumeAnswering();
                 yield return null;
             }
         }
         isTalking = false;
+        resumeAnswering();
         skipSignal = false;
         enterAnimation = true;
         if(gtg)
@@ -279,6 +281,7 @@ public class TalkingHandler : MonoBehaviour
     {
         if(GV.getButtonValue() == 1)
         {
+            pauseAnswering();
             StopAllCoroutines();
             buttonColorChanger();
             finalResponse = response[0];
@@ -293,16 +296,17 @@ public class TalkingHandler : MonoBehaviour
             }
             questions++;
             Debug.Log("Questions Answered: " + questions);
-            if(lineNumber == CheckIfDialogueFinished()){
-                GetDialogueScore();
-                LBM.diagnosisButton.SetActive(true);
-            }
+            // if(lineNumber == CheckIfDialogueFinished()){
+            //     GetDialogueScore();
+            //     LBM.diagnosisButton.SetActive(true);
+            // }
         }
     }
     public void Response2OnClick()
     {
         if(GV.getButtonValue() == 2)
         {
+            pauseAnswering();
             StopAllCoroutines();
             buttonColorChanger();
             finalResponse = response[1];
@@ -317,16 +321,17 @@ public class TalkingHandler : MonoBehaviour
             }
             questions++;
             Debug.Log("Questions Answered: " + questions);
-            if(lineNumber == CheckIfDialogueFinished()){
-                GetDialogueScore();
-                LBM.diagnosisButton.SetActive(true);
-            }
+            // if(lineNumber == CheckIfDialogueFinished()){
+            //     GetDialogueScore();
+            //     LBM.diagnosisButton.SetActive(true);
+            // }
         }
     }
     public void Response3OnClick()
     {
         if(GV.getButtonValue() == 3)
         {
+            pauseAnswering();
             StopAllCoroutines();
             Debug.Log("Now Here wtf");
             buttonColorChanger();
@@ -343,16 +348,17 @@ public class TalkingHandler : MonoBehaviour
             }
             questions++;
             Debug.Log("Questions Answered: " + questions);
-            if(lineNumber == CheckIfDialogueFinished()){
-                GetDialogueScore();
-                LBM.diagnosisButton.SetActive(true);
-            }
+            // if(lineNumber == CheckIfDialogueFinished()){
+            //     GetDialogueScore();
+            //     LBM.diagnosisButton.SetActive(true);
+            // }
         }
     }
     public void Response4OnClick()
     {
         if(GV.getButtonValue() == 4)
         {
+            pauseAnswering();
             StopAllCoroutines();
             buttonColorChanger();
             finalResponse = response[3];
@@ -367,10 +373,10 @@ public class TalkingHandler : MonoBehaviour
             }
             questions++;
             Debug.Log("Questions Answered: " + questions);
-            if(lineNumber == CheckIfDialogueFinished()){
-                GetDialogueScore();
-                LBM.diagnosisButton.SetActive(true);
-            }
+            // if(lineNumber == CheckIfDialogueFinished()){
+            //     GetDialogueScore();
+            //     LBM.diagnosisButton.SetActive(true);
+            // }
         }
     }
     private void buttonColorChanger()
@@ -405,7 +411,7 @@ public class TalkingHandler : MonoBehaviour
             {
                 isTalking = true;
                 text.text += character;
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.01f);
             }else{
                 text.text = finalResponse;
                 isTalking = false;
@@ -418,8 +424,25 @@ public class TalkingHandler : MonoBehaviour
         if(lineNumber + 1 >= lines.Length)
             {
                 done = true;
+                GetDialogueScore();
+                LBM.diagnosisButton.SetActive(true);
+                GV.setAlreadyTalkedTo(true);
             }
         //done = true;
+    }
+
+    private void pauseAnswering() {
+        for(int i = 0; i < 4; i++)
+        {
+            responseButtons[i].interactable = false;
+        }
+    }
+
+    private void resumeAnswering() {
+        for(int i = 0; i < 4; i++)
+        {
+            responseButtons[i].interactable = true;
+        }
     }
 
 /*

@@ -13,6 +13,8 @@ public class EnterDoors : MonoBehaviour
     public GameObject characterForPOS;
     public string targetSceneName; //Added this here to store a string of the level selected scene!
 
+    public GameObject FadePrefab;
+
     private void Start()
     {
         characterForPOS = GameObject.Find("MCharacter");
@@ -43,7 +45,9 @@ public class EnterDoors : MonoBehaviour
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
             KeepPlayerPOS.Instance.SetPlayerPosition(characterForPOS);//Added to grab the users POS before entering scene
-            SceneManager.LoadScene(targetSceneName);  
+            Instantiate(FadePrefab);
+            Invoke("Change", 0.2f);
+            //SceneManager.LoadScene(targetSceneName);  
            //ReplacePrefab();
         }
     }
@@ -82,6 +86,10 @@ public class EnterDoors : MonoBehaviour
                 rb.isKinematic = true;
             }
         }   
+    }
+
+    private void Change() {
+        SceneManager.LoadScene(targetSceneName);
     }
 
 

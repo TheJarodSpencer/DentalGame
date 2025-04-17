@@ -117,11 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f0b9ec6d4a293489ac678c2437bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScore: 0
-  questionsAnswered: 0
+  GV: {fileID: 0}
   LBM: {fileID: 0}
   FBL: {fileID: 0}
-  GV: {fileID: 0}
   enterImages:
   - {fileID: 2800000, guid: 8f10d7c1c8884d342b3937d6b3c082a5, type: 3}
   - {fileID: 2800000, guid: dce80e6238523b94fa55e5c4f5b56fd6, type: 3}
@@ -135,6 +133,8 @@ MonoBehaviour:
   enterImageObj: {fileID: 7682570919899753999}
   gtg: 0
   holdForResponse: 0
+  questions: 0
+  questionsCorrect: 0
 --- !u!1 &7682570919225315803
 GameObject:
   m_ObjectHideFlags: 0

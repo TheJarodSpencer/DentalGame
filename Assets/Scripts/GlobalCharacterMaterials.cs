@@ -61,6 +61,7 @@ public class GlobalCharacterMaterials : MonoBehaviour
                 skinReturn = skinFemale4;
             }
         }
+        Debug.Log(skinReturn.Length);
         return skinReturn;
     }
     public Material[] getHair(int hairID, int colorID)
@@ -97,6 +98,7 @@ public class GlobalCharacterMaterials : MonoBehaviour
                 newColor = HexToColor("F70000");
             }
             hairReturn = hairShort;
+            Debug.Log(hairReturn.Length);
             hairReturn[0].color = newColor;
             hairReturn[1].color = newColor;
         
