@@ -295,6 +295,7 @@ public class TalkingHandler : MonoBehaviour
             Debug.Log("Questions Answered: " + questions);
             if(lineNumber == CheckIfDialogueFinished()){
                 GetDialogueScore();
+                LBM.diagnosisButton.SetActive(true);
             }
         }
     }
@@ -318,6 +319,7 @@ public class TalkingHandler : MonoBehaviour
             Debug.Log("Questions Answered: " + questions);
             if(lineNumber == CheckIfDialogueFinished()){
                 GetDialogueScore();
+                LBM.diagnosisButton.SetActive(true);
             }
         }
     }
@@ -343,6 +345,7 @@ public class TalkingHandler : MonoBehaviour
             Debug.Log("Questions Answered: " + questions);
             if(lineNumber == CheckIfDialogueFinished()){
                 GetDialogueScore();
+                LBM.diagnosisButton.SetActive(true);
             }
         }
     }
@@ -366,6 +369,7 @@ public class TalkingHandler : MonoBehaviour
             Debug.Log("Questions Answered: " + questions);
             if(lineNumber == CheckIfDialogueFinished()){
                 GetDialogueScore();
+                LBM.diagnosisButton.SetActive(true);
             }
         }
     }

@@ -71,7 +71,7 @@ public class LevelButtonManager : MonoBehaviour
         LoadTextFromFile(medFile, medButtons);
         string[] medLines = medFile.text.Split('\n');
         correctMedAnswerIndex = int.Parse(medLines[0].Trim());
-        //diagnosisButton.SetActive(false);
+        diagnosisButton.SetActive(false);
 
         diaButtonClicked = new bool[diaButtons.Length];
         medButtonClicked = new bool[medButtons.Length];
