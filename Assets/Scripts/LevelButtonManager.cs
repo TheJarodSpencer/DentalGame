@@ -246,7 +246,7 @@ public class LevelButtonManager : MonoBehaviour
         scoreText.text = score.ToString("F2") + "%";
         Debug.Log("In LBM: "+ GetLevelNumber());
 
-        FB.UpdateCharacterField("playerExperience", score);
+        FB.UpdateCharacterField("playerExperience", score.ToString("F2"));
 
         Debug.Log("Correct answer!");
         attemptsMed = 0;//Reset for next button set

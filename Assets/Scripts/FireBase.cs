@@ -5,6 +5,7 @@ using UnityEngine;
 using FirebaseWebGL.Examples.Utils;
 using FirebaseWebGL.Scripts.FirebaseBridge;
 using FirebaseWebGL.Scripts.Objects;
+using System;
 
 
 public class FireBase : MonoBehaviour
@@ -74,7 +75,7 @@ public class FireBase : MonoBehaviour
             case "playerExperience":
                 if (currentPlayerData.playerExperience[LBM.GetLevelNumber()] == 0f)
                 {
-                    currentPlayerData.playerExperience[LBM.GetLevelNumber()] = (float)value;  //Only overwrite if the experience is 0 (first entry of progression)
+                    currentPlayerData.playerExperience[LBM.GetLevelNumber()] = float.Parse((string)value);  //Only overwrite if the experience is 0 (first entry of progression)
                 }
                 break;
             case "playerCustomization":

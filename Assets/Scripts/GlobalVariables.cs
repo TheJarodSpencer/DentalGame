@@ -25,6 +25,16 @@ public class GlobalVariables : MonoBehaviour
     int buttonValue = 0;
     bool playTalkingSound = false;
     //this is for talking audio
+    void OnDestroy()
+    {
+        KeepPlayerName.Instance.SetVolume(volume);
+    }
+    void Awake()
+    {
+        //KeepPlayerName kpn = GetComponent<KeepPlayerName>();
+        volume = KeepPlayerName.Instance.GetVolume();
+    }
+
     public void setTalkingSound(bool sound)
     {
         playTalkingSound = sound;

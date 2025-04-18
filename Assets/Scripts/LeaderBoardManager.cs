@@ -117,7 +117,7 @@ private void DisplayTopPlayers(List<FireBase.PlayerData> players)
     var sortedByScores = players.OrderByDescending(player => player.playerExperience.Max()).ToList();
     
     // Sort players by the highest level completed (assuming you want to show most levels completed)
-    var sortedByLevels = players.OrderByDescending(player => player.playerExperience.Length).ToList();
+    var sortedByLevels = players.OrderByDescending(player => GetHighestLevel(player)).ToList();
 
     // Display the top players (you can call your existing method for this)
     DisplayTopPlayersByCategory(sortedByLevels, sortedByScores);

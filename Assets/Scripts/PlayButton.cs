@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayButton : MonoBehaviour
 {
     public void OnPlayButton(){
+        //KeepPlayerName kpn = GetComponent<KeepPlayerName>();
+        //GlobalVariables GV = GameObject.FindAnyObjectByType<GlobalVariables>();
+        //KeepPlayerName.Instance.SetVolume(GV.getAudioVolume());
         SceneManager.LoadScene("WelcomeScene");
     }
 

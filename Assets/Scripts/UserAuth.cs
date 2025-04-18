@@ -41,6 +41,7 @@ public class UserAuth : MonoBehaviour
     {
         loginManagerName = LoginManagerPulled.name;
          if (Application.platform != RuntimePlatform.WebGLPlayer)
+                //SceneManager.LoadScene("WelcomeScene");
                 DisplayError("The code is not running on a WebGL build; as such, the Javascript functions will not be recognized.");
 
     }
