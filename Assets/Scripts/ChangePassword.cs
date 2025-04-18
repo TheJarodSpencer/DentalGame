@@ -50,7 +50,7 @@ public class ChangePassword : MonoBehaviour
 
     public void DisplayData(string result)
     {
-        ShowFeedback("Password updated successfully! Take good note of the password used. Failing to rememeber your password will result in reaching out to the Professors to allow for you to reset it", Color.green);
+        ShowFeedback("Password updated successfully! Please make sure to store your new password in a safe place. If you forget it, you will need to contact your professors to request a password reset.", Color.green);
         Debug.Log("Password updated: " + result);
         gameObject.SetActive(false);
     }
