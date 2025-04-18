@@ -28,4 +28,8 @@ public class PlayerSaveData : MonoBehaviour
     public int GetPlayerCustomization(){
         return currentSaveData.playerCustomization;
     }
+
+    public float[] GetPlayerExperience(){
+        return currentSaveData.playerExperience;
+    }
 }
