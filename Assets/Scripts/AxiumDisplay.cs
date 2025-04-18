@@ -9,6 +9,8 @@ public class AxiumDisplay : MonoBehaviour
     public Image targetImage;
     public Sprite newSprite;  
     public TextAsset noteText;
+    public TextAsset medHistoryText;
+    public TextMeshProUGUI textMeshPro2;
     public TextMeshProUGUI textMeshPro;
 
     void Start()
@@ -31,6 +33,16 @@ public class AxiumDisplay : MonoBehaviour
         else
         {
             Debug.LogWarning("Note text is missing!");
+        }
+
+        //Takes care of med note
+        if (medHistoryText != null && textMeshPro2 != null)
+        {
+            textMeshPro2.text = medHistoryText.text;  
+        }
+        else
+        {
+            Debug.LogWarning("MedHistory text is missing!");
         }
 
     }
