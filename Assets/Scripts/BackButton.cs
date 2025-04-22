@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BackButton : MonoBehaviour
 {
+    //NOT USED IN ANY CURRENT SCENES
     // Start is called before the first frame update
     public void OnBackButton(){
         SceneManager.LoadScene("WelcomeScene");

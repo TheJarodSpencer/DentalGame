@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    //ONLY USED IN SCENE CM
     public Transform player;
     public float followSpeed = 1000f;
     public float xThreshold = 2f;

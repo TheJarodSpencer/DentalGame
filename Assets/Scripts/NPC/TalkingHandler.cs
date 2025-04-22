@@ -18,7 +18,6 @@ public class TalkingHandler : MonoBehaviour
     //public variables here
     public GlobalVariables GV;
     public LevelButtonManager LBM;
-    public FireBaseLevel FBL;
     public Texture[] enterImages;
     public Button[] responseButtons;
     public GameObject buttonsEmpty;
