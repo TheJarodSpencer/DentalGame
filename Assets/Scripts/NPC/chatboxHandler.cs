@@ -31,7 +31,7 @@ public class chatboxHandler : MonoBehaviour
     private bool goodToClick = false;
     private bool alreadyTalkedTo = false;
 
-    public bool canFLip;
+    public bool canFLip; //changed in levelButtonManager, prevents alreadyTalkedTo from being set prematurely
 
     private float talkDistance = 10.0f;
     void Start()

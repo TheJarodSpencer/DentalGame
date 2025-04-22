@@ -2,6 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/*
+*
+* This Script is responsible to Fading the screen in on a new scene
+* On a new scnece with a FadeIn Prefab, the screen starts full black and quickly sets alpha to 0
+*
+*/
+
+
+
+
 public class FadeIn : MonoBehaviour
 {
     [SerializeField]

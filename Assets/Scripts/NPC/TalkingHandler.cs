@@ -5,10 +5,8 @@ using FullSerializer;
 using FullSerializer.Internal.DirectConverters;
 
 
-//using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using Unity.VisualScripting;
-//using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -85,8 +83,6 @@ public class TalkingHandler : MonoBehaviour
     {
         GV = Camera.main.GetComponent<GlobalVariables>();
         LBM = GameObject.Find("LevelButtonManager").GetComponent<LevelButtonManager>();
-        //FBL = GameObject.Find(LevelButtonManager).GetComponent<FireBaseLevel>();
-        //skipSignal = false;
         done = false;
         textScript = GV.getScript();
         lineNumber = 0;
@@ -105,7 +101,6 @@ public class TalkingHandler : MonoBehaviour
     }
     void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.Return))
         if(Input.GetMouseButtonDown(0))
         {
             if(clearButtons)
@@ -129,9 +124,6 @@ public class TalkingHandler : MonoBehaviour
                     }
                 }
             }else{
-            //}else if(done && !finished){
-                
-            //}else if (done && finished){
                 GV.clearScript();
                 GV.swapTalking();
             }
@@ -152,6 +144,7 @@ public class TalkingHandler : MonoBehaviour
     }
     private void startTalking()
     {
+        //If the player has not checked the computer beforehand, this is added to the dialog and end the dialogue
         if(!GV.getCheckedAxium()) {
             done = true;
             GV.setAlreadyTalkedTo(false);
@@ -182,9 +175,9 @@ public class TalkingHandler : MonoBehaviour
             Debug.Log("Line Number: " + lineNumber);
         }
         else{
+            //if the player has already spoken to the NPC, this is said and ends dialogue
             done = true;
             StartCoroutine(AppendCharacters("Sorry, I'm afraid you have already talked with me."));
-            //StartCoroutine(AppendCharacters("Sorry, I'm afraid you have already talked with me."));
         }
     }
 
@@ -223,12 +216,6 @@ public class TalkingHandler : MonoBehaviour
     private void responseSetup()
     {
         buttonsEmpty.SetActive(true);
-        //responseButtons[0].onClick.AddListener(Response1OnClick);
-        //responseButtons[1].onClick.AddListener(Response2OnClick);
-        //responseButtons[2].onClick.AddListener(Response3OnClick);
-        //responseButtons[3].onClick.AddListener(Response4OnClick);
-        //JAROD THE BUG WAS HERE THE WHOLE TIME GODS DAMMIT WHY DOES COFFEE AT 5AM HELP ME FIND THIS?!?!?!?!
-
         lineNumber++;
         for(int i = 0; i < 4; i++)
         {
@@ -241,21 +228,16 @@ public class TalkingHandler : MonoBehaviour
             responseSetter(lines[lineNumber], i);
         }
         lineNumber++;
-        //if(lineNumber < lines.Length)
-        //{
-            int result;
-            bool canConvert = Int32.TryParse(lines[lineNumber], out result);
-            if(canConvert)
+        int result;
+        bool canConvert = Int32.TryParse(lines[lineNumber], out result);
+        if(canConvert)
+        {
+            if(result == 8675309)
             {
-                if(result == 8675309)
-                {
-                    gtg = false;
-                }
+                gtg = false;
             }
+        }
             
-        //}else{
-            //done = true;
-        //}
     }
     private void responseSetter(string rLine, int value)
     {
@@ -291,14 +273,10 @@ public class TalkingHandler : MonoBehaviour
             if (optionsTF[0] == 1) //is correct
             {
                 AddScore(1);
-                Debug.Log("Correct Answer! Score: " + GetScore());
+                //Debug.Log("Correct Answer! Score: " + GetScore());
             }
             questions++;
-            Debug.Log("Questions Answered: " + questions);
-            // if(lineNumber == CheckIfDialogueFinished()){
-            //     GetDialogueScore();
-            //     LBM.diagnosisButton.SetActive(true);
-            // }
+            //Debug.Log("Questions Answered: " + questions);
         }
     }
     public void Response2OnClick()
@@ -316,14 +294,10 @@ public class TalkingHandler : MonoBehaviour
             if (optionsTF[1] == 1) //is correct
             {
                 AddScore(1);
-                Debug.Log("Correct Answer! Score: " + GetScore());
+                //Debug.Log("Correct Answer! Score: " + GetScore());
             }
             questions++;
-            Debug.Log("Questions Answered: " + questions);
-            // if(lineNumber == CheckIfDialogueFinished()){
-            //     GetDialogueScore();
-            //     LBM.diagnosisButton.SetActive(true);
-            // }
+            //Debug.Log("Questions Answered: " + questions);
         }
     }
     public void Response3OnClick()
@@ -332,7 +306,7 @@ public class TalkingHandler : MonoBehaviour
         {
             pauseAnswering();
             StopAllCoroutines();
-            Debug.Log("Now Here wtf");
+            //Debug.Log("Now Here wtf");
             buttonColorChanger();
             finalResponse = response[2];
             StartCoroutine(appendResponse());
@@ -343,14 +317,10 @@ public class TalkingHandler : MonoBehaviour
             if (optionsTF[2] == 1) //is correct
             {
                 AddScore(1);
-                Debug.Log("Correct Answer! Score: " + GetScore());
+                //Debug.Log("Correct Answer! Score: " + GetScore());
             }
             questions++;
-            Debug.Log("Questions Answered: " + questions);
-            // if(lineNumber == CheckIfDialogueFinished()){
-            //     GetDialogueScore();
-            //     LBM.diagnosisButton.SetActive(true);
-            // }
+            //Debug.Log("Questions Answered: " + questions);
         }
     }
     public void Response4OnClick()
@@ -368,14 +338,10 @@ public class TalkingHandler : MonoBehaviour
             if (optionsTF[3] == 1) //is correct
             {
                 AddScore(1);
-                Debug.Log("Correct Answer! Score: " + GetScore());
+                //Debug.Log("Correct Answer! Score: " + GetScore());
             }
             questions++;
-            Debug.Log("Questions Answered: " + questions);
-            // if(lineNumber == CheckIfDialogueFinished()){
-            //     GetDialogueScore();
-            //     LBM.diagnosisButton.SetActive(true);
-            // }
+            //Debug.Log("Questions Answered: " + questions);
         }
     }
     private void buttonColorChanger()
@@ -385,10 +351,8 @@ public class TalkingHandler : MonoBehaviour
             if(optionsTF[i] == 0)
             {
                 responseButtons[i].GetComponent<Image>().color = Color.red;
-                //CheckAnswerAndAwardPoints(0);
             }else{
                 responseButtons[i].GetComponent<Image>().color = Color.green;
-                //CheckAnswerAndAwardPoints(1);
             }
         }
     }
@@ -427,7 +391,6 @@ public class TalkingHandler : MonoBehaviour
                 LBM.diagnosisButton.SetActive(true);
                 GV.setAlreadyTalkedTo(true);
             }
-        //done = true;
     }
 
     private void pauseAnswering() {
@@ -443,22 +406,5 @@ public class TalkingHandler : MonoBehaviour
             responseButtons[i].interactable = true;
         }
     }
-
-/*
-   private void CheckAnswerAndAwardPoints(int buttonIndex)
-    {
-        if (buttonIndex == 0) 
-        {
-            //Correct
-            LBM.score += FBL.questionWorth*100;
-            Debug.Log("Correct!");
-        }
-        else
-        {
-            //Wrong
-            Debug.Log("Incorrect");
-        }
-    }
-    */
 
 }

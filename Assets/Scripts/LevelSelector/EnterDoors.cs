@@ -46,8 +46,8 @@ public class EnterDoors : MonoBehaviour
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
             KeepPlayerPOS.Instance.SetPlayerPosition(characterForPOS);//Added to grab the users POS before entering scene
-            Instantiate(FadePrefab);
-            Invoke("Change", 0.2f);//Change scene with transition
+            Instantiate(FadePrefab); //instatiates an object that fades the screen to black
+            Invoke("Change", 0.2f);//Change scene after the fade
             //SceneManager.LoadScene(targetSceneName);  
            //ReplacePrefab();
         }

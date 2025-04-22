@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+*   This script controlls the text pop-up when a player is close to a bay
+*   When the object is enabled, its scale is set to 60% growing every .5 secs
+*
+*/
+
 public class BoxFadeIn : MonoBehaviour
 {
 
@@ -21,7 +28,10 @@ public class BoxFadeIn : MonoBehaviour
     void Update()
     {
         
-    }
+    }       
+
+
+    //When the text object is enabled set the smaller scale and transparent
 
     void OnEnable() {
         cv = GetComponent<CanvasGroup>();
@@ -31,6 +41,7 @@ public class BoxFadeIn : MonoBehaviour
         Invoke("FadeIn", 0.1f);
     }
 
+    //loops throw until the box is halfway transparent scaling up and becoming more opaque
     void FadeIn() {
         if(temp < 0.5f) {
             temp += 0.1f;

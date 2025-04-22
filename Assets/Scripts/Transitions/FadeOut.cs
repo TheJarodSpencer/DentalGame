@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
+/*
+*
+* This Script is responsible to Fading the screen out when leaving a scene
+* Before loading a new scene, instatiating a FadeOut prefab will cause the screen 
+*   to quickly fade to black
+*/
+
 public class FadeOut : MonoBehaviour
 {
 
