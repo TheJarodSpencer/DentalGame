@@ -1,3 +1,4 @@
+//This script is for entering the BAYS of the clinicals (orginally it was doors of an office changed to bays of a clinic)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class EnterDoors : MonoBehaviour
 {
     [Header("Inscribed")]
     public string sceneToLoad;
-    public GameObject[] indicatorCubes; // Array of indicator cubes
+    public GameObject[] indicatorCubes; //Array of indicator cubes
     public GameObject levelSelector;
     public GameObject pickedLevel;
     public GameObject characterForPOS;
@@ -18,20 +19,20 @@ public class EnterDoors : MonoBehaviour
     private void Start()
     {
         characterForPOS = GameObject.Find("MCharacter");
-        // Ensure all indicator cubes are inactive at the start
+        //Ensure all indicator cubes are inactive at the start (Level Chat Boxes above levels)
         foreach (GameObject cube in indicatorCubes)
         {
             cube.SetActive(false);
         }
     }
 
-    // Player trigger door
+    //Player trigger door
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {   
             Debug.Log("Player entered the trigger.");
-            // Activate all indicator cubes when the player enters
+            //Activate all indicator cubes the player is in when the player enters
             foreach (GameObject cube in indicatorCubes)
             {
                 cube.SetActive(true);
@@ -39,25 +40,25 @@ public class EnterDoors : MonoBehaviour
         }
     }
 
-    // Press E to enter level
+    //Press E to enter level
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.E))
         {
             KeepPlayerPOS.Instance.SetPlayerPosition(characterForPOS);//Added to grab the users POS before entering scene
             Instantiate(FadePrefab);
-            Invoke("Change", 0.2f);
+            Invoke("Change", 0.2f);//Change scene with transition
             //SceneManager.LoadScene(targetSceneName);  
            //ReplacePrefab();
         }
     }
 
-    // Player exits
+    //Player exits
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Deactivate all indicator cubes when the player exits
+            //Deactivate all indicator cubes when the player exits
             foreach (GameObject cube in indicatorCubes)
             {
                 cube.SetActive(false);
@@ -66,7 +67,7 @@ public class EnterDoors : MonoBehaviour
     }
 
 
-    //No longer using rn
+    //No longer using rn (Still no longer using this)
     private void ReplacePrefab()
     {
         if(levelSelector != null && pickedLevel)
@@ -78,11 +79,9 @@ public class EnterDoors : MonoBehaviour
 
             GameObject newObject = Instantiate(pickedLevel, oldPos, oldRotation);
 
-            // Optional: If there are physics issues, you can disable Rigidbody or other components on the new prefab
             Rigidbody rb = newObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                // Disable Rigidbody if it has one (to prevent physics interference)
                 rb.isKinematic = true;
             }
         }   
@@ -91,7 +90,6 @@ public class EnterDoors : MonoBehaviour
     private void Change() {
         SceneManager.LoadScene(targetSceneName);
     }
-
 
 }
 

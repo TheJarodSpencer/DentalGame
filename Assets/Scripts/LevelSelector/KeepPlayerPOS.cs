@@ -1,3 +1,4 @@
+//This script keeps the players position stored across scenes. It loads the player where they were in the level selector after completing a level.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,17 +23,19 @@ public class KeepPlayerPOS : MonoBehaviour
         }
     }
     
+    //Gets the current player position in the scene
     public Vector3 GetPlayerPosition()
     {
         return playerPosition;
     }
 
+    //Store the last scene name
     public string GetLastSceneName()
     {
         return levelSelectorScene;
     }
 
-    //Get Player info before switch scenes
+    //Get Player position before switch scenes
     public void SetPlayerPosition(GameObject player)
     {
         playerPosition = player.transform.position;

@@ -1,3 +1,4 @@
+//This script on start finds the location of the player using the player tag
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,9 +24,12 @@ public class LoadCharacterPOS : MonoBehaviour
             Debug.LogError("Character GameObject not found in the scene!");
         }
     }
-*/
+    */
+
     IEnumerator Start() {
+        //Waits briefly (0.1s)
         yield return new WaitForSeconds(0.1f);
+        //Finds the player tag
         GameObject player = GameObject.FindWithTag("Player");
 
         if (player == null)

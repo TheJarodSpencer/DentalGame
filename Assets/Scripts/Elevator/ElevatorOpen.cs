@@ -1,3 +1,4 @@
+//This script handles the Player walking up and interacting with the Elevator on the LevelSelector
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class ElevatorOpen : MonoBehaviour
 {
     private bool playerInRange = false;
 
+    //When player enters the collison area of elevator and reads tag player
     void OnTriggerEnter(Collider cube)
     {
         if (cube.CompareTag("Player"))
@@ -16,6 +18,7 @@ public class ElevatorOpen : MonoBehaviour
         }
     }
 
+    //When player exits
     void OnTriggerExit(Collider cube)
     {
         if (cube.CompareTag("Player"))
@@ -25,11 +28,13 @@ public class ElevatorOpen : MonoBehaviour
         }
     }
 
+    //On run time if the player is in the collider and presses E the user will be taken to the elevator scene
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("E key pressed. Loading scene...");
+            //COMMENT THIS OUT BELOW TO USE ELEVATOR SCENE
             //SceneManager.LoadScene("ElevatorScene");
         }
     }
