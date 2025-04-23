@@ -14,18 +14,17 @@ Happy Playing!😊
 
 ## Table of Contents
 
-- Description
-- Getting Started
-- Installing
-- File Structure
-- Important Files (explain .txt files and explain index)
-- Running
-- The Testing Process
-- Repositiories Used
-- Assests Used
-- Contributors
-- License
-- Acknowledgments
+- [Description](#description)
+- [Getting Started](#getting-started)
+- [Installing](#installing)
+- [File Structure](#file-structure)
+- [Important Files](#important-files)
+- [Running](#running)
+- [The Testing Process](#the-testing-process)
+- [Repositories Used](#repositiories-used)
+- [Contributors](#the-team-dental-hygeniuses)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Description
 
@@ -48,6 +47,10 @@ Read documentation to get familirzed with the scripts and documents
 
 * How/where to download your program
 * Any modifications needed to be made to files/folders
+
+### File Structure
+
+### Important Files
 
 ### Running
 
