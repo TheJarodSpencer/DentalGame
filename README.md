@@ -1,10 +1,13 @@
 # The Path of Oral Health
 
-Simple overview
+An Educational Serious game being developed in the Oral Medicine Field to help students retain information easier. 
+Developed using Unity, built using WEBGL, data storage using Firebase Firestore, and deployed on itch.io.
+[Click Here!](https://nimorga.itch.io/the-path-of-oral-health)
+Happy Playing!😊
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+The problem we addresed with this game that our clients reached out for is the trouble of making studying engaging and the difficulties of retaining information. So, our game provides interactive learning, engaging content, allows for rentention of difficult terms, and is being used for a Research Paper to track the findings and benefits of educational games in the learning enviroment!
 
 ## Getting Started
 
@@ -35,20 +38,21 @@ code blocks for commands
 
 Contributors
 
-Alex Wernex, Jarod Spencer, Sophia Miller, Nicole Morgan  
+[Alex Wernex](https://github.com/SquatchOut1)
 
-## Version History
+[Jarod Spencer](https://github.com/TheJarodSpencer)
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+[Sophia Miller](https://github.com/sopmill)
+
+[Nicole Morgan](https://github.com/nimorga)  
 
 ## License
 
-Im not sure about this one
+SIU School of Dental Medicine
+Southern Illinois University Edwardsville
 
 ## Acknowledgments
 
-Professors involved
+We would like to thank both of our amazing clients, Dr.Eilerman and Dr.Davila, for allowing us this oppurtunity to work on something so exciting and inspiration for future dental students!
+
+We would also like to extend our graditude and thanks to Dr. Das for dividing up the senior projects that landed our group here to work on this education game!
