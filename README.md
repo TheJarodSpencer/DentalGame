@@ -48,7 +48,7 @@ The problem we addresed with this game that our clients reached out for is the t
 - Editor Default Resources (Firebase Package)
 - ExternalDependencyManager
 - Firebase (Firebase Package)
-- FirebaseWebGL (Firebase Package)
+- FirebaseWebGL (Firebase Package)   [here](https://github.com/rotolonico/FirebaseWebGL) is additonal information
 - FreeUnityAssets (Assets used in Game Grabbed from Unity Store)
 - FullSerializer
 - Images (Contains UI, Images used for Noxtium, and general settings)
