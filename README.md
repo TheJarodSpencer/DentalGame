@@ -1,4 +1,4 @@
-![Project Banner](https://your-image-url.com/banner.png)
+![Project Banner](Assets/Images/README/TitlePicture.png)
 # The Path of Oral Health
 
 An Educational Serious game being developed in the Oral Medicine Field to help students retain information easier. 
@@ -8,9 +8,9 @@ Developed using Unity, built using WEBGL, data storage using Firebase Firestore,
 [Click Here!](https://nimorga.itch.io/the-path-of-oral-health)
 Happy Playing!😊
 
-| Main Screen | Gameplay |
+| Main Menu | Gameplay |
 |-------------|-----------------|
-| ![Main](https://your-image-url.com/screenshot1.png) | ![Feature](https://your-image-url.com/screenshot2.png) |
+| ![Main](Assets/Images/README/WelcomeScreen.png) | ![Feature](Assets/Images/README/GamePlay.png) |
 
 ## Table of Contents
 
