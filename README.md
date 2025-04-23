@@ -1,20 +1,48 @@
+![Project Banner](https://your-image-url.com/banner.png)
 # The Path of Oral Health
 
 An Educational Serious game being developed in the Oral Medicine Field to help students retain information easier. 
 Developed using Unity, built using WEBGL, data storage using Firebase Firestore, and deployed on itch.io.
+
+## 🚀 Live Demo
 [Click Here!](https://nimorga.itch.io/the-path-of-oral-health)
 Happy Playing!😊
+
+| Main Screen | Gameplay |
+|-------------|-----------------|
+| ![Main](https://your-image-url.com/screenshot1.png) | ![Feature](https://your-image-url.com/screenshot2.png) |
+
+## Table of Contents
+
+- Description
+- Getting Started
+- Installing
+- File Structure
+- Important Files (explain .txt files and explain index)
+- Running
+- The Testing Process
+- Repositiories Used
+- Assests Used
+- Contributors
+- License
+- Acknowledgments
 
 ## Description
 
 The problem we addresed with this game that our clients reached out for is the trouble of making studying engaging and the difficulties of retaining information. So, our game provides interactive learning, engaging content, allows for rentention of difficult terms, and is being used for a Research Paper to track the findings and benefits of educational games in the learning enviroment!
 
 ## Getting Started
+#### Step 1)
+Follow the documentation installation process to get you started before you install the project and unpack alot...install Unity and follow the documentation for the correct version. (link doc)
+
+#### Step 2)
+Firestore
+
+#### Step 3)
+Read documentation to get familirzed with the scripts and documents
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
 
 ### Installing
 
@@ -29,14 +57,18 @@ The problem we addresed with this game that our clients reached out for is the t
 code blocks for commands
 ```
 
+## The Testing Process
+You must have patientence... 
+
+
+
 ## Repositiories Used
 (Firebase one here)
+
 [SimpleJSON](https://github.com/Bunny83/SimpleJSON/tree/master)
 
 
-## Authors
-
-Contributors
+## The Team: Dental Hygeniuses
 
 [Alex Wernex](https://github.com/SquatchOut1)
 
@@ -49,6 +81,7 @@ Contributors
 ## License
 
 SIU School of Dental Medicine
+
 Southern Illinois University Edwardsville
 
 ## Acknowledgments
