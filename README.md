@@ -69,6 +69,9 @@ The problem we addresed with this game that our clients reached out for is the t
     - Text Dialogue Scripts: Drop location is NPC hoverdetecor in Level Scenes (Stores .txt of dialogue interaction)
     - Text for Notes: Drop location is LevelButtonManager in AxiumDisplay Script in Level Scenes (Stores .txt of the Medical History and Notes for the Noxium display)
 
+- Sprites used in the Welcome Scene are free assets through Google Search using the Creative Commons License filter
+- Backgrounds are downloaded from Canva's free "Blue Yellow Dental Clinic Presentation" theme package
+
 ## 💻 Installing
 #### Step 1) Download the code from the GitHub Repo here.
 #### Step 2) Follow this [Youtube video](https://www.youtube.com/watch?v=pn1YgU81GUY&t=14s) on creating a GitHub repository with the now downloaded package.
