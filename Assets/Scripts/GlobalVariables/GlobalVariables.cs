@@ -34,7 +34,7 @@ public class GlobalVariables : MonoBehaviour
         //KeepPlayerName kpn = GetComponent<KeepPlayerName>();
         volume = KeepPlayerName.Instance.GetVolume();
     }
-
+    //Signal for the talking audio
     public void setTalkingSound(bool sound)
     {
         playTalkingSound = sound;

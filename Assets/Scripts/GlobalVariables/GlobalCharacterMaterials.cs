@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlobalCharacterMaterials : MonoBehaviour
 {
-
+    //This script must be attached to main camera and have all materials attached accordingly
     public Material[] skinMale1;
     public Material[] skinMale2;
     public Material[] skinMale3;

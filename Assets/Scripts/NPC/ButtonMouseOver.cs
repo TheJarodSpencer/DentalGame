@@ -10,6 +10,7 @@ public class ButtonMouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public GlobalVariables GV;
     public bool isMouseOver = false;
     public int ButtonValue = 0;
+    //Just for ensureing when the user goes to select an answer this checker makes sure they are hovering over the button first otherwise they could press enter and select the button by accident
     void Start()
     {
         GV = Camera.main.GetComponent<GlobalVariables>();
@@ -18,16 +19,11 @@ public class ButtonMouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnPointerEnter(PointerEventData eventData)
     {
         GV.setButtonValue(ButtonValue);
-        //Debug.Log("" + ButtonValue);
     }
     public void OnPointerExit(PointerEventData evetData)
     {
         GV.setButtonValue(0);        
-        //Debug.Log("" + 0);
+     
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
