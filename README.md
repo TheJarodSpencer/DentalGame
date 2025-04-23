@@ -43,11 +43,6 @@ The problem we addresed with this game that our clients reached out for is the t
 - TextMeshPro (for UI text rendering)
 - Firebase Firestore (Storage of Player Information)
 
-## 💻 Installing
-#### Step 1) Download the code from the GitHub Repo here.
-#### Step 2) Follow this [Youtube video](https://www.youtube.com/watch?v=pn1YgU81GUY&t=14s) on creating a GitHub repository with the now downloaded package.
-#### Step 3) Open your Unity Engine with the newly connected GitHub repo to your game!
-
 ## 📂 Asset File Structure
 - Audio (Stores Music and Voices)
 - Editor Default Resources (Firebase Package)
@@ -73,6 +68,11 @@ The problem we addresed with this game that our clients reached out for is the t
     - Text Anwsers DIA_MED: Drop location is LevelButtonManager in LevelButtonManager Script in Level Scenes (Stores .txt of the DIA and MED button information for each level)
     - Text Dialogue Scripts: Drop location is NPC hoverdetecor in Level Scenes (Stores .txt of dialogue interaction)
     - Text for Notes: Drop location is LevelButtonManager in AxiumDisplay Script in Level Scenes (Stores .txt of the Medical History and Notes for the Noxium display)
+
+## 💻 Installing
+#### Step 1) Download the code from the GitHub Repo here.
+#### Step 2) Follow this [Youtube video](https://www.youtube.com/watch?v=pn1YgU81GUY&t=14s) on creating a GitHub repository with the now downloaded package.
+#### Step 3) Open your Unity Engine with the newly connected GitHub repo to your game!
 
 ## The Testing Process
 Follow these steps to build and deploy the Unity game to using WebGL:
