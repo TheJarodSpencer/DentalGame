@@ -1,4 +1,5 @@
-//NICOLE STILL NEEDS TO DO
+//This script is called in userauth however I do not think it need to be used now that the admin panel is fully implmented. 
+//Can be useful to obtain ideas for connecting to firebase.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
