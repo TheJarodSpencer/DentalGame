@@ -103,7 +103,7 @@ Follow these steps to build and deploy the Unity game to using WebGL:
 
 7. **Zip the Build Output**
    - After the build is complete, open the `Build/WebGL` folder.
-   - Select the **contents** (e.g., `index.html`, `Build/`, `TemplateData/`) — not the folder itself.
+   - Edit the Index inside as needed.
    - Right-click → `Send to > Compressed (zipped) folder`.
 
 8. **Upload to Itch.io**
