@@ -26,16 +26,15 @@ An in-depth paragraph about your project and overview of use.
 code blocks for commands
 ```
 
-## Help
+## Repositiories Used
+(Firebase one here)
+[SimpleJSON](https://github.com/Bunny83/SimpleJSON/tree/master)
 
-Admin help; User help
-```
-
-```
 
 ## Authors
 
 Contributors
+
 Alex Wernex, Jarod Spencer, Sophia Miller, Nicole Morgan  
 
 ## Version History
