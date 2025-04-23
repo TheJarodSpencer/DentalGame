@@ -10,8 +10,9 @@ public class TalkingSoundHandler : MonoBehaviour
     private bool isPlaying = false;
     void Start()
     {
+        //NOTE, volume is a value saved from 1.0-0.0. When pulled from GlobalVariables it has to be divided by 10. 
         talk = GetComponent<AudioSource>();
-        //also set talk vol here and what not
+        talk.volume = GV.getAudioVolume() / 10f;
         talk.loop = true;
         talk.clip = voice;
         talk.Stop();
