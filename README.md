@@ -101,19 +101,23 @@ Follow these steps to build and deploy the Unity game to using WebGL:
    - In `Build Settings`, click `Build`.
    - Choose the clean `Build/WebGL` folder as your output path.
 
-7. **Zip the Build Output**
-   - After the build is complete, open the `Build/WebGL` folder.
-   - Edit the Index inside as needed.
-   - Right-click → `Send to > Compressed (zipped) folder`.
+7. **Edit the Index**
+   - In `Build/WebGL`, open `Index`.
+   - Refer to the sample index above and edit `Index` adding:
+       - API Keys for firebase at top
+       - Definition for UNity.Instance
+       - Additional Functions for Admin CRUD
+9. **Zip the Build Output**
+   - After the build is complete, Right-click → `Send to > Compressed (zipped) folder`.
 
-8. **Upload to Itch.io**
+10. **Upload to Itch.io**
    - Go to your game’s location.
    - Click **Edit game** → Scroll to **Uploads**.
    - Upload the `.zip` file you just created.
    - Under **"Kind of project"**, choose **HTML**.
    - Make sure to check **"This file will be played in the browser"**.
 
-19. **Save and Test**
+11. **Save and Test**
    - Click **Save** at the bottom.
    - Open your public game page to test that it runs in-browser.
 
@@ -143,6 +147,6 @@ Southern Illinois University Edwardsville
 
 ## Acknowledgments
 
-We would like to thank both of our amazing clients, Dr.Eilerman and Dr.Davila, for allowing us this oppurtunity to work on something so exciting and inspiration for future dental students!
+We would like to thank both of our amazing clients, Dr. Eilerman and Dr. Davila, for allowing us this oppurtunity to work on something so exciting and inspiration for future dental students!
 
 We would also like to extend our graditude and thanks to Dr. Das for dividing up the senior projects that landed our group here to work on this education game!
