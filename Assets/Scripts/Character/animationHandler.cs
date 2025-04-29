@@ -32,6 +32,7 @@ public class animationHandler : MonoBehaviour
 
     void Start()
     {
+        //RAL pulls the materials from GlobalCharacterMaterials and arranges them so they are readable in this script
         RAL.StartLoading();
         Transform cobj = transform.Find("clothes");
         if(cobj != null)
