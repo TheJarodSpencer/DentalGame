@@ -1,0 +1,140 @@
+Overview of the folders and scripts!
+
+=====Admin=====
+-AdminAuth:
+Used for Admin authentication of users by pulling the entered in users information from firebase to compare password is correct.
+-AdminPanel:
+Handles the admin panel of adding/removing users.
+-AdminReset: 
+Used for resetting the password of the user inputted into the textbox in the Admin Panel Scene.
+-AllowPaste: 
+Use to be connected to the INDEX.html that is produced when you build the game. The index we have implements JavaScript which we used for admins to copy and paste users from a .txt to the game. By pressing "V" after putting information in this textbox it will pull it and paste it in the game on itch. This script handles those JavaScript calls in the index.
+
+
+
+=====Character=====
+-AnimationHandler:
+
+-CharacterLoader:
+
+-CharacterMovement:
+
+-ReAnimationLoader:
+
+
+
+=====Character Creator=====
+-Confirmation:
+
+-ButtonManager:
+
+
+
+=====Elevator=====
+-ElevatorButtonManager:
+Attached to the Elevator scene that handles what button the user presses on to go to a certain floor.
+-ElevatorOpen:
+Handles the Player walking up and interacting with the Elevator on the LevelSelector.
+
+
+
+=====FireBase=====
+-FireBase:
+Handles the Firebase connection of grabbing and sending player data and is used by other scripts to send the information.
+
+
+
+=====GlobalVaraibles=====
+-GlobalCharacterMaterials:
+-GlobalVariables:
+
+
+
+=====Level=====
+-Home:
+-LevelButtonManager:
+Used for managing the UI of the Levels and grading to send to Firebase.
+-UIHandler:
+
+=LevelComplete=
+-PlayButton:
+Used for button clicks in the Levels. When the player clicks "Next" when presented the UI final score this grabs the Player POS before they entered the level for the user to be right back where they left off in level selector.
+
+=Noxium=
+-AxiumButtonManager:
+-AxiumDisplay:
+-HoveringText:
+
+
+=====LevelSelector=====
+-BoxFade:
+-EnterDoors:
+For entering the BAYS of the clinicals (originally it was doors of an office changed to bays of a clinic)
+-KeepPlayerPOS:
+Keeps the players position stored across scenes. It loads the player where they were in the level selector after completing a level.
+-LevelSelectorCameraFollow:
+Controls the camera movement of the LevelSelector to prevent the camera from moving out of scope of the designed level.
+-LoadCharacterPOS: 
+On start finds the location of the player using the player tag.
+-NPCinBays:
+Used in LevelSelector floors to track level progression for users to see when they have completed a level. Students are graded the first time they play the level but are able to play over and over. On start the users can see the NPCs next to their bays, when false and NPC not displayed the player completed that level.
+
+
+
+
+=====LoginPage=====
+-ChangePassword:
+Used to handle changing the players passwords in the ChangePassword scene.
+-KeepPlayerName:
+Called in login and once the user logins it grabs the username of the player and keeps it alive across the game. 
+-PlayerSaveData:
+Called in login and grabs the player data from firebase to get character customization and experience right when loading into the game.
+-SetPlayerInfo:
+Called in UserAuth however I do not think it need to be used now that the admin panel is fully implemented. Can be useful to obtain ideas for connecting to firebase.
+-UserAuth:
+Almost identical to admin auth but is only for the users auth. And by passing the admins to get to their admin login panel.
+
+
+
+=====NPC=====
+-ButtonMouseOver:
+-ChatboxHandler:
+-TalkingAnimationHandler:
+-TalkingHandler:
+-TalkingSoundHandler:
+
+
+=====Settings=====
+-AudioHandler:
+-AudioSlider
+-LeaderBoardManager:
+Used in the Leadboard scene that displays the most levels completed ranked and best score ranked (1-10).
+-MusicHandler:
+-PauseButton:
+-SettingAudio:
+-SettingMenu:
+
+
+//FOLLOW THE SAME NAME FORMAT FOR THE FILES
+=====TextAnwsersDIA_MED=====
+Stores the content in a .txt for the Diagnosis and Medicine buttons within the level. Drag and drop the specific level .txt to DiaFile and MedFile within LevelButtonManager.
+
+
+=====TextDialogueScriptsForLevels=====
+Stores the content in a .txt for the dialogue between the NPC and the player. Create the script following the format with the script for asking questions and providing answers and feedback. Drag and drop the file into the "Talking Script" located in the hover detecting (Script:ChatboxHandler) located in the NPC game object within the Level.
+
+
+=====TextForNotes_MedHistory=====
+Stores the content in a .txt for the display information for Noxium. It contains the Medical History tab and the Notes tab. Create one for each level based on the given content and drag and drop in LevelButtonManager in the AxiumDisplay script into the NoteText and MedHistoryText fields.
+
+
+=====Transitions=====
+-FadeIn:
+-FadeOut:
+
+
+=====WelcomeScene=====
+-Menu:
+-HoveringTextWelcome:
+
+
