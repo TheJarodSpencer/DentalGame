@@ -62,8 +62,11 @@ Used for button clicks in the Levels. When the player clicks "Next" when present
 
 =Noxium=
 -AxiumButtonManager:
+Used for button clicks in Noxium. When notes, forms, or meds are clicked, the corresponding screen activates.
 -AxiumDisplay:
+Used to load image in for levels that have one. Also used for inputting history and notes into the Noxium system. 
 -HoveringText:
+Allows text of buttons to appear when user hovers over them.
 
 
 =====LevelSelector=====
@@ -106,13 +109,19 @@ Almost identical to admin auth but is only for the users auth. And by passing th
 
 =====Settings=====
 -AudioHandler:
+Gets and stores volumes when the user changes it with the auido slider.
 -AudioSlider
+Changes the volume of the in-game audio.
 -LeaderBoardManager:
 Used in the Leadboard scene that displays the most levels completed ranked and best score ranked (1-10).
 -MusicHandler:
+Gets audio source and plays while in scenes.
 -PauseButton:
+When pause button is clicked, takes user to SettingsScene.
 -SettingAudio:
+Gets audio in the scene and stores the adjusted volume.
 -SettingMenu:
+Tracks all buttons within the SettingsScene and connects them to their corresponding scene.
 
 
 //FOLLOW THE SAME NAME FORMAT FOR THE FILES
@@ -134,7 +143,9 @@ Stores the content in a .txt for the display information for Noxium. It contains
 
 
 =====WelcomeScene=====
--Menu:
+-Menu: 
+Keeps track of when all buttons are pushed they send the player to the corresponding scene. Saves cahracter data in firebase.
 -HoveringTextWelcome:
+Changes color of the text of the buttons from black to green if the user can interact.
 
 
