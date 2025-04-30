@@ -71,6 +71,7 @@ Allows text of buttons to appear when user hovers over them.
 
 =====LevelSelector=====
 -BoxFade:
+Used to create the popup text when walking past a bay.
 -EnterDoors:
 For entering the BAYS of the clinicals (originally it was doors of an office changed to bays of a clinic)
 -KeepPlayerPOS:
@@ -139,8 +140,9 @@ Stores the content in a .txt for the display information for Noxium. It contains
 
 =====Transitions=====
 -FadeIn:
+Used in the matching Prefab to fade away a black screen for scene transitions out of bays.
 -FadeOut:
-
+Used in the matching Prefab to fade to a black screen for scene transitions into bays.
 
 =====WelcomeScene=====
 -Menu: 
