@@ -14,19 +14,33 @@ Use to be connected to the INDEX.html that is produced when you build the game. 
 
 =====Character=====
 -AnimationHandler:
-
--CharacterLoader:
-
+Attached to the player, needs to attach GV to GlobalVariables and RAL to ReAnimationLoader both on main camera
+Pulls materials from ReAnimationLoader and switches those materials when walking left or right an blinking.
+Materials are there for talking animation as well but the feature was never fully implemented
 -CharacterMovement:
-
+Attached to player, set GV to GlobalVariables on main camera. Defualt speed variable is 5.
+Moves player left right up down based on wasd controls only if the game is not paused or player is not talking to patient. 
 -ReAnimationLoader:
-
+Attached to main camera, must set GCM to GlobalCharacterMaterials and GV to GlobalVariables both also on the main camera.
+Grabs the character ID and seds it to get statements in GlobalCharacterMaterials for the matching player attributes then formats those materials in arrays that match switching patterns in animationHandler.
 
 
 =====Character Creator=====
 -Confirmation:
-
+Attached to main camera in CharacterCreator scene. Public Button objects should be set to buttons with matching names as well as Menu and Conf Menu. 
+A final checker for the player and the final grab for the players character id that then sends it off to the firebase server when the player clicks confirm. 
 -ButtonManager:
+    -The public variables
+        Attached to the Menu canvas in the character creator scene. 
+        None hair mat is set to a blank material. Short hair and ponytail are set to the order of these colors:
+        Black, blonde, burnette, orange, red.
+        Female and male skin and blink skins should be set in the order of which they are numbered. 
+        All other buttons should be set in accordance to their name in the inspector and their listing parent-child relationship in the hierarchy. 
+        (Blank) Empty objects are set to the empty object as a parent to a group of buttons, used in the script to make a group appear and dissappear when the user is on a certain menu. 
+    -The function
+        Changes the character models materials based on the buttons they click and changes the canvas layout accordingly.
+        Dynamically updates the character id. 
+        There is also a looping animation for blinking. 
 
 
 
@@ -46,7 +60,34 @@ Handles the Firebase connection of grabbing and sending player data and is used 
 
 =====GlobalVaraibles=====
 -GlobalCharacterMaterials:
+Attached to main camera, holds all the different materials that could possibly go onto the player model.
+All materials need to be added accordingly for every scene the player model will be controlled. 
+skin male/female 1-4 are set as follows (using male 1 as example):
+    m1
+    m1blink
+    m1t
+    m1r
+    m1rblink
+    m1rt
+The first three are left facing assets, m1 is the default look, m1blink is blinking, m1t it left face talking.
+The last three are the same thing but with (r) meaning facing right. 
+This has to be done with all skin types for male and female.
+Next is the scrubs. The scrubs are set to default white and are changed to the matching color of the character id from the script using hex values.
+They need to be set as follows:
+    ScrubWLF0
+    ScrubWLF1
+    ScrubWLF2
+    ScrubWRF0
+    ScrubWRF1
+    ScrubWRF2
+The format is Scrub, W for white, L for left or R for right facing, F0-2 for frame 0-2. Used for the walking animation. 
+Glasses and labcoat should be set to elemnt0 being the "glasses" or "labcoat" material with element 1 being the same thing but with "R" at the end of its name. 
+Hair short and hair ponytail is the same format as glasses and labcoat but should be set to blonde since it changes the color of the material in the script same as scrubs.
+Blank mat should be set to the transparent material blankmat. 
+The script is a list of setters and getters for the ReAnimationLoader to grab the appropriate materials
 -GlobalVariables:
+Always attached to the main camera
+The entire list is setters and getters for materials, integers, signals, and other variables, essentially a hub for communication between all the other scripts. 
 
 
 
@@ -102,10 +143,16 @@ Almost identical to admin auth but is only for the users auth. And by passing th
 
 =====NPC=====
 -ButtonMouseOver:
+A script used during dialogue with the patient, only allows the user to select a button when their mouse is hovered over it.
+Used incase the user is spamming enter which can press the last button selected.
 -ChatboxHandler:
+Used for setting the highligh around the NPC when the players mouse is hovering over them then activates the dialogue canvas when clicked. Also hold that players script and sends it to global variables to be pulled by Talking Handler. 
 -TalkingAnimationHandler:
+Was supposed to be used to allow the NPC's mouth to open and close while text is enumerating. Implementation was never finished.
 -TalkingHandler:
+This translates the scripts from the .txt file or TextAsset variable and enumerates it line by line as well as gather the players answers from button presses and responds accordingly. 
 -TalkingSoundHandler:
+A simple script for playing a sound while the NPC is talking. 
 
 
 =====Settings=====
